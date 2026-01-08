@@ -1,0 +1,58 @@
+---
+import PricingCalculator from '../PricingCalculator';
+---
+
+<!-- Pricing Section -->
+<section id="pricing" class="py-20 bg-gray-50">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<h2 class="text-3xl font-bold text-center mb-4 text-gray-900">Preise</h2>
+			<p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+				Transparente Preisgestaltung basierend auf Ihrem Bedarf. Nutzen Sie unseren Kalkulator für eine erste Schätzung.
+			</p>
+
+			<div class="mb-12">
+				<PricingCalculator client:load />
+			</div>
+
+			<div class="bg-white rounded-xl shadow-lg p-8 max-w-3xl mx-auto">
+				<h3 class="text-xl font-bold mb-6 text-gray-900">Preisübersicht</h3>
+				<div class="space-y-4">
+					<div class="flex justify-between items-center pb-4 border-b">
+						<div>
+							<p class="font-semibold text-gray-900">Analysieren</p>
+							<p class="text-sm text-gray-600">Automatische KI-basierte Formularerkennung</p>
+						</div>
+						<p class="text-lg font-bold text-formalogix-500">0,10 € / Seite</p>
+					</div>
+					<div class="flex justify-between items-center pb-4 border-b">
+						<div>
+							<p class="font-semibold text-gray-900">Durch Menschen verifizieren</p>
+							<p class="text-sm text-gray-600">Qualitätssicherung durch manuelle Prüfung</p>
+						</div>
+						<p class="text-lg font-bold text-formalogix-500">ab 0,60 € / Seite</p>
+					</div>
+					<div class="flex justify-between items-center pb-4 border-b">
+						<div>
+							<p class="font-semibold text-gray-900">Scannen</p>
+							<p class="text-sm text-gray-600">Digitalisierung physischer Dokumente</p>
+						</div>
+						<p class="text-lg font-bold text-formalogix-500">0,30 € / Seite</p>
+					</div>
+					<div class="flex justify-between items-center pb-4">
+						<div>
+							<p class="font-semibold text-gray-900">Extraservices</p>
+							<p class="text-sm text-gray-600">Datenbearbeitung, spezielle Formate, API-Integration, etc.</p>
+						</div>
+						<p class="text-lg font-bold text-formalogix-500">Auf Anfrage</p>
+					</div>
+				</div>
+
+				<div class="mt-8 bg-blue-50 p-6 rounded-lg">
+					<h4 class="font-semibold text-blue-900 mb-2">Mengenrabatte verfügbar</h4>
+					<p class="text-sm text-blue-800">
+						Bei größeren Projekten (ab 10.000 Seiten) bieten wir attraktive Mengenrabatte. Kontaktieren Sie uns für ein individuelles Angebot.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>

@@ -1,0 +1,157 @@
+@import "tailwindcss";
+
+@theme {
+  --color-formalogix-50: #EAF2FF;
+  --color-formalogix-100: #d4e5ff;
+  --color-formalogix-200: #b2c9f3;
+  --color-formalogix-300: #7fa8f5;
+  --color-formalogix-400: #5b8ff4;
+  --color-formalogix-500: #3C7FF3;
+  --color-formalogix-600: #2563eb;
+  --color-formalogix-700: #1d4ed8;
+  --color-formalogix-800: #1e40af;
+  --color-formalogix-900: #1e3a8a;
+
+  --color-formalogix-green-400: #7fcca6;
+  --color-formalogix-green-500: #66BD95;
+}
+
+/* Smooth scrolling for navigation */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Font definitions */
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Custom scrollbar for webkit browsers */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3C7FF3;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2563eb;
+}
+
+/* Fade in animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Animation classes */
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+/* Scroll reveal - elements start invisible */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.scroll-reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger animations */
+.scroll-reveal:nth-child(1) { transition-delay: 0.1s; }
+.scroll-reveal:nth-child(2) { transition-delay: 0.2s; }
+.scroll-reveal:nth-child(3) { transition-delay: 0.3s; }
+.scroll-reveal:nth-child(4) { transition-delay: 0.4s; }
+
+/* Enhanced button styles */
+.btn-primary {
+  background-color: #3C7FF3;
+  color: white;
+  padding: 0.75rem 2rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: #2563eb;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  border: 2px solid #3C7FF3;
+  color: #3C7FF3;
+  padding: 0.75rem 2rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.btn-secondary:hover {
+  background-color: #EAF2FF;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* Cost comparison section styles */
+.cost-warning {
+  background: #fef2f2; /* red-50 */
+  border-left: 4px solid #ef4444; /* red-500 */
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.cost-success {
+  background: #f0fdf4; /* green-50 */
+  border-left: 4px solid #22c55e; /* green-500 */
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+/* Professional efficiency comparison section styles */
+.info-neutral {
+  background: #f8fafc; /* slate-50 */
+  border-left: 4px solid #64748b; /* slate-500 */
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.solution-highlight {
+  background: #eff6ff; /* blue-50 */
+  border-left: 4px solid #3b82f6; /* blue-500 */
+  padding: 1rem;
+  border-radius: 0.5rem;
+}

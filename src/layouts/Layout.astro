@@ -1,0 +1,132 @@
+---
+import '../styles/global.css';
+
+interface Props {
+	title: string;
+	description?: string;
+	image?: string;
+	url?: string;
+}
+
+const {
+	title,
+	description = "Professionelle Digitalisierung handschriftlicher Formulare mit Formalogix. Hybrid-Ansatz aus KI-Automatisierung und menschlicher Qualitätssicherung für 99,8% Genauigkeit. Von Wochen auf Stunden Bearbeitungszeit.",
+	image = "/og-image.png",
+	url = "https://formalogix.com"
+} = Astro.props;
+
+const canonicalURL = new URL(url, Astro.site || "https://formalogix.com").href;
+const ogImageURL = new URL(image, Astro.site || "https://formalogix.com").href;
+---
+
+<!doctype html>
+<html lang="de">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="generator" content={Astro.generator} />
+
+		<!-- Primary Meta Tags -->
+		<title>{title}</title>
+		<meta name="title" content={title} />
+		<meta name="description" content={description} />
+		<meta name="keywords" content="Formularerkennung, OCR, Handschrifterkennung, Datenerfassung, Excel, JSON, MySQL, KI-Analyse, Dokumentenverarbeitung, Digitalisierung" />
+		<link rel="canonical" href={canonicalURL} />
+
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={canonicalURL} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={ogImageURL} />
+		<meta property="og:locale" content="de_DE" />
+		<meta property="og:site_name" content="Formalogix" />
+
+		<!-- Twitter -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:url" content={canonicalURL} />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={ogImageURL} />
+
+		<!-- Favicon -->
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+		<!-- Fonts - Google Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet" />
+
+		<!-- Structured Data - Organization -->
+		<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "Organization",
+			"name": "Formalogix",
+			"url": "https://formalogix.com",
+			"logo": "https://formalogix.com/logo.png",
+			"description": "Automatische Konvertierung von handschriftlichen und digitalen Formularen in strukturierte Datenformate",
+			"contactPoint": {
+				"@type": "ContactPoint",
+				"email": "info@formalogix.com",
+				"contactType": "customer service",
+				"availableLanguage": ["de", "en"]
+			},
+			"sameAs": [
+				"https://app.formalogix.com"
+			]
+		}
+		</script>
+
+		<!-- Structured Data - Service -->
+		<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "Service",
+			"serviceType": "Document Digitization and Form Recognition",
+			"provider": {
+				"@type": "Organization",
+				"name": "Formalogix"
+			},
+			"areaServed": {
+				"@type": "Country",
+				"name": "Germany"
+			},
+			"hasOfferCatalog": {
+				"@type": "OfferCatalog",
+				"name": "Formularverarbeitung Services",
+				"itemListElement": [
+					{
+						"@type": "Offer",
+						"itemOffered": {
+							"@type": "Service",
+							"name": "Self-Service Formularanalyse",
+							"description": "KI-basierte Formularerkennung mit Selbstverifikation"
+						}
+					},
+					{
+						"@type": "Offer",
+						"itemOffered": {
+							"@type": "Service",
+							"name": "Full-Service Dokumentenverarbeitung",
+							"description": "Komplettlösung inkl. Scannen und menschlicher Verifikation"
+						}
+					},
+					{
+						"@type": "Offer",
+						"itemOffered": {
+							"@type": "Service",
+							"name": "Enterprise Lösungen",
+							"description": "Maßgeschneiderte Integration und API-Anbindung"
+						}
+					}
+				]
+			}
+		}
+		</script>
+	</head>
+	<body class="bg-white text-gray-900 font-body antialiased">
+		<slot />
+	</body>
+</html>

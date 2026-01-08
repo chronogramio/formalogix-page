@@ -1,0 +1,13 @@
+# Formalogix Robots.txt
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://formalogix.com/sitemap-index.xml
+
+# Crawl Delay
+Crawl-delay: 1
+
+# Disallow sensitive areas (if any in the future)
+# Disallow: /admin/
+# Disallow: /private/

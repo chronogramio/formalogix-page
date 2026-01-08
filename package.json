@@ -1,14 +1,25 @@
 {
   "name": "formalogix-landing",
   "type": "module",
-  "version": "0.0.1",
+  "version": "1.0.0",
+  "description": "Landing page for Formalogix - Converting handwritten forms into structured data",
+  "author": "Formalogix",
   "scripts": {
     "dev": "astro dev",
+    "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.16.7"
+    "@astrojs/react": "^4.4.2",
+    "@astrojs/sitemap": "^3.6.1",
+    "@tailwindcss/vite": "^4.1.18",
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
+    "astro": "^5.16.7",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
+    "tailwindcss": "^4.1.18"
   }
 }

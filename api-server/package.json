@@ -1,0 +1,21 @@
+{
+  "name": "formalogix-api-server",
+  "version": "1.0.0",
+  "description": "Standalone API server for Formalogix contact form",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "keywords": ["api", "contact-form", "email"],
+  "author": "Formalogix",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "nodemailer": "^7.0.12",
+    "multer": "^1.4.5-lts.1",
+    "dotenv": "^16.3.1"
+  }
+}

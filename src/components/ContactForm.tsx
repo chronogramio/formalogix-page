@@ -37,7 +37,8 @@ export default function ContactForm() {
         formDataToSend.append('file', file);
       }
 
-      const response = await fetch('/api/contact', {
+      const apiUrl = import.meta.env.PUBLIC_API_URL || 'http://localhost:3000';
+      const response = await fetch(`${apiUrl}/api/contact`, {
         method: 'POST',
         body: formDataToSend
       });

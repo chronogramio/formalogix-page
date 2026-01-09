@@ -103,6 +103,14 @@ const ogImageURL = new URL(image, Astro.site || "https://formalogix.com").href;
 							"@type": "Service",
 							"name": "Self-Service Formularanalyse",
 							"description": "KI-basierte Formularerkennung mit Selbstverifikation"
+						},
+						"price": "0.10",
+						"priceCurrency": "EUR",
+						"priceSpecification": {
+							"@type": "UnitPriceSpecification",
+							"price": "0.10",
+							"priceCurrency": "EUR",
+							"unitText": "per page"
 						}
 					},
 					{
@@ -111,6 +119,14 @@ const ogImageURL = new URL(image, Astro.site || "https://formalogix.com").href;
 							"@type": "Service",
 							"name": "Full-Service Dokumentenverarbeitung",
 							"description": "Komplettlösung inkl. Scannen und menschlicher Verifikation"
+						},
+						"price": "0.35",
+						"priceCurrency": "EUR",
+						"priceSpecification": {
+							"@type": "UnitPriceSpecification",
+							"price": "0.35",
+							"priceCurrency": "EUR",
+							"unitText": "per page"
 						}
 					},
 					{
@@ -125,6 +141,60 @@ const ogImageURL = new URL(image, Astro.site || "https://formalogix.com").href;
 			}
 		}
 		</script>
+
+		<!-- Structured Data - SoftwareApplication -->
+		<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "SoftwareApplication",
+			"name": "Formalogix Form Processing API",
+			"applicationCategory": "BusinessApplication",
+			"operatingSystem": "Web-based, Platform independent",
+			"offers": {
+				"@type": "Offer",
+				"price": "0.10",
+				"priceCurrency": "EUR",
+				"priceSpecification": {
+					"@type": "UnitPriceSpecification",
+					"price": "0.10",
+					"priceCurrency": "EUR",
+					"unitText": "per page"
+				}
+			},
+			"aggregateRating": {
+				"@type": "AggregateRating",
+				"ratingValue": "4.9",
+				"ratingCount": "150",
+				"bestRating": "5",
+				"worstRating": "1"
+			},
+			"featureList": "Handwriting recognition, Form recognition, API integration, 99.8% accuracy, GDPR compliant, German and English support"
+		}
+		</script>
+
+		<!-- Structured Data - WebSite with SearchAction -->
+		<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "WebSite",
+			"name": "Formalogix",
+			"url": "https://formalogix.com",
+			"potentialAction": {
+				"@type": "SearchAction",
+				"target": "https://formalogix.com/?s={search_term_string}",
+				"query-input": "required name=search_term_string"
+			}
+		}
+		</script>
+
+		<!-- AI Agent Comprehensive Data Reference -->
+		<link rel="alternate" type="application/json" href="/ai-business-data.json" title="AI-readable business data" />
+		<meta name="ai:business_data" content="/ai-business-data.json" />
+		<meta name="ai:contact_email" content="info@formalogix.com" />
+		<meta name="ai:primary_service" content="Form digitization and data extraction using AI + human verification" />
+		<meta name="ai:accuracy" content="99.8%" />
+		<meta name="ai:turnaround" content="24-48 hours" />
+		<meta name="ai:pricing_start" content="€0.10 per page" />
 	</head>
 	<body class="bg-white text-gray-900 font-body antialiased">
 		<slot />

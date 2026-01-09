@@ -6,7 +6,7 @@ export default function ContactForm() {
     homepage: '',
     name: '',
     email: '',
-    formCount: '1000',
+    formCount: 1000,
     industry: '',
     timeline: '',
     currentSolution: '',
@@ -21,13 +21,13 @@ export default function ContactForm() {
     setIsSubmitting(true);
 
     try {
-      // Create FormData for Formspree submission
+      // Create FormData for API submission
       const formDataToSend = new FormData();
       formDataToSend.append('company', formData.company);
       formDataToSend.append('homepage', formData.homepage);
       formDataToSend.append('name', formData.name);
       formDataToSend.append('email', formData.email);
-      formDataToSend.append('formCount', formData.formCount);
+      formDataToSend.append('formCount', formData.formCount.toString());
       formDataToSend.append('industry', formData.industry);
       formDataToSend.append('timeline', formData.timeline);
       formDataToSend.append('currentSolution', formData.currentSolution);
@@ -37,19 +37,14 @@ export default function ContactForm() {
         formDataToSend.append('file', file);
       }
 
-      // Replace with your actual Formspree form ID
-      // Get one at https://formspree.io/
-      const FORMSPREE_ID = 'YOUR_FORM_ID'; // TODO: Add your Formspree ID here
-
-      const response = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+      const response = await fetch('/api/contact', {
         method: 'POST',
-        body: formDataToSend,
-        headers: {
-          'Accept': 'application/json'
-        }
+        body: formDataToSend
       });
 
-      if (response.ok) {
+      const result = await response.json();
+
+      if (response.ok && result.success) {
         setIsSubmitting(false);
         setSubmitStatus('success');
 
@@ -60,7 +55,7 @@ export default function ContactForm() {
             homepage: '',
             name: '',
             email: '',
-            formCount: '1000',
+            formCount: 1000,
             industry: '',
             timeline: '',
             currentSolution: '',
@@ -70,7 +65,7 @@ export default function ContactForm() {
           setSubmitStatus('idle');
         }, 5000);
       } else {
-        throw new Error('Form submission failed');
+        throw new Error(result.error || 'Form submission failed');
       }
     } catch (error) {
       console.error('Form submission error:', error);
@@ -92,15 +87,15 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} className="max-w-2xl mx-auto space-y-6">
+
       <div className="grid md:grid-cols-2 gap-6">
         <div>
           <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-2">
-            Ihr Unternehmen *
+            Ihr Unternehmen
           </label>
           <input
             type="text"
             id="company"
-            required
             value={formData.company}
             onChange={(e) => setFormData({ ...formData, company: e.target.value })}
             className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-formalogix-500 focus:border-transparent outline-none"
@@ -122,12 +117,11 @@ export default function ContactForm() {
 
         <div>
           <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-            Name *
+            Name
           </label>
           <input
             type="text"
             id="name"
-            required
             value={formData.name}
             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
             className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-formalogix-500 focus:border-transparent outline-none"
@@ -151,30 +145,32 @@ export default function ContactForm() {
 
       <div>
         <label htmlFor="formCount" className="block text-sm font-medium text-gray-700 mb-2">
-          Wie viele Formulare verarbeiten Sie monatlich? *
+          Wie viele Formulare verarbeiten Sie monatlich?
         </label>
-        <select
-          id="formCount"
-          required
-          value={formData.formCount}
-          onChange={(e) => setFormData({ ...formData, formCount: e.target.value })}
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-formalogix-500 focus:border-transparent outline-none"
-        >
-          <option value="50">50</option>
-          <option value="1000">1.000</option>
-          <option value="100000">100.000</option>
-          <option value="custom">Andere Anzahl</option>
-        </select>
+        <div className="space-y-2">
+          <input
+            type="range"
+            id="formCount"
+            min="50"
+            max="100000"
+            step="50"
+            value={formData.formCount}
+            onChange={(e) => setFormData({ ...formData, formCount: parseInt(e.target.value) })}
+            className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-formalogix-500"
+          />
+          <div className="text-center text-lg font-semibold text-formalogix-600">
+            {formData.formCount.toLocaleString('de-DE')}
+          </div>
+        </div>
       </div>
 
       <div className="grid md:grid-cols-2 gap-6">
         <div>
           <label htmlFor="industry" className="block text-sm font-medium text-gray-700 mb-2">
-            Branche *
+            Branche
           </label>
           <select
             id="industry"
-            required
             value={formData.industry}
             onChange={(e) => setFormData({ ...formData, industry: e.target.value })}
             className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-formalogix-500 focus:border-transparent outline-none"
@@ -191,11 +187,10 @@ export default function ContactForm() {
 
         <div>
           <label htmlFor="timeline" className="block text-sm font-medium text-gray-700 mb-2">
-            Wann möchten Sie starten? *
+            Wann möchten Sie starten?
           </label>
           <select
             id="timeline"
-            required
             value={formData.timeline}
             onChange={(e) => setFormData({ ...formData, timeline: e.target.value })}
             className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-formalogix-500 focus:border-transparent outline-none"
@@ -211,11 +206,10 @@ export default function ContactForm() {
 
       <div>
         <label htmlFor="currentSolution" className="block text-sm font-medium text-gray-700 mb-2">
-          Wie verarbeiten Sie aktuell Formulare? *
+          Wie verarbeiten Sie aktuell Formulare?
         </label>
         <select
           id="currentSolution"
-          required
           value={formData.currentSolution}
           onChange={(e) => setFormData({ ...formData, currentSolution: e.target.value })}
           className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-formalogix-500 focus:border-transparent outline-none"

@@ -7,16 +7,12 @@ import Hero from '../components/sections/Hero.astro';
 import ProblemStatement from '../components/sections/ProblemStatement.astro';
 import HowItWorks from '../components/sections/HowItWorks.astro';
 import EfficiencyComparison from '../components/sections/EfficiencyComparison.astro';
-import QualificationChecklist from '../components/sections/QualificationChecklist.astro';
-import ServiceTiers from '../components/sections/ServiceTiers.astro';
-import TargetAudiences from '../components/sections/TargetAudiences.astro';
+import UseCasesSummary from '../components/sections/UseCasesSummary.astro';
 import CompetitivePositioning from '../components/sections/CompetitivePositioning.astro';
-import UseCases from '../components/sections/UseCases.astro';
-import Pricing from '../components/sections/Pricing.astro';
+import ServiceTiers from '../components/sections/ServiceTiers.astro';
+import PricingSimplified from '../components/sections/PricingSimplified.astro';
 import FAQ from '../components/sections/FAQ.astro';
-import DemoOptions from '../components/sections/DemoOptions.astro';
 import Contact from '../components/sections/Contact.astro';
-import FinalCTABanner from '../components/sections/FinalCTABanner.astro';
 import Footer from '../components/sections/Footer.astro';
 ---
 
@@ -31,15 +27,35 @@ import Footer from '../components/sections/Footer.astro';
 						<span class="text-xl font-bold text-gray-900">formalogix</span>
 					</a>
 				</div>
-				<div class="hidden md:flex space-x-8">
+				<div class="hidden md:flex space-x-8 items-center">
 					<a href="#services" class="text-gray-700 hover:text-formalogix-500 transition-colors">Lösungen</a>
-					<a href="#usecases" class="text-gray-700 hover:text-formalogix-500 transition-colors">Erfolgsgeschichten</a>
-					<a href="#pricing" class="text-gray-700 hover:text-formalogix-500 transition-colors">ROI Rechner</a>
-					<a href="#contact" class="text-gray-700 hover:text-formalogix-500 transition-colors">Demo buchen</a>
+
+					<!-- Erfolgsgeschichten Dropdown -->
+					<div class="relative group">
+						<button class="text-gray-700 hover:text-formalogix-500 transition-colors flex items-center">
+							Erfolgsgeschichten
+							<svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+							</svg>
+						</button>
+						<div class="absolute left-0 mt-2 w-56 bg-white rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+							<div class="py-2">
+								<a href="#usecases" class="block px-4 py-2 text-gray-700 hover:bg-formalogix-50 hover:text-formalogix-600">Übersicht</a>
+								<div class="border-t border-gray-100 my-1"></div>
+								<a href="/use-cases/versicherungen" class="block px-4 py-2 text-gray-700 hover:bg-formalogix-50 hover:text-formalogix-600">Versicherungen</a>
+								<a href="/use-cases/bildungswesen" class="block px-4 py-2 text-gray-700 hover:bg-formalogix-50 hover:text-formalogix-600">Bildungswesen</a>
+								<a href="/use-cases/gesundheitswesen" class="block px-4 py-2 text-gray-700 hover:bg-formalogix-50 hover:text-formalogix-600">Gesundheitswesen</a>
+								<a href="/use-cases/grosshandel" class="block px-4 py-2 text-gray-700 hover:bg-formalogix-50 hover:text-formalogix-600">Großhandel</a>
+							</div>
+						</div>
+					</div>
+
+					<a href="/pricing" class="text-gray-700 hover:text-formalogix-500 transition-colors">Preise</a>
+					<a href="#contact" class="text-gray-700 hover:text-formalogix-500 transition-colors">Kontakt</a>
 				</div>
 				<div class="flex items-center space-x-4">
-					<a href="https://app.formalogix.com" class="bg-formalogix-500 text-white px-4 py-2 rounded-lg hover:bg-formalogix-600 transition-colors">
-						Zur App
+					<a href="#contact" class="bg-formalogix-500 text-white px-4 py-2 rounded-lg hover:bg-formalogix-600 transition-colors">
+						Kontakt
 					</a>
 					<MobileMenu client:load />
 				</div>
@@ -52,16 +68,12 @@ import Footer from '../components/sections/Footer.astro';
 	<ProblemStatement />
 	<HowItWorks />
 	<EfficiencyComparison />
-	<QualificationChecklist />
-	<ServiceTiers />
-	<TargetAudiences />
+	<UseCasesSummary />
 	<CompetitivePositioning />
-	<UseCases />
-	<Pricing />
+	<ServiceTiers />
+	<PricingSimplified />
 	<FAQ />
-	<DemoOptions />
 	<Contact />
-	<FinalCTABanner />
 	<Footer />
 
 	<!-- Scroll Animation Script -->

@@ -3,7 +3,7 @@ import ProcessVisualization from '../ProcessVisualization.astro';
 ---
 
 <!-- Hero Section -->
-<section class="bg-gradient-to-br from-formalogix-50 via-white to-formalogix-50 py-20 relative overflow-hidden">
+<section class="bg-gradient-to-br from-formalogix-50 via-white to-formalogix-50 py-12 sm:py-16 md:py-20 relative overflow-hidden">
 	<!-- Background decoration -->
 	<div class="absolute inset-0 opacity-5">
 		<div class="absolute top-10 left-10 w-72 h-72 bg-formalogix-500 rounded-full blur-3xl"></div>
@@ -11,17 +11,23 @@ import ProcessVisualization from '../ProcessVisualization.astro';
 	</div>
 
 	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-		<div class="grid md:grid-cols-2 gap-12 items-center">
+		<div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 md:items-center">
+			<!-- Left Column on Desktop: Headline + Key Arguments + CTAs -->
 			<div class="animate-fade-in-up">
-				<h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-					Von Wochen auf Stunden: Handschriftliche Formulare in 24-48h digitalisiert
+				<h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
+					Handschriftliche Formulare zuverlässig auswerten – ohne manuelle Eingabe
 				</h1>
-				<p class="text-xl text-gray-600 mb-8 leading-relaxed">
+				<p class="text-lg sm:text-xl text-gray-600 mb-6 md:mb-8 leading-relaxed">
 					Formalogix verarbeitet tausende Formulare – effizient, präzise und wirtschaftlich. Die Ergebnisse sind strukturiert, auswertbar und direkt nutzbar.
 				</p>
 
+				<!-- Visualization - only visible on mobile, between headline and key arguments -->
+				<div class="md:hidden bg-white rounded-xl shadow-2xl p-4 sm:p-6 mb-6 sm:mb-8 animate-fade-in-up" style="animation-delay: 0.2s;">
+					<ProcessVisualization />
+				</div>
+
 				<!-- Key Arguments -->
-				<div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8 text-sm">
+				<div class="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3 mb-6 sm:mb-8 text-sm">
 					<div class="flex items-start">
 						<svg class="w-5 h-5 text-formalogix-500 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
 							<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
@@ -59,20 +65,10 @@ import ProcessVisualization from '../ProcessVisualization.astro';
 					</a>
 				</div>
 			</div>
-			<div class="bg-white rounded-xl shadow-2xl p-8 md:p-12 animate-fade-in-up" style="animation-delay: 0.2s;">
-				<!-- Abstract visualization: Input -> Output -->
+
+			<!-- Right Column on Desktop: Visualization - only visible on desktop -->
+			<div class="hidden md:block bg-white rounded-xl shadow-2xl p-4 sm:p-6 md:p-8 lg:p-12 animate-fade-in-up" style="animation-delay: 0.2s;">
 				<ProcessVisualization />
-				<!-- To revert to the original image, uncomment below and remove <ProcessVisualization /> above:
-				<img
-					src="/formalogix-process.png"
-					alt="Formalogix Process - Von handschriftlichen Formularen zu strukturierten Daten"
-					class="w-full rounded-lg"
-					loading="eager"
-				/>
-				<p class="text-sm text-gray-500 mt-4 text-center font-medium">
-					Von handschriftlichen Formularen zu strukturierten Daten
-				</p>
-				-->
 			</div>
 		</div>
 	</div>

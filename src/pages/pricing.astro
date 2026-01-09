@@ -1,36 +1,19 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import PricingCalculator from '../components/PricingCalculator';
+import Navigation from '../components/Navigation.astro';
+import SimplePricingCalculator from '../components/SimplePricingCalculator';
+import DynamicPricingBreakdown from '../components/DynamicPricingBreakdown';
 import Footer from '../components/sections/Footer.astro';
-import MobileMenu from '../components/MobileMenu';
+import { getLocaleFromPath } from '../i18n';
+import { getRegionFromLocale } from '../config/pricing';
+
+const locale = getLocaleFromPath(Astro.url.pathname);
+const region = getRegionFromLocale(locale);
 ---
 
 <Layout title="Preise & Preisrechner | Formalogix">
 	<!-- Navigation -->
-	<nav class="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
-		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-			<div class="flex justify-between items-center h-16">
-				<div class="flex items-center">
-					<a href="/" class="flex items-center space-x-2">
-						<img src="/logo.svg" alt="Formalogix Logo" class="h-8 w-auto" />
-						<span class="text-xl font-bold text-gray-900">formalogix</span>
-					</a>
-				</div>
-				<div class="hidden md:flex space-x-8">
-					<a href="/#services" class="text-gray-700 hover:text-formalogix-500 transition-colors">Lösungen</a>
-					<a href="/#usecases" class="text-gray-700 hover:text-formalogix-500 transition-colors">Erfolgsgeschichten</a>
-					<a href="/pricing" class="text-formalogix-600 font-semibold">Preise</a>
-					<a href="/#contact" class="text-gray-700 hover:text-formalogix-500 transition-colors">Kontakt</a>
-				</div>
-				<div class="flex items-center space-x-4">
-					<a href="/#contact" class="bg-formalogix-500 text-white px-4 py-2 rounded-lg hover:bg-formalogix-600 transition-colors">
-						Kontakt
-					</a>
-					<MobileMenu client:load />
-				</div>
-			</div>
-		</div>
-	</nav>
+	<Navigation />
 
 	<!-- Hero Section -->
 	<section class="bg-gradient-to-br from-formalogix-50 to-white py-16">
@@ -54,46 +37,7 @@ import MobileMenu from '../components/MobileMenu';
 				Unsere Preise sind modular aufgebaut – bezahlen Sie nur für die Services, die Sie benötigen.
 			</p>
 
-			<div class="bg-white rounded-xl shadow-lg p-8 max-w-3xl mx-auto">
-				<h3 class="text-xl font-bold mb-6 text-gray-900">Preisübersicht</h3>
-				<div class="space-y-4">
-					<div class="flex justify-between items-center pb-4 border-b">
-						<div>
-							<p class="font-semibold text-gray-900">Analysieren</p>
-							<p class="text-sm text-gray-600">Automatische KI-basierte Formularerkennung</p>
-						</div>
-						<p class="text-lg font-bold text-formalogix-500">0,10 € / Seite</p>
-					</div>
-					<div class="flex justify-between items-center pb-4 border-b">
-						<div>
-							<p class="font-semibold text-gray-900">Durch Menschen verifizieren</p>
-							<p class="text-sm text-gray-600">Qualitätssicherung durch manuelle Prüfung</p>
-						</div>
-						<p class="text-lg font-bold text-formalogix-500">ab 0,60 € / Seite</p>
-					</div>
-					<div class="flex justify-between items-center pb-4 border-b">
-						<div>
-							<p class="font-semibold text-gray-900">Scannen</p>
-							<p class="text-sm text-gray-600">Digitalisierung physischer Dokumente</p>
-						</div>
-						<p class="text-lg font-bold text-formalogix-500">0,30 € / Seite</p>
-					</div>
-					<div class="flex justify-between items-center pb-4">
-						<div>
-							<p class="font-semibold text-gray-900">Extraservices</p>
-							<p class="text-sm text-gray-600">Datenbearbeitung, spezielle Formate, API-Integration, etc.</p>
-						</div>
-						<p class="text-lg font-bold text-formalogix-500">Auf Anfrage</p>
-					</div>
-				</div>
-
-				<div class="mt-8 bg-blue-50 p-6 rounded-lg">
-					<h4 class="font-semibold text-blue-900 mb-2">Mengenrabatte verfügbar</h4>
-					<p class="text-sm text-blue-800">
-						Bei größeren Projekten (ab 10.000 Seiten) bieten wir attraktive Mengenrabatte. Kontaktieren Sie uns für ein individuelles Angebot.
-					</p>
-				</div>
-			</div>
+			<DynamicPricingBreakdown initialLocale={locale} initialRegion={region} client:load />
 		</div>
 	</section>
 
@@ -149,7 +93,7 @@ import MobileMenu from '../components/MobileMenu';
 				Nutzen Sie unseren Kalkulator für eine erste Schätzung Ihrer Kosten und Einsparungen.
 			</p>
 			<div class="mb-12">
-				<PricingCalculator client:load />
+				<SimplePricingCalculator initialLocale={locale} initialRegion={region} client:load />
 			</div>
 		</div>
 	</section>

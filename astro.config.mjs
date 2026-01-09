@@ -9,6 +9,15 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   site: 'https://formalogix.com',
 
+  i18n: {
+    defaultLocale: 'de',
+    locales: ['de', 'en'],
+    routing: {
+      prefixDefaultLocale: false,
+      redirectToDefaultLocale: false,
+    },
+  },
+
   vite: {
     plugins: [
       tailwindcss({
@@ -22,7 +31,14 @@ export default defineConfig({
     sitemap({
       changefreq: 'weekly',
       priority: 0.7,
-      lastmod: new Date()
+      lastmod: new Date(),
+      i18n: {
+        defaultLocale: 'de',
+        locales: {
+          de: 'de-DE',
+          en: 'en-US',
+        },
+      },
     })
   ]
 });

@@ -1,0 +1,149 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navigation from '../../components/Navigation.astro';
+import SimplePricingCalculator from '../../components/SimplePricingCalculator';
+import DynamicPricingBreakdown from '../../components/DynamicPricingBreakdown';
+import Footer from '../../components/sections/Footer.astro';
+import { getLocaleFromPath } from '../../i18n';
+import { getRegionFromLocale } from '../../config/pricing';
+
+const locale = getLocaleFromPath(Astro.url.pathname);
+const region = getRegionFromLocale(locale);
+---
+
+<Layout title="Pricing & Calculator | Formalogix">
+	<!-- Navigation -->
+	<Navigation />
+
+	<!-- Hero Section -->
+	<section class="bg-gradient-to-br from-formalogix-50 to-white py-16">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="text-center">
+				<h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+					Pricing & Calculator
+				</h1>
+				<p class="text-xl text-gray-600 max-w-3xl mx-auto">
+					Transparent pricing without hidden costs. Calculate your savings with our pricing calculator.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- Detailed Pricing Breakdown -->
+	<section class="py-16 bg-white">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<h2 class="text-3xl font-bold text-center mb-4 text-gray-900">Detailed Pricing Overview</h2>
+			<p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+				Our pricing is modular – only pay for the services you need.
+			</p>
+
+			<DynamicPricingBreakdown initialLocale={locale} initialRegion={region} client:load />
+		</div>
+	</section>
+
+	<!-- Why Transparent Pricing -->
+	<section class="py-16 bg-gray-50">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<h2 class="text-3xl font-bold text-center mb-4 text-gray-900">Why Transparent Pricing?</h2>
+			<div class="grid md:grid-cols-3 gap-8 mt-12">
+				<div class="text-center">
+					<div class="w-16 h-16 bg-formalogix-100 rounded-full flex items-center justify-center mx-auto mb-4">
+						<svg class="w-8 h-8 text-formalogix-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+						</svg>
+					</div>
+					<h3 class="font-bold text-gray-900 mb-2">No Hidden Costs</h3>
+					<p class="text-gray-600 text-sm">
+						You only pay for the services you actually use – no surprises.
+					</p>
+				</div>
+
+				<div class="text-center">
+					<div class="w-16 h-16 bg-formalogix-100 rounded-full flex items-center justify-center mx-auto mb-4">
+						<svg class="w-8 h-8 text-formalogix-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+						</svg>
+					</div>
+					<h3 class="font-bold text-gray-900 mb-2">Scalable Pricing</h3>
+					<p class="text-gray-600 text-sm">
+						From small pilot projects to large-scale orders – our pricing grows with your needs.
+					</p>
+				</div>
+
+				<div class="text-center">
+					<div class="w-16 h-16 bg-formalogix-100 rounded-full flex items-center justify-center mx-auto mb-4">
+						<svg class="w-8 h-8 text-formalogix-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+						</svg>
+					</div>
+					<h3 class="font-bold text-gray-900 mb-2">Guaranteed Savings</h3>
+					<p class="text-gray-600 text-sm">
+						Most clients save 70-85% of costs compared to manual data entry.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Pricing Calculator Section -->
+	<section class="py-16 bg-white">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<h2 class="text-3xl font-bold text-center mb-4 text-gray-900">Pricing Calculator</h2>
+			<p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+				Use our calculator for an initial estimate of your costs and savings.
+			</p>
+			<div class="mb-12">
+				<SimplePricingCalculator initialLocale={locale} initialRegion={region} client:load />
+			</div>
+		</div>
+	</section>
+
+	<!-- CTA Section -->
+	<section class="py-16 bg-gradient-to-r from-formalogix-500 to-formalogix-600">
+		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+			<h2 class="text-3xl font-bold text-white mb-4">Ready for a Cost Estimate?</h2>
+			<p class="text-xl text-white opacity-90 mb-8">
+				Contact us for a personalized quote or book a demo directly.
+			</p>
+			<div class="flex flex-col sm:flex-row gap-4 justify-center">
+				<a href="/en/#contact" class="inline-block bg-white text-formalogix-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+					Get in Touch
+				</a>
+				<a href="/en/" class="inline-block border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-formalogix-600 transition-colors">
+					Back to Homepage
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- Crosslinks to Use Cases -->
+	<section class="py-16 bg-gray-50">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<h2 class="text-2xl font-bold text-center mb-8 text-gray-900">Success Stories from Various Industries</h2>
+			<div class="grid md:grid-cols-4 gap-6">
+				<a href="/en/use-cases/versicherungen" class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition-shadow">
+					<h3 class="font-bold text-gray-900 mb-2">Insurance</h3>
+					<p class="text-sm text-gray-600">50k forms/month</p>
+					<p class="text-formalogix-600 text-sm mt-2">Learn more →</p>
+				</a>
+				<a href="/en/use-cases/bildungswesen" class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition-shadow">
+					<h3 class="font-bold text-gray-900 mb-2">Education</h3>
+					<p class="text-sm text-gray-600">100k+ exams/year</p>
+					<p class="text-formalogix-600 text-sm mt-2">Learn more →</p>
+				</a>
+				<a href="/en/use-cases/gesundheitswesen" class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition-shadow">
+					<h3 class="font-bold text-gray-900 mb-2">Healthcare</h3>
+					<p class="text-sm text-gray-600">20k forms/quarter</p>
+					<p class="text-formalogix-600 text-sm mt-2">Learn more →</p>
+				</a>
+				<a href="/en/use-cases/grosshandel" class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition-shadow">
+					<h3 class="font-bold text-gray-900 mb-2">Wholesale</h3>
+					<p class="text-sm text-gray-600">5k forms/week</p>
+					<p class="text-formalogix-600 text-sm mt-2">Learn more →</p>
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<Footer />
+</Layout>

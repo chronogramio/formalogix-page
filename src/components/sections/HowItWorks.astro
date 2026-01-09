@@ -1,11 +1,18 @@
+---
+import { getLocaleFromPath, getTranslations } from '../../i18n';
+
+const locale = getLocaleFromPath(Astro.url.pathname);
+const t = getTranslations(locale);
+---
+
 <!-- How It Works Section -->
 <section id="howitworks" class="py-20 bg-gradient-to-br from-gray-50 to-white">
 	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 		<h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-900">
-			Vom Formular zur strukturierten Datenbank
+			{t.howItWorks.title}
 		</h2>
 		<p class="text-center text-gray-600 mb-16 max-w-2xl mx-auto">
-			In 4 Schritten verwandeln wir handschriftliche Formulare in präzise, auswertbare Daten – durch die Kombination von KI-Technologie und menschlicher Expertise.
+			{t.howItWorks.subtitle}
 		</p>
 
 		<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 relative">
@@ -20,10 +27,10 @@
 					1
 				</div>
 				<h3 class="text-xl font-bold text-gray-900 mb-3 text-center">
-					Erfassung & Digitalisierung
+					{t.howItWorks.steps.capture.title}
 				</h3>
 				<p class="text-gray-600 text-center">
-					Handschriftliche Formulare werden eingescannt und digital erfasst – unabhängig von Format, Struktur oder Handschrift. Jedes Dokument wird für die KI-Analyse vorbereitet.
+					{t.howItWorks.steps.capture.description}
 				</p>
 				<div class="mt-6 flex justify-center">
 					<svg class="w-12 h-12 text-formalogix-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -38,10 +45,10 @@
 					2
 				</div>
 				<h3 class="text-xl font-bold text-gray-900 mb-3 text-center">
-					KI-gestützte Analyse
+					{t.howItWorks.steps.analysis.title}
 				</h3>
 				<p class="text-gray-600 text-center">
-					Modernste KI-Modelle analysieren jedes Formularfeld automatisch – von Handschrift über Checkboxen bis zu Unterschriften. Die KI extrahiert strukturierte Daten aus unstrukturierten Dokumenten.
+					{t.howItWorks.steps.analysis.description}
 				</p>
 				<div class="mt-6 flex justify-center">
 					<svg class="w-12 h-12 text-formalogix-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -56,10 +63,10 @@
 					3
 				</div>
 				<h3 class="text-xl font-bold text-gray-900 mb-3 text-center">
-					Menschliche Verifikation
+					{t.howItWorks.steps.verification.title}
 				</h3>
 				<p class="text-gray-600 text-center">
-					Unser Expertenteam prüft gezielt kritische Felder und Sonderfälle. Dieser Hybrid-Ansatz verbindet die Geschwindigkeit von KI mit der Präzision menschlicher Kontrolle – für 99,8% Genauigkeit.
+					{t.howItWorks.steps.verification.description}
 				</p>
 				<div class="mt-6 flex justify-center">
 					<svg class="w-12 h-12 text-formalogix-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -74,10 +81,10 @@
 					4
 				</div>
 				<h3 class="text-xl font-bold text-gray-900 mb-3 text-center">
-					Strukturierte Datenausgabe
+					{t.howItWorks.steps.output.title}
 				</h3>
 				<p class="text-gray-600 text-center">
-					Die vollständig verifizierten Daten werden als strukturierte Datensätze bereitgestellt – direkt nutzbar in Excel, Datenbanken oder via API. Bereit für Auswertung, Integration und Weiterverarbeitung.
+					{t.howItWorks.steps.output.description}
 				</p>
 				<div class="mt-6 flex justify-center">
 					<svg class="w-12 h-12 text-formalogix-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -89,10 +96,10 @@
 
 		<div class="mt-12 text-center">
 			<a href="#contact" class="btn-primary inline-block" data-track-cta="how-it-works-cta">
-				Jetzt kostenlos testen
+				{t.howItWorks.cta}
 			</a>
 			<p class="mt-6 text-gray-600 font-semibold">
-				Hybrid-Technologie für maximale Präzision.
+				{t.howItWorks.tagline}
 			</p>
 		</div>
 	</div>

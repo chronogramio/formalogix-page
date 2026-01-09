@@ -1,11 +1,18 @@
+---
+import { getLocaleFromPath, getTranslations } from '../../i18n';
+
+const locale = getLocaleFromPath(Astro.url.pathname);
+const t = getTranslations(locale);
+---
+
 <!-- Competitive Positioning Section -->
 <section class="py-20 bg-gradient-to-br from-formalogix-50 to-white">
 	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 		<h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-900">
-			Was formalogix von anderen Lösungen unterscheidet
+			{t.competitive.title}
 		</h2>
 		<p class="text-center text-gray-600 mb-12 max-w-3xl mx-auto text-lg">
-			Wir lösen Probleme dort, wo Tools oder manuelle Erfassung an ihre Grenzen stoßen. Formalogix liefert strukturierte, auswertbare Daten, selbst bei handschriftlichen oder komplexen Formularen – schnell, präzise und zuverlässig.
+			{t.competitive.subtitle}
 		</p>
 
 		<!-- 6 Key Differentiators -->
@@ -18,10 +25,10 @@
 							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
 						</svg>
 					</div>
-					<h3 class="font-bold text-gray-900">Verantwortung übernehmen</h3>
+					<h3 class="font-bold text-gray-900">{t.competitive.differentiators.responsibility.title}</h3>
 				</div>
 				<p class="text-sm text-gray-600">
-					Viele Anbieter stellen ein Tool bereit. Formalogix übernimmt den gesamten Prozess – von der Analyse bis zur strukturierten Datenausgabe. Sie liefern die Formulare. Wir liefern verwertbare Daten.
+					{t.competitive.differentiators.responsibility.description}
 				</p>
 			</div>
 
@@ -33,10 +40,10 @@
 							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
 						</svg>
 					</div>
-					<h3 class="font-bold text-gray-900">Human-in-the-Loop</h3>
+					<h3 class="font-bold text-gray-900">{t.competitive.differentiators.humanInLoop.title}</h3>
 				</div>
 				<p class="text-sm text-gray-600">
-					Handschrift, Sonderfälle und uneinheitliche Formulare sind Realität. Deshalb kombinieren wir automatisierte Analyse mit gezielter menschlicher Verifikation – genau dort, wo Qualität entscheidet.
+					{t.competitive.differentiators.humanInLoop.description}
 				</p>
 			</div>
 
@@ -48,10 +55,10 @@
 							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
 						</svg>
 					</div>
-					<h3 class="font-bold text-gray-900">Datenstrukturen, nicht PDFs</h3>
+					<h3 class="font-bold text-gray-900">{t.competitive.differentiators.dataStructures.title}</h3>
 				</div>
 				<p class="text-sm text-gray-600">
-					Ein Formular ist für uns keine Seite, sondern eine Sammlung von Feldern. Ob 1.000 Formulare mit 150 Feldern oder 100.000 Seiten – entscheidend ist: strukturierte, auswertbare Datensätze.
+					{t.competitive.differentiators.dataStructures.description}
 				</p>
 			</div>
 
@@ -63,10 +70,10 @@
 							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
 						</svg>
 					</div>
-					<h3 class="font-bold text-gray-900">Skalierbar unter Zeitdruck</h3>
+					<h3 class="font-bold text-gray-900">{t.competitive.differentiators.scalability.title}</h3>
 				</div>
 				<p class="text-sm text-gray-600">
-					Formalogix verarbeitet große Mengen zuverlässig – auch unter engen Zeitvorgaben. Dort, wo manuelle Erfassung zu langsam und klassische OCR-Tools zu ungenau werden, setzen wir an.
+					{t.competitive.differentiators.scalability.description}
 				</p>
 			</div>
 
@@ -78,10 +85,10 @@
 							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
 						</svg>
 					</div>
-					<h3 class="font-bold text-gray-900">Full-Service statt Risiko</h3>
+					<h3 class="font-bold text-gray-900">{t.competitive.differentiators.fullService.title}</h3>
 				</div>
 				<p class="text-sm text-gray-600">
-					Keine Einarbeitung, keine Tool-Experimente, kein „Das System hat es falsch erkannt". Wir tragen Verantwortung für Qualität, Struktur und Ergebnis – nicht Sie.
+					{t.competitive.differentiators.fullService.description}
 				</p>
 			</div>
 
@@ -93,10 +100,10 @@
 							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />
 						</svg>
 					</div>
-					<h3 class="font-bold text-gray-900">Sonderfälle abbildbar</h3>
+					<h3 class="font-bold text-gray-900">{t.competitive.differentiators.specialCases.title}</h3>
 				</div>
 				<p class="text-sm text-gray-600">
-					Individuelle Felder, Ausnahmen und spezielle Anforderungen lassen sich im Enterprise-Modell gezielt abbilden. Auch bei komplexen Projekten bleibt die Datenqualität kontrollierbar.
+					{t.competitive.differentiators.specialCases.description}
 				</p>
 			</div>
 		</div>
@@ -104,27 +111,30 @@
 		<!-- Summary Statement -->
 		<div class="text-center bg-gradient-to-r from-formalogix-500 to-formalogix-600 rounded-xl p-6 sm:p-8 max-w-4xl mx-auto shadow-lg">
 			<p class="text-2xl font-bold text-white mb-4">
-				Formalogix kombiniert KI-Geschwindigkeit mit menschlicher Präzision
+				{t.competitive.summary.title}
 			</p>
 			<p class="text-lg text-white opacity-90 mb-6">
-				Für zuverlässige Ergebnisse in 24-48 Stunden – ohne Kompromisse bei der Genauigkeit.
+				{t.competitive.summary.subtitle}
 			</p>
 			<div class="grid md:grid-cols-3 gap-6 text-white">
 				<div class="flex flex-col items-center">
 					<div class="text-4xl font-bold mb-2">99,8%</div>
-					<div class="text-sm opacity-90">Genauigkeit</div>
+					<div class="text-sm opacity-90">{t.competitive.summary.metrics.accuracy}</div>
 				</div>
 				<div class="flex flex-col items-center">
 					<div class="text-4xl font-bold mb-2">24-48h</div>
-					<div class="text-sm opacity-90">Durchlaufzeit</div>
+					<div class="text-sm opacity-90">{t.competitive.summary.metrics.turnaround}</div>
 				</div>
 				<div class="flex flex-col items-center">
 					<div class="text-4xl font-bold mb-2">€0,10+</div>
-					<div class="text-sm opacity-90">Pro Seite</div>
+					<div class="text-sm opacity-90">{t.competitive.summary.metrics.price}</div>
 				</div>
 			</div>
 			<div class="mt-6">
 				<a href="#contact" class="inline-block bg-white text-formalogix-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors" data-track-cta="competitive-positioning">
-					Jetzt beraten lassen
+					{t.competitive.summary.cta}
 				</a>
 			</div>
+		</div>
+	</div>
+</section>

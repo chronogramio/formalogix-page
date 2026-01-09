@@ -1,17 +1,55 @@
-import { useState } from 'react';
-import { useLocale } from '../context/LocaleContext';
+import { useState, useEffect } from 'react';
+import { getPricingByRegion, formatCurrency, getRegionFromLocale } from '../config/pricing';
+import { getTranslations } from '../i18n';
+import type { Region, Currency } from '../config/pricing';
+import type { Locale } from '../i18n';
 
-export default function PricingCalculator() {
-  const { pricing, formatPrice, translations: t } = useLocale();
+interface SimplePricingCalculatorProps {
+  initialLocale: Locale;
+  initialRegion: Region;
+}
+
+export default function SimplePricingCalculator({ initialLocale, initialRegion }: SimplePricingCalculatorProps) {
   const [pages, setPages] = useState(1000);
   const [needsAnalysis, setNeedsAnalysis] = useState(true);
   const [needsVerification, setNeedsVerification] = useState(false);
   const [needsScanning, setNeedsScanning] = useState(false);
+  const [region, setRegion] = useState<Region>(initialRegion);
+  const [locale, setLocale] = useState<Locale>(initialLocale);
+
+  // Sync with localStorage
+  useEffect(() => {
+    const savedRegion = localStorage.getItem('formalogix-region') as Region | null;
+    const savedLocale = localStorage.getItem('formalogix-locale') as Locale | null;
+
+    if (savedRegion && savedRegion !== region) {
+      setRegion(savedRegion);
+    }
+    if (savedLocale && savedLocale !== locale) {
+      setLocale(savedLocale);
+    }
+
+    // Listen for currency changes
+    const handleCurrencyChange = (event: CustomEvent) => {
+      const newRegion = event.detail.region as Region;
+      setRegion(newRegion);
+    };
+
+    window.addEventListener('currencyChanged', handleCurrencyChange as EventListener);
+    return () => {
+      window.removeEventListener('currencyChanged', handleCurrencyChange as EventListener);
+    };
+  }, []);
+
+  const pricing = getPricingByRegion(region);
+  const t = getTranslations(locale);
 
   const analysisCost = needsAnalysis ? pages * pricing.analysis : 0;
   const verificationCost = needsVerification ? pages * pricing.verification : 0;
   const scanningCost = needsScanning ? pages * pricing.scanning : 0;
   const totalCost = analysisCost + verificationCost + scanningCost;
+
+  const formatPrice = (amount: number) => formatCurrency(amount, pricing.currency, t.locale);
 
   return (
     <div className="max-w-2xl mx-auto bg-white rounded-xl shadow-lg p-8">

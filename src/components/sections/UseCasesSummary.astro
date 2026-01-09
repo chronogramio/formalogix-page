@@ -1,37 +1,51 @@
+---
+import { getLocaleFromPath, getTranslations } from '../../i18n';
+
+const locale = getLocaleFromPath(Astro.url.pathname);
+const t = getTranslations(locale);
+
+function getLink(path: string) {
+	if (locale === 'en') {
+		return `/en${path}`;
+	}
+	return path;
+}
+---
+
 <!-- Use Cases Summary Section -->
 <section id="usecases" class="py-20 bg-white">
 	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-		<h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-900">Erfolgsgeschichten aus der Praxis</h2>
+		<h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-900">{t.useCases.title}</h2>
 		<p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-			Messbare Ergebnisse bei Versicherungen, Bildungseinrichtungen, Gesundheitswesen und Großhandel.
+			{t.useCases.subtitle}
 		</p>
 
 		<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
 			<!-- Use Case 1: Insurance -->
-			<a href="/use-cases/versicherungen" class="group bg-white rounded-xl shadow-lg p-6 border-2 border-gray-100 hover:border-formalogix-500 hover:shadow-xl transition-all duration-300">
+			<a href={getLink('/use-cases/versicherungen')} class="group bg-white rounded-xl shadow-lg p-6 border-2 border-gray-100 hover:border-formalogix-500 hover:shadow-xl transition-all duration-300">
 				<div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
 					<svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
 					</svg>
 				</div>
-				<h3 class="text-xl font-bold mb-2 text-gray-900">Versicherungen</h3>
-				<p class="text-sm text-blue-600 font-semibold mb-3">50.000 Formulare / Monat</p>
+				<h3 class="text-xl font-bold mb-2 text-gray-900">{t.useCases.insurance.title}</h3>
+				<p class="text-sm text-blue-600 font-semibold mb-3">{t.useCases.insurance.volume}</p>
 				<p class="text-sm text-gray-600 mb-4">
-					Antragsformulare in 24-48h statt 6 Wochen verarbeitet. 140.000€ jährliche Einsparung.
+					{t.useCases.insurance.description}
 				</p>
 
 				<!-- Metrics Highlight -->
 				<div class="bg-gradient-to-r from-red-50 to-green-50 rounded-lg p-3 mb-4">
 					<div class="flex items-center justify-between text-sm">
-						<span class="text-red-600 font-bold">6 Wochen</span>
+						<span class="text-red-600 font-bold">{t.useCases.insurance.timeBefore}</span>
 						<span class="text-gray-400">→</span>
-						<span class="text-green-600 font-bold">48 Stunden</span>
+						<span class="text-green-600 font-bold">{t.useCases.insurance.timeAfter}</span>
 					</div>
-					<div class="text-xs text-center text-gray-600 mt-1">85% Zeitersparnis</div>
+					<div class="text-xs text-center text-gray-600 mt-1">{t.useCases.insurance.improvement}</div>
 				</div>
 
 				<div class="flex items-center text-formalogix-500 font-semibold text-sm group-hover:text-formalogix-600">
-					Mehr erfahren
+					{t.common.learnMore}
 					<svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
 					</svg>
@@ -39,30 +53,30 @@
 			</a>
 
 			<!-- Use Case 2: Education -->
-			<a href="/use-cases/bildungswesen" class="group bg-white rounded-xl shadow-lg p-6 border-2 border-gray-100 hover:border-formalogix-500 hover:shadow-xl transition-all duration-300">
+			<a href={getLink('/use-cases/bildungswesen')} class="group bg-white rounded-xl shadow-lg p-6 border-2 border-gray-100 hover:border-formalogix-500 hover:shadow-xl transition-all duration-300">
 				<div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
 					<svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
 					</svg>
 				</div>
-				<h3 class="text-xl font-bold mb-2 text-gray-900">Bildungswesen</h3>
-				<p class="text-sm text-purple-600 font-semibold mb-3">100.000+ Prüfungsbögen jährlich</p>
+				<h3 class="text-xl font-bold mb-2 text-gray-900">{t.useCases.education.title}</h3>
+				<p class="text-sm text-purple-600 font-semibold mb-3">{t.useCases.education.volume}</p>
 				<p class="text-sm text-gray-600 mb-4">
-					Prüfungsergebnisse in 24h statt 2 Wochen. Studenten erhalten Ergebnisse am nächsten Tag.
+					{t.useCases.education.description}
 				</p>
 
 				<!-- Metrics Highlight -->
 				<div class="bg-gradient-to-r from-red-50 to-green-50 rounded-lg p-3 mb-4">
 					<div class="flex items-center justify-between text-sm">
-						<span class="text-red-600 font-bold">2 Wochen</span>
+						<span class="text-red-600 font-bold">{t.useCases.education.timeBefore}</span>
 						<span class="text-gray-400">→</span>
-						<span class="text-green-600 font-bold">24 Stunden</span>
+						<span class="text-green-600 font-bold">{t.useCases.education.timeAfter}</span>
 					</div>
-					<div class="text-xs text-center text-gray-600 mt-1">93% schneller</div>
+					<div class="text-xs text-center text-gray-600 mt-1">{t.useCases.education.improvement}</div>
 				</div>
 
 				<div class="flex items-center text-formalogix-500 font-semibold text-sm group-hover:text-formalogix-600">
-					Mehr erfahren
+					{t.common.learnMore}
 					<svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
 					</svg>
@@ -70,30 +84,30 @@
 			</a>
 
 			<!-- Use Case 3: Healthcare -->
-			<a href="/use-cases/gesundheitswesen" class="group bg-white rounded-xl shadow-lg p-6 border-2 border-gray-100 hover:border-formalogix-500 hover:shadow-xl transition-all duration-300">
+			<a href={getLink('/use-cases/gesundheitswesen')} class="group bg-white rounded-xl shadow-lg p-6 border-2 border-gray-100 hover:border-formalogix-500 hover:shadow-xl transition-all duration-300">
 				<div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
 					<svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
 					</svg>
 				</div>
-				<h3 class="text-xl font-bold mb-2 text-gray-900">Gesundheitswesen</h3>
-				<p class="text-sm text-orange-600 font-semibold mb-3">20.000 Formulare / Quartal</p>
+				<h3 class="text-xl font-bold mb-2 text-gray-900">{t.useCases.healthcare.title}</h3>
+				<p class="text-sm text-orange-600 font-semibold mb-3">{t.useCases.healthcare.volume}</p>
 				<p class="text-sm text-gray-600 mb-4">
-					DSGVO-konforme Verarbeitung in 3 Tagen statt 3 Wochen. On-Premise-Lösung für sensible Daten.
+					{t.useCases.healthcare.description}
 				</p>
 
 				<!-- Metrics Highlight -->
 				<div class="bg-gradient-to-r from-red-50 to-green-50 rounded-lg p-3 mb-4">
 					<div class="flex items-center justify-between text-sm">
-						<span class="text-red-600 font-bold">3 Wochen</span>
+						<span class="text-red-600 font-bold">{t.useCases.healthcare.timeBefore}</span>
 						<span class="text-gray-400">→</span>
-						<span class="text-green-600 font-bold">3 Tage</span>
+						<span class="text-green-600 font-bold">{t.useCases.healthcare.timeAfter}</span>
 					</div>
-					<div class="text-xs text-center text-gray-600 mt-1">90% schneller</div>
+					<div class="text-xs text-center text-gray-600 mt-1">{t.useCases.healthcare.improvement}</div>
 				</div>
 
 				<div class="flex items-center text-formalogix-500 font-semibold text-sm group-hover:text-formalogix-600">
-					Mehr erfahren
+					{t.common.learnMore}
 					<svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
 					</svg>
@@ -101,30 +115,30 @@
 			</a>
 
 			<!-- Use Case 4: Wholesale -->
-			<a href="/use-cases/grosshandel" class="group bg-white rounded-xl shadow-lg p-6 border-2 border-gray-100 hover:border-formalogix-500 hover:shadow-xl transition-all duration-300">
+			<a href={getLink('/use-cases/grosshandel')} class="group bg-white rounded-xl shadow-lg p-6 border-2 border-gray-100 hover:border-formalogix-500 hover:shadow-xl transition-all duration-300">
 				<div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
 					<svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
 					</svg>
 				</div>
-				<h3 class="text-xl font-bold mb-2 text-gray-900">Großhandel</h3>
-				<p class="text-sm text-red-600 font-semibold mb-3">5.000 Formulare / Woche</p>
+				<h3 class="text-xl font-bold mb-2 text-gray-900">{t.useCases.wholesale.title}</h3>
+				<p class="text-sm text-red-600 font-semibold mb-3">{t.useCases.wholesale.volume}</p>
 				<p class="text-sm text-gray-600 mb-4">
-					Bestellformulare in 1,5 Tagen statt 5 Tagen verarbeitet. Direkte ERP-Integration.
+					{t.useCases.wholesale.description}
 				</p>
 
 				<!-- Metrics Highlight -->
 				<div class="bg-gradient-to-r from-red-50 to-green-50 rounded-lg p-3 mb-4">
 					<div class="flex items-center justify-between text-sm">
-						<span class="text-red-600 font-bold">5 Tage</span>
+						<span class="text-red-600 font-bold">{t.useCases.wholesale.timeBefore}</span>
 						<span class="text-gray-400">→</span>
-						<span class="text-green-600 font-bold">1,5 Tage</span>
+						<span class="text-green-600 font-bold">{t.useCases.wholesale.timeAfter}</span>
 					</div>
-					<div class="text-xs text-center text-gray-600 mt-1">70% schneller</div>
+					<div class="text-xs text-center text-gray-600 mt-1">{t.useCases.wholesale.improvement}</div>
 				</div>
 
 				<div class="flex items-center text-formalogix-500 font-semibold text-sm group-hover:text-formalogix-600">
-					Mehr erfahren
+					{t.common.learnMore}
 					<svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
 					</svg>
@@ -133,9 +147,9 @@
 		</div>
 
 		<div class="mt-12 text-center">
-			<p class="text-gray-600 mb-6">Möchten Sie ähnliche Ergebnisse in Ihrem Unternehmen erzielen?</p>
+			<p class="text-gray-600 mb-6">{t.useCases.ctaQuestion}</p>
 			<a href="#contact" class="btn-primary inline-block" data-track-cta="usecases-summary-cta">
-				Jetzt beraten lassen
+				{t.useCases.cta}
 			</a>
 		</div>
 	</div>

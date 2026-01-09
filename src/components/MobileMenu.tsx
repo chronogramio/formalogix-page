@@ -1,8 +1,22 @@
 import { useState, useEffect } from 'react';
+import { getTranslations, type Locale } from '../i18n';
 
-export default function MobileMenu() {
+interface MobileMenuProps {
+  initialLocale: Locale;
+}
+
+export default function MobileMenu({ initialLocale }: MobileMenuProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [isUseCasesOpen, setIsUseCasesOpen] = useState(false);
+  const [locale, setLocale] = useState<Locale>(initialLocale);
+
+  // Sync with localStorage for language changes
+  useEffect(() => {
+    const savedLocale = localStorage.getItem('formalogix-locale') as Locale | null;
+    if (savedLocale && savedLocale !== locale) {
+      setLocale(savedLocale);
+    }
+  }, []);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -30,6 +44,16 @@ export default function MobileMenu() {
       document.removeEventListener('keydown', handleEscape);
     };
   }, [isOpen]);
+
+  const t = getTranslations(locale);
+
+  // Helper to generate locale-aware links
+  function getLink(path: string) {
+    if (locale === 'en') {
+      return `/en${path}`;
+    }
+    return path;
+  }
 
   return (
     <div className="md:hidden" data-mobile-menu>
@@ -66,20 +90,20 @@ export default function MobileMenu() {
         <div className="absolute top-16 left-0 right-0 bg-white border-b border-gray-200 shadow-lg">
           <div className="flex flex-col p-4">
             <a
-              href="#services"
+              href={`${getLink('/')}#services`}
               className="text-gray-700 hover:text-formalogix-500 transition-colors py-2"
               onClick={() => setIsOpen(false)}
             >
-              Lösungen
+              {t.nav.solutions}
             </a>
 
-            {/* Erfolgsgeschichten Dropdown */}
+            {/* Success Stories Dropdown */}
             <div className="py-2">
               <button
                 onClick={() => setIsUseCasesOpen(!isUseCasesOpen)}
                 className="text-gray-700 hover:text-formalogix-500 transition-colors flex items-center justify-between w-full"
               >
-                <span>Erfolgsgeschichten</span>
+                <span>{t.nav.successStories}</span>
                 <svg
                   className={`w-4 h-4 transition-transform ${isUseCasesOpen ? 'rotate-180' : ''}`}
                   fill="none"
@@ -92,64 +116,64 @@ export default function MobileMenu() {
               {isUseCasesOpen && (
                 <div className="ml-4 mt-2 flex flex-col space-y-2">
                   <a
-                    href="#usecases"
+                    href={`${getLink('/')}#usecases`}
                     className="text-gray-600 hover:text-formalogix-500 transition-colors text-sm"
                     onClick={() => setIsOpen(false)}
                   >
-                    Übersicht
+                    {locale === 'de' ? 'Übersicht' : 'Overview'}
                   </a>
                   <a
-                    href="/use-cases/versicherungen"
+                    href={getLink('/use-cases/versicherungen')}
                     className="text-gray-600 hover:text-formalogix-500 transition-colors text-sm"
                     onClick={() => setIsOpen(false)}
                   >
-                    Versicherungen
+                    {locale === 'de' ? 'Versicherungen' : 'Insurance'}
                   </a>
                   <a
-                    href="/use-cases/bildungswesen"
+                    href={getLink('/use-cases/bildungswesen')}
                     className="text-gray-600 hover:text-formalogix-500 transition-colors text-sm"
                     onClick={() => setIsOpen(false)}
                   >
-                    Bildungswesen
+                    {locale === 'de' ? 'Bildungswesen' : 'Education'}
                   </a>
                   <a
-                    href="/use-cases/gesundheitswesen"
+                    href={getLink('/use-cases/gesundheitswesen')}
                     className="text-gray-600 hover:text-formalogix-500 transition-colors text-sm"
                     onClick={() => setIsOpen(false)}
                   >
-                    Gesundheitswesen
+                    {locale === 'de' ? 'Gesundheitswesen' : 'Healthcare'}
                   </a>
                   <a
-                    href="/use-cases/grosshandel"
+                    href={getLink('/use-cases/grosshandel')}
                     className="text-gray-600 hover:text-formalogix-500 transition-colors text-sm"
                     onClick={() => setIsOpen(false)}
                   >
-                    Großhandel
+                    {locale === 'de' ? 'Großhandel' : 'Wholesale'}
                   </a>
                 </div>
               )}
             </div>
 
             <a
-              href="/pricing"
+              href={getLink('/pricing')}
               className="text-gray-700 hover:text-formalogix-500 transition-colors py-2"
               onClick={() => setIsOpen(false)}
             >
-              Preise
+              {t.nav.pricing}
             </a>
             <a
-              href="#contact"
+              href={`${getLink('/')}#contact`}
               className="text-gray-700 hover:text-formalogix-500 transition-colors py-2"
               onClick={() => setIsOpen(false)}
             >
-              Kontakt
+              {t.nav.contact}
             </a>
             <a
               href="https://app.formalogix.com"
               className="text-gray-700 hover:text-formalogix-500 transition-colors py-2"
               onClick={() => setIsOpen(false)}
             >
-              Zur App
+              {locale === 'de' ? 'Zur App' : 'Go to App'}
             </a>
           </div>
         </div>

@@ -1,5 +1,7 @@
 ---
 import '../styles/global.css';
+import { getLocaleFromPath, getTranslations, type Locale } from '../i18n';
+import { getRegionFromLocale, type Region } from '../config/pricing';
 
 interface Props {
 	title: string;
@@ -8,19 +10,32 @@ interface Props {
 	url?: string;
 }
 
+// Detect locale from URL path
+const currentPath = Astro.url.pathname;
+const locale: Locale = getLocaleFromPath(currentPath);
+const region: Region = getRegionFromLocale(locale);
+const t = getTranslations(locale);
+
+// Default descriptions per locale
+const defaultDescriptions = {
+	de: "Handschriftliche Formulare in 24-48h digitalisieren. KI + menschliche Verifikation = 99,8% Genauigkeit. Ab 0,10€/Seite. ✓ DSGVO-konform ✓ API-Integration. Jetzt kostenlos testen!",
+	en: "Digitize handwritten forms in 24-48h. AI + human verification = 99.8% accuracy. From €0.10/page. ✓ GDPR compliant ✓ API integration. Try now for free!"
+};
+
 const {
 	title,
-	description = "Handschriftliche Formulare in 24-48h digitalisieren. KI + menschliche Verifikation = 99,8% Genauigkeit. Ab 0,10€/Seite. ✓ DSGVO-konform ✓ API-Integration. Jetzt kostenlos testen!",
+	description = defaultDescriptions[locale],
 	image = "/og-image.png",
-	url = "https://formalogix.com"
+	url = Astro.url.pathname
 } = Astro.props;
 
 const canonicalURL = new URL(url, Astro.site || "https://formalogix.com").href;
 const ogImageURL = new URL(image, Astro.site || "https://formalogix.com").href;
+const ogLocale = locale === 'de' ? 'de_DE' : 'en_US';
 ---
 
 <!doctype html>
-<html lang="de">
+<html lang={locale}>
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -39,7 +54,7 @@ const ogImageURL = new URL(image, Astro.site || "https://formalogix.com").href;
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
 		<meta property="og:image" content={ogImageURL} />
-		<meta property="og:locale" content="de_DE" />
+		<meta property="og:locale" content={ogLocale} />
 		<meta property="og:site_name" content="Formalogix" />
 
 		<!-- Twitter -->

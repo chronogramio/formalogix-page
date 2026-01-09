@@ -1,11 +1,18 @@
+---
+import { getLocaleFromPath, getTranslations } from '../../i18n';
+
+const locale = getLocaleFromPath(Astro.url.pathname);
+const t = getTranslations(locale);
+---
+
 <!-- Problem Statement Section (Customer-Focused) -->
 <section class="py-16 bg-gray-50">
 	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 		<h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-900">
-			Kennen Sie das?
+			{t.problemStatement.title}
 		</h2>
 		<p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto text-lg">
-			Viele Unternehmen stehen vor den gleichen Herausforderungen:
+			{t.problemStatement.subtitle}
 		</p>
 
 		<div class="grid md:grid-cols-3 gap-4 md:gap-8 max-w-5xl mx-auto">
@@ -16,9 +23,9 @@
 						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
 					</svg>
 				</div>
-				<h3 class="font-bold text-gray-900 mb-3 text-lg">Tausende Formulare stapeln sich?</h3>
+				<h3 class="font-bold text-gray-900 mb-3 text-lg">{t.problemStatement.painPoints.volume.title}</h3>
 				<p class="text-sm text-gray-600">
-					Ihre Mitarbeiter verlieren Stunden mit monotoner Dateneingabe – Zeit, die an anderer Stelle dringend gebraucht wird.
+					{t.problemStatement.painPoints.volume.description}
 				</p>
 			</div>
 
@@ -29,9 +36,9 @@
 						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
 					</svg>
 				</div>
-				<h3 class="font-bold text-gray-900 mb-3 text-lg">Handschrift wird zum Problem?</h3>
+				<h3 class="font-bold text-gray-900 mb-3 text-lg">{t.problemStatement.painPoints.handwriting.title}</h3>
 				<p class="text-sm text-gray-600">
-					OCR-Software versagt bei unleserlicher Schrift. Fehler schleichen sich ein und gefährden Ihre Datenqualität.
+					{t.problemStatement.painPoints.handwriting.description}
 				</p>
 			</div>
 
@@ -42,19 +49,19 @@
 						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
 					</svg>
 				</div>
-				<h3 class="font-bold text-gray-900 mb-3 text-lg">Deadlines im Nacken?</h3>
+				<h3 class="font-bold text-gray-900 mb-3 text-lg">{t.problemStatement.painPoints.deadlines.title}</h3>
 				<p class="text-sm text-gray-600">
-					Wichtige Projekte verzögern sich, weil die Formularauswertung zum Flaschenhals wird. Der Druck steigt.
+					{t.problemStatement.painPoints.deadlines.description}
 				</p>
 			</div>
 		</div>
 
 		<div class="mt-12 text-center">
 			<p class="text-lg text-gray-700 mb-6">
-				<strong>Genau hier setzt Formalogix an.</strong> Wir übernehmen die komplette Formularverarbeitung – schnell, präzise und zuverlässig.
+				<strong>{t.problemStatement.solution}</strong> {t.problemStatement.solutionDescription}
 			</p>
 			<a href="#howitworks" class="inline-block bg-formalogix-500 text-white px-8 py-3 rounded-lg font-semibold hover:bg-formalogix-600 transition-colors">
-				Wie Formalogix hilft →
+				{t.problemStatement.cta}
 			</a>
 		</div>
 	</div>

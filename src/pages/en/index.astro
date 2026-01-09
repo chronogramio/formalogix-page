@@ -1,27 +1,27 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Navigation from '../components/Navigation.astro';
+import Layout from '../../layouts/Layout.astro';
+import Navigation from '../../components/Navigation.astro';
 
 // Import section components
-import Hero from '../components/sections/Hero.astro';
-import ProblemStatement from '../components/sections/ProblemStatement.astro';
-import HowItWorks from '../components/sections/HowItWorks.astro';
-import EfficiencyComparison from '../components/sections/EfficiencyComparison.astro';
-import UseCasesSummary from '../components/sections/UseCasesSummary.astro';
-import CompetitivePositioning from '../components/sections/CompetitivePositioning.astro';
-import ServiceTiers from '../components/sections/ServiceTiers.astro';
-import DynamicPricingSection from '../components/DynamicPricingSection';
-import FAQ from '../components/sections/FAQ.astro';
-import Contact from '../components/sections/Contact.astro';
-import Footer from '../components/sections/Footer.astro';
-import { getLocaleFromPath } from '../i18n';
-import { getRegionFromLocale } from '../config/pricing';
+import Hero from '../../components/sections/Hero.astro';
+import ProblemStatement from '../../components/sections/ProblemStatement.astro';
+import HowItWorks from '../../components/sections/HowItWorks.astro';
+import EfficiencyComparison from '../../components/sections/EfficiencyComparison.astro';
+import UseCasesSummary from '../../components/sections/UseCasesSummary.astro';
+import CompetitivePositioning from '../../components/sections/CompetitivePositioning.astro';
+import ServiceTiers from '../../components/sections/ServiceTiers.astro';
+import DynamicPricingSection from '../../components/DynamicPricingSection';
+import FAQ from '../../components/sections/FAQ.astro';
+import Contact from '../../components/sections/Contact.astro';
+import Footer from '../../components/sections/Footer.astro';
+import { getLocaleFromPath } from '../../i18n';
+import { getRegionFromLocale } from '../../config/pricing';
 
 const locale = getLocaleFromPath(Astro.url.pathname);
 const region = getRegionFromLocale(locale);
 ---
 
-<Layout title="Handschriftliche Formulare digitalisieren | 99,8% Genauigkeit in 24-48h | Formalogix">
+<Layout title="Digitize Handwritten Forms | 99.8% Accuracy in 24-48h | Formalogix">
 	<!-- Navigation -->
 	<Navigation />
 

@@ -1,0 +1,15 @@
+---
+import { LocaleProvider } from '../context/LocaleContext';
+import { getLocaleFromPath } from '../i18n';
+import { getRegionFromLocale } from '../config/pricing';
+import type { Locale } from '../i18n';
+
+// Get the current locale from the URL path
+const currentPath = Astro.url.pathname;
+const locale: Locale = getLocaleFromPath(currentPath);
+const initialRegion = getRegionFromLocale(locale);
+---
+
+<LocaleProvider initialLocale={locale} initialRegion={initialRegion} client:load>
+  <slot />
+</LocaleProvider>

@@ -1,0 +1,88 @@
+---
+import { getLocaleFromPath, getTranslations } from '../../i18n';
+import { getPricingByRegion, getRegionFromLocale, formatCurrency } from '../../config/pricing';
+
+const currentPath = Astro.url.pathname;
+const locale = getLocaleFromPath(currentPath);
+const region = getRegionFromLocale(locale);
+const t = getTranslations(locale);
+const pricing = getPricingByRegion(region);
+
+// Helper function to format prices
+const formatPrice = (amount: number) => formatCurrency(amount, pricing.currency, t.locale);
+
+// Helper to generate locale-aware links
+function getLink(path: string) {
+	if (locale === 'en') {
+		return `/en${path}`;
+	}
+	return path;
+}
+---
+
+<!-- Pricing Section -->
+<section id="pricing" class="py-20 bg-gray-50">
+	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+		<h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-900">{t.pricing.title}</h2>
+		<p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto text-lg">
+			{t.pricing.subtitle}
+		</p>
+
+		<!-- Modular Pricing Breakdown -->
+		<div class="bg-white rounded-xl shadow-lg p-8 max-w-4xl mx-auto mb-12">
+			<div class="grid md:grid-cols-2 gap-6">
+				<div class="border-l-4 border-formalogix-500 pl-4">
+					<div class="flex justify-between items-center mb-2">
+						<span class="font-semibold text-gray-900">{t.pricing.services.analysis.name}</span>
+						<span class="text-lg font-bold text-formalogix-600">
+							{formatPrice(pricing.analysis)} / {t.pricing.services.analysis.unit}
+						</span>
+					</div>
+					<p class="text-sm text-gray-600">{t.pricing.services.analysis.description}</p>
+				</div>
+				<div class="border-l-4 border-formalogix-500 pl-4">
+					<div class="flex justify-between items-center mb-2">
+						<span class="font-semibold text-gray-900">{t.pricing.services.verification.name}</span>
+						<span class="text-lg font-bold text-formalogix-600">
+							{t.pricing.services.verification.prefix} {formatPrice(pricing.verification)} / {t.pricing.services.verification.unit}
+						</span>
+					</div>
+					<p class="text-sm text-gray-600">{t.pricing.services.verification.description}</p>
+				</div>
+				<div class="border-l-4 border-formalogix-500 pl-4">
+					<div class="flex justify-between items-center mb-2">
+						<span class="font-semibold text-gray-900">{t.pricing.services.scanning.name}</span>
+						<span class="text-lg font-bold text-formalogix-600">
+							{formatPrice(pricing.scanning)} / {t.pricing.services.scanning.unit}
+						</span>
+					</div>
+					<p class="text-sm text-gray-600">{t.pricing.services.scanning.description}</p>
+				</div>
+				<div class="border-l-4 border-formalogix-500 pl-4">
+					<div class="flex justify-between items-center mb-2">
+						<span class="font-semibold text-gray-900">{t.pricing.services.extras.name}</span>
+						<span class="text-lg font-bold text-formalogix-600">{t.pricing.services.extras.price}</span>
+					</div>
+					<p class="text-sm text-gray-600">{t.pricing.services.extras.description}</p>
+				</div>
+			</div>
+
+			<div class="mt-8 bg-blue-50 p-6 rounded-lg">
+				<h4 class="font-semibold text-blue-900 mb-2">💰 {t.pricing.volumeDiscount.title}</h4>
+				<p class="text-sm text-blue-800">
+					{t.pricing.volumeDiscount.description}
+				</p>
+			</div>
+		</div>
+
+		<!-- CTA to detailed pricing page -->
+		<div class="text-center">
+			<a href={getLink('/pricing')} class="inline-flex items-center text-formalogix-600 hover:text-formalogix-700 font-semibold text-lg">
+				{t.pricing.detailedCalculator}
+				<svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+				</svg>
+			</a>
+		</div>
+	</div>
+</section>

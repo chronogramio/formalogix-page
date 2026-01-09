@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import MobileMenu from '../components/MobileMenu';
 ---
 
 <Layout title="Datenschutzerklärung - Formalogix">
@@ -13,10 +14,17 @@ import Layout from '../layouts/Layout.astro';
 						<span class="text-xl font-bold text-gray-900">formalogix</span>
 					</a>
 				</div>
+				<div class="hidden md:flex space-x-8">
+					<a href="/#services" class="text-gray-700 hover:text-formalogix-500 transition-colors">Lösungen</a>
+					<a href="/#usecases" class="text-gray-700 hover:text-formalogix-500 transition-colors">Erfolgsgeschichten</a>
+					<a href="/pricing" class="text-gray-700 hover:text-formalogix-500 transition-colors">Preise</a>
+					<a href="/#contact" class="text-gray-700 hover:text-formalogix-500 transition-colors">Kontakt</a>
+				</div>
 				<div class="flex items-center space-x-4">
-					<a href="/" class="text-gray-700 hover:text-formalogix-500 transition-colors">
-						Zur Startseite
+					<a href="/#contact" class="bg-formalogix-500 text-white px-4 py-2 rounded-lg hover:bg-formalogix-600 transition-colors">
+						Kontakt
 					</a>
+					<MobileMenu client:load />
 				</div>
 			</div>
 		</div>

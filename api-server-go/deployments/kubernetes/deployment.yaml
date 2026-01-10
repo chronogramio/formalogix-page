@@ -1,0 +1,123 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: formalogix-api
+  namespace: formalogix
+  labels:
+    app: formalogix-api
+    version: v1
+spec:
+  replicas: 3
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  selector:
+    matchLabels:
+      app: formalogix-api
+  template:
+    metadata:
+      labels:
+        app: formalogix-api
+        version: v1
+    spec:
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 65532
+        fsGroup: 65532
+
+      dnsConfig:
+        nameservers:
+          - 8.8.8.8
+          - 8.8.4.4
+        options:
+          - name: ndots
+            value: "1"
+          - name: timeout
+            value: "2"
+          - name: attempts
+            value: "2"
+
+      containers:
+      - name: api-server
+        image: formalogix-api:v1.0.0
+        imagePullPolicy: IfNotPresent
+
+        ports:
+        - name: http
+          containerPort: 3000
+          protocol: TCP
+
+        env:
+        # From ConfigMap
+        - name: PORT
+          valueFrom:
+            configMapKeyRef:
+              name: formalogix-api-config
+              key: PORT
+        - name: EMAIL_HOST
+          valueFrom:
+            configMapKeyRef:
+              name: formalogix-api-config
+              key: EMAIL_HOST
+        - name: EMAIL_PORT
+          valueFrom:
+            configMapKeyRef:
+              name: formalogix-api-config
+              key: EMAIL_PORT
+        - name: CORS_ORIGINS
+          valueFrom:
+            configMapKeyRef:
+              name: formalogix-api-config
+              key: CORS_ORIGINS
+
+        # From Secret
+        - name: EMAIL_USER
+          valueFrom:
+            secretKeyRef:
+              name: formalogix-api-secret
+              key: EMAIL_USER
+        - name: EMAIL_PASS
+          valueFrom:
+            secretKeyRef:
+              name: formalogix-api-secret
+              key: EMAIL_PASS
+        - name: EMAIL_TO
+          valueFrom:
+            secretKeyRef:
+              name: formalogix-api-secret
+              key: EMAIL_TO
+
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 500m
+            memory: 256Mi
+
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: http
+          initialDelaySeconds: 10
+          periodSeconds: 30
+          timeoutSeconds: 3
+          failureThreshold: 3
+
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: http
+          initialDelaySeconds: 5
+          periodSeconds: 10
+          timeoutSeconds: 3
+          failureThreshold: 3
+
+        securityContext:
+          allowPrivilegeEscalation: false
+          readOnlyRootFilesystem: false
+          capabilities:
+            drop:
+            - ALL

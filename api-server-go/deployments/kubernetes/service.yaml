@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: formalogix-api
+  namespace: formalogix
+  labels:
+    app: formalogix-api
+spec:
+  type: ClusterIP
+  selector:
+    app: formalogix-api
+  ports:
+  - name: http
+    port: 80
+    targetPort: http
+    protocol: TCP
+  sessionAffinity: None

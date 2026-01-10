@@ -32,6 +32,9 @@ const {
 const canonicalURL = new URL(url, Astro.site || "https://formalogix.com").href;
 const ogImageURL = new URL(image, Astro.site || "https://formalogix.com").href;
 const ogLocale = locale === 'de' ? 'de_DE' : 'en_US';
+
+// Umami Analytics
+const umamiWebsiteId = import.meta.env.PUBLIC_UMAMI_WEBSITE_ID;
 ---
 
 <!doctype html>
@@ -210,6 +213,11 @@ const ogLocale = locale === 'de' ? 'de_DE' : 'en_US';
 		<meta name="ai:accuracy" content="99.8%" />
 		<meta name="ai:turnaround" content="24-48 hours" />
 		<meta name="ai:pricing_start" content="€0.10 per page" />
+
+		<!-- Umami Analytics -->
+		{umamiWebsiteId && (
+			<script async defer data-website-id={umamiWebsiteId} src="https://stats.flickflauder.com/script.js"></script>
+		)}
 	</head>
 	<body class="bg-white text-gray-900 font-body antialiased">
 		<slot />

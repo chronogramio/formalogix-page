@@ -10,19 +10,19 @@ export default {
   },
 
   hero: {
-    title: 'Handschriftliche Formulare zuverlässig auswerten – ohne manuelle Eingabe',
-    subtitle: 'Formalogix verarbeitet tausende Formulare – effizient, präzise und wirtschaftlich. Die Ergebnisse sind strukturiert, auswertbar und direkt nutzbar.',
+    title: 'Handschriftliche Formulare zuverlässig auswerten',
+    subtitle: 'Tausende Formulare effizient verarbeitet – strukturiert, auswertbar und direkt nutzbar.',
     keyPoints: {
-      largeVolumes: 'Große und wiederkehrende Formularmengen',
-      timeConstraints: 'Auch unter Zeitdruck einsatzbereit',
-      structuredData: 'Strukturierte Daten statt nur PDFs',
-      accuracy: 'KI + Human-in-the-Loop für 99,8% Genauigkeit',
+      largeVolumes: 'Große Formularmengen',
+      timeConstraints: 'Schnell unter Zeitdruck',
+      structuredData: 'Strukturierte Daten',
+      accuracy: '99,8% Genauigkeit',
     },
     cta: {
-      primary: 'Einsparungen jetzt berechnen',
-      primarySub: 'Kostenloses Angebot in 24h',
-      secondary: 'Erfolgsgeschichten ansehen',
-      secondarySub: 'Kunden sparen bis zu 85% Zeit',
+      primary: 'Kontakt aufnehmen',
+      primarySub: 'Angebot in 24h',
+      secondary: 'Einsparungen berechnen',
+      secondarySub: 'Preise ansehen',
     },
   },
 
@@ -109,15 +109,15 @@ export default {
     painPoints: {
       volume: {
         title: 'Tausende Formulare stapeln sich?',
-        description: 'Ihre Mitarbeiter verlieren Stunden mit monotoner Dateneingabe – Zeit, die an anderer Stelle dringend gebraucht wird.',
+        description: 'Mitarbeiter verlieren Stunden mit monotoner Dateneingabe.',
       },
       handwriting: {
         title: 'Handschrift wird zum Problem?',
-        description: 'OCR-Software versagt bei unleserlicher Schrift. Fehler schleichen sich ein und gefährden Ihre Datenqualität.',
+        description: 'OCR-Software versagt bei Handschrift und gefährdet die Datenqualität.',
       },
       deadlines: {
         title: 'Deadlines im Nacken?',
-        description: 'Wichtige Projekte verzögern sich, weil die Formularauswertung zum Flaschenhals wird. Der Druck steigt.',
+        description: 'Formularauswertung wird zum Flaschenhals und verzögert Projekte.',
       },
     },
     solution: 'Genau hier setzt Formalogix an.',
@@ -131,19 +131,19 @@ export default {
     steps: {
       capture: {
         title: 'Erfassung & Digitalisierung',
-        description: 'Handschriftliche Formulare werden eingescannt und digital erfasst – unabhängig von Format, Struktur oder Handschrift. Jedes Dokument wird für die KI-Analyse vorbereitet.',
+        description: 'Formulare werden eingescannt und für die KI-Analyse vorbereitet.',
       },
       analysis: {
         title: 'KI-gestützte Analyse',
-        description: 'Modernste KI-Modelle analysieren jedes Formularfeld automatisch – von Handschrift über Checkboxen bis zu Unterschriften. Die KI extrahiert strukturierte Daten aus unstrukturierten Dokumenten.',
+        description: 'KI analysiert alle Felder automatisch und extrahiert strukturierte Daten.',
       },
       verification: {
         title: 'Menschliche Verifikation',
-        description: 'Unser Expertenteam prüft gezielt kritische Felder und Sonderfälle. Dieser Hybrid-Ansatz verbindet die Geschwindigkeit von KI mit der Präzision menschlicher Kontrolle – für 99,8% Genauigkeit.',
+        description: 'Expertenteam prüft kritische Felder für 99,8% Genauigkeit.',
       },
       output: {
         title: 'Strukturierte Datenausgabe',
-        description: 'Die vollständig verifizierten Daten werden als strukturierte Datensätze bereitgestellt – direkt nutzbar in Excel, Datenbanken oder via API. Bereit für Auswertung, Integration und Weiterverarbeitung.',
+        description: 'Verifizierte Daten bereit für Excel, Datenbanken oder API-Integration.',
       },
     },
     cta: 'Jetzt kostenlos testen',
@@ -158,9 +158,9 @@ export default {
       points: {
         time: '3-4 Wochen Durchlaufzeit für größere Mengen',
         errors: 'Schwankende Fehlerquote bei hohem Volumen',
-        scalability: 'Begrenzte Skalierbarkeit',
         resources: 'Personalintensive Prozesse',
         availability: 'Verzögerte Datenverfügbarkeit',
+        scalability: 'Begrenzte Skalierbarkeit',
       },
       example: 'Beispiel: 50.000 Formulare jährlich erfordern mehrere Vollzeitmitarbeiter und Wochen Bearbeitungszeit',
     },
@@ -169,9 +169,9 @@ export default {
       points: {
         time: '24-48 Stunden Durchlaufzeit',
         accuracy: '99,8% Genauigkeit durch Hybrid-Ansatz',
-        scalability: 'Skalierbar auf beliebige Mengen',
         resources: 'Effiziente Ressourcennutzung',
         availability: 'Daten sofort verfügbar',
+        scalability: 'Skalierbar auf beliebige Mengen',
       },
       example: 'Beispiel: 50.000 Formulare werden automatisiert verarbeitet mit garantierter Qualität und schneller Verfügbarkeit',
     },
@@ -378,27 +378,19 @@ export default {
     differentiators: {
       responsibility: {
         title: 'Verantwortung übernehmen',
-        description: 'Viele Anbieter stellen ein Tool bereit. Formalogix übernimmt den gesamten Prozess – von der Analyse bis zur strukturierten Datenausgabe. Sie liefern die Formulare. Wir liefern verwertbare Daten.',
+        description: 'Wir übernehmen den gesamten Prozess – Sie liefern Formulare, wir liefern verwertbare Daten.',
       },
       humanInLoop: {
         title: 'Human-in-the-Loop',
-        description: 'Handschrift, Sonderfälle und uneinheitliche Formulare sind Realität. Deshalb kombinieren wir automatisierte Analyse mit gezielter menschlicher Verifikation – genau dort, wo Qualität entscheidet.',
+        description: 'Automatisierte KI-Analyse kombiniert mit menschlicher Verifikation für höchste Qualität.',
       },
       dataStructures: {
         title: 'Datenstrukturen, nicht PDFs',
-        description: 'Ein Formular ist für uns keine Seite, sondern eine Sammlung von Feldern. Ob 1.000 Formulare mit 150 Feldern oder 100.000 Seiten – entscheidend ist: strukturierte, auswertbare Datensätze.',
+        description: 'Wir liefern strukturierte, auswertbare Datensätze statt unstrukturierter PDFs.',
       },
       scalability: {
         title: 'Skalierbar unter Zeitdruck',
-        description: 'Formalogix verarbeitet große Mengen zuverlässig – auch unter engen Zeitvorgaben. Dort, wo manuelle Erfassung zu langsam und klassische OCR-Tools zu ungenau werden, setzen wir an.',
-      },
-      fullService: {
-        title: 'Full-Service statt Risiko',
-        description: 'Keine Einarbeitung, keine Tool-Experimente, kein „Das System hat es falsch erkannt". Wir tragen Verantwortung für Qualität, Struktur und Ergebnis – nicht Sie.',
-      },
-      specialCases: {
-        title: 'Sonderfälle abbildbar',
-        description: 'Individuelle Felder, Ausnahmen und spezielle Anforderungen lassen sich im Enterprise-Modell gezielt abbilden. Auch bei komplexen Projekten bleibt die Datenqualität kontrollierbar.',
+        description: 'Große Mengen zuverlässig verarbeitet – auch unter engen Zeitvorgaben.',
       },
     },
     summary: {
@@ -419,34 +411,34 @@ export default {
     popular: 'Beliebt',
     fullService: {
       title: 'Full Service',
-      tagline: 'Wir übernehmen die komplette Formularverarbeitung – vom Scannen bis zur strukturierten Dateneingabe.',
-      description: 'Ideal für größere Projekte oder wiederkehrende Prozesse. Sie haben genug Baustellen – Formulare sollten keine davon sein.',
+      tagline: 'Komplette Formularverarbeitung von Scannen bis Dateneingabe.',
+      description: 'Ideal für größere Projekte und wiederkehrende Prozesse.',
       features: {
-        accuracy: 'KI-Analyse + menschliche Verifikation für 99,8% Genauigkeit',
-        turnaround: 'Durchlaufzeit 24-48h – auch bei tausenden Formularen',
-        output: 'Strukturierte Daten in Excel, CSV oder via API',
+        accuracy: '99,8% Genauigkeit durch KI + Mensch',
+        turnaround: '24-48h Durchlaufzeit',
+        output: 'Excel, CSV oder API',
       },
       cta: 'Full-Service anfragen',
     },
     enterprise: {
       title: 'Enterprise',
-      tagline: 'Für Unternehmen mit komplexen Anforderungen oder dauerhaftem Formularaufkommen.',
-      description: 'Optimal für Unternehmen mit hoher Komplexität und langfristigen Projekten.',
+      tagline: 'Für komplexe Anforderungen und hohe Volumina.',
+      description: 'Optimiert für langfristige Projekte mit hoher Komplexität.',
       features: {
-        workflows: 'Individuelle Workflows & Sonderfälle abbildbar',
-        integration: 'ERP/CRM-Integration & On-Premise-Option',
-        support: 'Volumenpreise & persönlicher Account Manager',
+        workflows: 'Individuelle Workflows',
+        integration: 'ERP/CRM & On-Premise',
+        support: 'Volumenpreise & Account Manager',
       },
       cta: 'Enterprise-Lösung besprechen',
     },
     selfService: {
       title: 'Self-Service',
-      tagline: 'Für Tests, Pilotprojekte oder kleine Volumina, wenn Kosten eine Rolle spielen.',
-      description: 'Kosteneffizient – ideal, um die Technologie kennenzulernen oder kleinere Projekte intern zu testen.',
+      tagline: 'Für Tests, Pilotprojekte und kleine Volumina.',
+      description: 'Kosteneffizient für Tests und kleinere Projekte.',
       features: {
-        analysis: 'Automatisierte KI-Analyse – sofort einsatzbereit',
-        api: 'API-First-Architektur für nahtlose Integration',
-        flexible: 'Flexible Nutzung – ideal für Tests und Pilotprojekte',
+        analysis: 'KI-Analyse sofort einsatzbereit',
+        api: 'API-First-Architektur',
+        flexible: 'Ideal für Tests & Pilotprojekte',
       },
       cta: 'Self-Service testen',
     },
@@ -458,83 +450,27 @@ export default {
     questions: {
       pricing: {
         question: 'Ist Formalogix nicht teurer als reine OCR-Software?',
-        answer: {
-          intro: 'Auf den ersten Blick mag reine OCR-Software günstiger erscheinen. Jedoch müssen Sie die Total Cost of Ownership (TCO) betrachten:',
-          points: [
-            'OCR-Software bei Handschrift: 85-95% Genauigkeit → 5-15% Fehlerquote',
-            'Fehlerkorrektur erfordert manuelle Nacharbeit (oft 2-3h pro 100 Formulare)',
-            'Personalkosten + Opportunitätskosten übersteigen schnell die Softwarekosten',
-            'Training, Wartung und Updates nicht eingerechnet',
-          ],
-          conclusion: 'Mit Formalogix zahlen Sie transparent pro Seite und erhalten garantiert 99,8% Genauigkeit – ohne versteckte Kosten oder Nacharbeit.',
-        },
+        answer: 'OCR-Software scheint günstiger, aber Fehlerkorrektur kostet oft mehr als die Software selbst. Mit Formalogix zahlen Sie transparent pro Seite und erhalten 99,8% Genauigkeit ohne teure Nacharbeit.',
       },
       outsourcing: {
         question: 'Warum nicht einfach klassisches Outsourcing nutzen?',
-        answer: {
-          intro: 'Klassisches Outsourcing hat signifikante Nachteile:',
-          points: [
-            'Geschwindigkeit: 3-6 Wochen Durchlaufzeit vs. 24-48h bei Formalogix',
-            'Transparenz: Intransparente Preise vs. feste Preise ab 0,10€/Seite',
-            'Integration: Keine API-Anbindung vs. vollständige API bei Formalogix',
-            'Skalierbarkeit: Schwierig zu skalieren vs. elastisch skalierbar',
-          ],
-          conclusion: 'Formalogix kombiniert KI-Geschwindigkeit mit menschlicher Verifikation – Sie erhalten das Beste aus beiden Welten.',
-        },
+        answer: 'Klassisches Outsourcing braucht 3-6 Wochen und bietet keine API-Integration. Formalogix liefert in 24-48h mit vollständiger API für nahtlose Prozessanbindung.',
       },
       security: {
         question: 'Wie sicher sind meine sensiblen Daten?',
-        answer: {
-          intro: 'Datensicherheit hat bei uns höchste Priorität:',
-          points: [
-            'DSGVO-konform: Alle Prozesse entsprechen der Datenschutz-Grundverordnung',
-            'Verschlüsselung: Ende-zu-Ende-Verschlüsselung für alle Datenübertragungen',
-            'ISO 27001: Zertifiziertes Informationssicherheits-Management',
-            'Server-Standort: Alle Server in Deutschland (Made in Germany)',
-            'On-Premise Option: Für höchste Sicherheitsanforderungen verfügbar (Enterprise)',
-            'Datenlöschung: Automatische Löschung nach vereinbarter Aufbewahrungsfrist',
-          ],
-          conclusion: 'Auf Wunsch schließen wir einen Auftragsverarbeitungsvertrag (AVV) gemäß Art. 28 DSGVO mit Ihnen ab.',
-        },
+        answer: 'Alle Daten werden DSGVO-konform auf deutschen Servern verarbeitet und Ende-zu-Ende verschlüsselt. Wir sind ISO 27001 zertifiziert und schließen auf Wunsch einen Auftragsverarbeitungsvertrag ab.',
       },
       implementation: {
         question: 'Wie lange dauert die Implementierung?',
-        answer: {
-          intro: 'Die Implementierungszeit hängt von Ihrer gewählten Service-Ebene ab:',
-          points: [
-            'Self-Service API: Sofort einsatzbereit – API-Key erhalten und loslegen',
-            'Full-Service: 1-2 Wochen für Onboarding und Formular-Template-Erstellung',
-            'Enterprise: 2-4 Wochen inkl. ERP-Integration, Workflow-Anpassung und Schulung',
-          ],
-          conclusion: 'In den meisten Fällen können Sie bereits innerhalb von 24-48h erste Testdokumente verarbeiten lassen.',
-        },
+        answer: 'Sie können bereits nach 24-48h erste Testdokumente verarbeiten lassen. Die vollständige Implementierung dauert je nach Service-Ebene zwischen sofort (Self-Service) und 2-4 Wochen (Enterprise).',
       },
       aiFailure: {
         question: 'Was passiert, wenn die KI ein Feld nicht erkennen kann?',
-        answer: {
-          intro: 'Genau hier liegt die Stärke unseres Hybrid-Ansatzes:',
-          points: [
-            'KI-Analyse: Unsere KI verarbeitet zunächst alle Felder automatisch',
-            'Konfidenz-Prüfung: Felder mit niedriger Erkennungssicherheit werden markiert',
-            'Menschliche Verifikation: Unser geschultes Team prüft und korrigiert diese Felder manuell',
-            'Qualitätskontrolle: Zusätzliche Stichproben für 99,8% Genauigkeitsgarantie',
-          ],
-          conclusion: 'Sie erhalten immer vollständig verifizierte Daten – ohne dass Sie sich um unleserliche Felder kümmern müssen.',
-        },
+        answer: 'Unsere menschliche Verifikation greift automatisch ein, wenn die KI unsicher ist. Das geschulte Team prüft und korrigiert alle markierten Felder, sodass Sie garantiert 99,8% Genauigkeit erhalten.',
       },
       formTypes: {
         question: 'Welche Formulartypen können Sie verarbeiten?',
-        answer: {
-          intro: 'Formalogix verarbeitet nahezu alle Arten von strukturierten Formularen:',
-          points: [
-            'Versicherungen: Anträge, Schadensformulare, Gesundheitsfragebögen',
-            'Bildung: Prüfungsbögen, Anmeldeformulare, Evaluationsbögen',
-            'Gesundheitswesen: Patientenfragebögen, Anamnesebögen, Einwilligungen',
-            'Großhandel: Bestellformulare, Lieferscheine, Rechnungen',
-            'Öffentliche Verwaltung: Anträge, Genehmigungen, Bescheide',
-          ],
-          conclusion: 'Kontaktieren Sie uns mit Ihrem Formular – wir erstellen innerhalb von 24h eine kostenlose Testauswertung!',
-        },
+        answer: 'Formalogix verarbeitet nahezu alle strukturierten Formulare – von Versicherungsanträgen über Patientenfragebögen bis zu Bestellformularen. Kontaktieren Sie uns für eine kostenlose Testauswertung innerhalb von 24h!',
       },
     },
     ctaQuestion: 'Haben Sie weitere Fragen?',

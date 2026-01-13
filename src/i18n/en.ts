@@ -10,19 +10,19 @@ export default {
   },
 
   hero: {
-    title: 'Reliably Process Handwritten Forms – Without Manual Data Entry',
-    subtitle: 'Formalogix processes thousands of forms – efficiently, precisely, and economically. Results are structured, analyzable, and immediately usable.',
+    title: 'Reliably Process Handwritten Forms',
+    subtitle: 'Thousands of forms efficiently processed – structured, analyzable, and immediately usable.',
     keyPoints: {
-      largeVolumes: 'Large and recurring form volumes',
-      timeConstraints: 'Ready even under time pressure',
-      structuredData: 'Structured data instead of just PDFs',
-      accuracy: 'AI + Human-in-the-Loop for 99.8% accuracy',
+      largeVolumes: 'Large form volumes',
+      timeConstraints: 'Fast under time pressure',
+      structuredData: 'Structured data',
+      accuracy: '99.8% accuracy',
     },
     cta: {
-      primary: 'Calculate Your Savings Now',
-      primarySub: 'Free quote within 24h',
-      secondary: 'View Success Stories',
-      secondarySub: 'Customers save up to 85% time',
+      primary: 'Contact Us',
+      primarySub: 'Quote in 24h',
+      secondary: 'Calculate Savings',
+      secondarySub: 'View pricing',
     },
   },
 
@@ -109,15 +109,15 @@ export default {
     painPoints: {
       volume: {
         title: 'Thousands of Forms Piling Up?',
-        description: 'Your employees lose hours on monotonous data entry – time that\'s urgently needed elsewhere.',
+        description: 'Employees lose hours on monotonous data entry.',
       },
       handwriting: {
         title: 'Handwriting Becoming a Problem?',
-        description: 'OCR software fails with illegible handwriting. Errors creep in and threaten your data quality.',
+        description: 'OCR software fails with handwriting and threatens data quality.',
       },
       deadlines: {
         title: 'Tight Deadlines?',
-        description: 'Important projects are delayed because form processing becomes a bottleneck. Pressure mounts.',
+        description: 'Form processing becomes a bottleneck and delays projects.',
       },
     },
     solution: 'This is exactly where Formalogix comes in.',
@@ -131,19 +131,19 @@ export default {
     steps: {
       capture: {
         title: 'Capture & Digitization',
-        description: 'Handwritten forms are scanned and digitally captured – regardless of format, structure, or handwriting. Each document is prepared for AI analysis.',
+        description: 'Forms are scanned and prepared for AI analysis.',
       },
       analysis: {
         title: 'AI-Powered Analysis',
-        description: 'State-of-the-art AI models automatically analyze every form field – from handwriting to checkboxes to signatures. The AI extracts structured data from unstructured documents.',
+        description: 'AI automatically analyzes all fields and extracts structured data.',
       },
       verification: {
         title: 'Human Verification',
-        description: 'Our expert team specifically reviews critical fields and special cases. This hybrid approach combines AI speed with human precision – for 99.8% accuracy.',
+        description: 'Expert team reviews critical fields for 99.8% accuracy.',
       },
       output: {
         title: 'Structured Data Output',
-        description: 'Fully verified data is provided as structured datasets – directly usable in Excel, databases, or via API. Ready for analysis, integration, and further processing.',
+        description: 'Verified data ready for Excel, databases, or API integration.',
       },
     },
     cta: 'Try It Free Now',
@@ -158,9 +158,9 @@ export default {
       points: {
         time: '3-4 weeks turnaround time for larger volumes',
         errors: 'Fluctuating error rate with high volume',
-        scalability: 'Limited scalability',
         resources: 'Personnel-intensive processes',
         availability: 'Delayed data availability',
+        scalability: 'Limited scalability',
       },
       example: 'Example: 50,000 forms annually require multiple full-time employees and weeks of processing time',
     },
@@ -169,9 +169,9 @@ export default {
       points: {
         time: '24-48 hours turnaround time',
         accuracy: '99.8% accuracy through hybrid approach',
-        scalability: 'Scalable to any volume',
         resources: 'Efficient resource utilization',
         availability: 'Data immediately available',
+        scalability: 'Scalable to any volume',
       },
       example: 'Example: 50,000 forms are automatically processed with guaranteed quality and fast availability',
     },
@@ -378,27 +378,19 @@ export default {
     differentiators: {
       responsibility: {
         title: 'Taking Responsibility',
-        description: 'Many providers offer a tool. Formalogix takes over the entire process – from analysis to structured data output. You deliver the forms. We deliver usable data.',
+        description: 'We handle the entire process – you deliver forms, we deliver usable data.',
       },
       humanInLoop: {
         title: 'Human-in-the-Loop',
-        description: 'Handwriting, special cases, and inconsistent forms are reality. That\'s why we combine automated analysis with targeted human verification – exactly where quality matters.',
+        description: 'Automated AI analysis combined with human verification for highest quality.',
       },
       dataStructures: {
         title: 'Data Structures, Not PDFs',
-        description: 'For us, a form isn\'t a page but a collection of fields. Whether 1,000 forms with 150 fields or 100,000 pages – what matters is: structured, analyzable datasets.',
+        description: 'We deliver structured, analyzable datasets instead of unstructured PDFs.',
       },
       scalability: {
         title: 'Scalable Under Time Pressure',
-        description: 'Formalogix reliably processes large volumes – even under tight time constraints. Where manual capture is too slow and classic OCR tools too inaccurate, we step in.',
-      },
-      fullService: {
-        title: 'Full Service Instead of Risk',
-        description: 'No training, no tool experiments, no "The system misread it." We take responsibility for quality, structure, and results – not you.',
-      },
-      specialCases: {
-        title: 'Special Cases Can Be Handled',
-        description: 'Individual fields, exceptions, and special requirements can be specifically addressed in the Enterprise model. Even with complex projects, data quality remains controllable.',
+        description: 'Large volumes reliably processed – even under tight time constraints.',
       },
     },
     summary: {
@@ -419,34 +411,34 @@ export default {
     popular: 'Popular',
     fullService: {
       title: 'Full Service',
-      tagline: 'We handle the complete form processing – from scanning to structured data entry.',
-      description: 'Ideal for larger projects or recurring processes. You have enough on your plate – forms shouldn\'t be one of them.',
+      tagline: 'Complete form processing from scanning to data entry.',
+      description: 'Ideal for larger projects and recurring processes.',
       features: {
-        accuracy: 'AI analysis + human verification for 99.8% accuracy',
-        turnaround: 'Turnaround time 24-48h – even with thousands of forms',
-        output: 'Structured data in Excel, CSV, or via API',
+        accuracy: '99.8% accuracy via AI + human',
+        turnaround: '24-48h turnaround time',
+        output: 'Excel, CSV, or API',
       },
       cta: 'Request Full Service',
     },
     enterprise: {
       title: 'Enterprise',
-      tagline: 'For companies with complex requirements or ongoing form volumes.',
-      description: 'Optimal for companies with high complexity and long-term projects.',
+      tagline: 'For complex requirements and high volumes.',
+      description: 'Optimized for long-term projects with high complexity.',
       features: {
-        workflows: 'Individual workflows & special cases can be handled',
-        integration: 'ERP/CRM integration & on-premise option',
-        support: 'Volume pricing & personal account manager',
+        workflows: 'Individual workflows',
+        integration: 'ERP/CRM & on-premise',
+        support: 'Volume pricing & account manager',
       },
       cta: 'Discuss Enterprise Solution',
     },
     selfService: {
       title: 'Self-Service',
-      tagline: 'For tests, pilot projects, or small volumes where cost matters.',
-      description: 'Cost-effective – ideal for getting to know the technology or testing smaller projects internally.',
+      tagline: 'For tests, pilot projects, and small volumes.',
+      description: 'Cost-effective for tests and smaller projects.',
       features: {
-        analysis: 'Automated AI analysis – ready immediately',
-        api: 'API-first architecture for seamless integration',
-        flexible: 'Flexible usage – ideal for tests and pilot projects',
+        analysis: 'AI analysis ready immediately',
+        api: 'API-first architecture',
+        flexible: 'Ideal for tests & pilot projects',
       },
       cta: 'Try Self-Service',
     },
@@ -458,83 +450,27 @@ export default {
     questions: {
       pricing: {
         question: 'Isn\'t Formalogix more expensive than pure OCR software?',
-        answer: {
-          intro: 'At first glance, pure OCR software may seem cheaper. However, you must consider the Total Cost of Ownership (TCO):',
-          points: [
-            'OCR software for handwriting: 85-95% accuracy → 5-15% error rate',
-            'Error correction requires manual rework (often 2-3h per 100 forms)',
-            'Personnel costs + opportunity costs quickly exceed software costs',
-            'Training, maintenance, and updates not included',
-          ],
-          conclusion: 'With Formalogix, you pay transparently per page and receive guaranteed 99.8% accuracy – without hidden costs or rework.',
-        },
+        answer: 'OCR software seems cheaper, but error correction often costs more than the software itself. With Formalogix, you pay transparently per page and get 99.8% accuracy without expensive post-processing.',
       },
       outsourcing: {
         question: 'Why not just use classic outsourcing?',
-        answer: {
-          intro: 'Classic outsourcing has significant disadvantages:',
-          points: [
-            'Speed: 3-6 weeks turnaround vs. 24-48h with Formalogix',
-            'Transparency: Non-transparent pricing vs. fixed prices from €0.10/page',
-            'Integration: No API connection vs. full API with Formalogix',
-            'Scalability: Difficult to scale vs. elastically scalable',
-          ],
-          conclusion: 'Formalogix combines AI speed with human verification – you get the best of both worlds.',
-        },
+        answer: 'Traditional outsourcing takes 3-6 weeks and offers no API integration. Formalogix delivers in 24-48h with full API for seamless process integration.',
       },
       security: {
         question: 'How secure is my sensitive data?',
-        answer: {
-          intro: 'Data security is our highest priority:',
-          points: [
-            'GDPR-compliant: All processes comply with the General Data Protection Regulation',
-            'Encryption: End-to-end encryption for all data transmissions',
-            'ISO 27001: Certified information security management',
-            'Server location: All servers in Germany (Made in Germany)',
-            'On-premise option: Available for highest security requirements (Enterprise)',
-            'Data deletion: Automatic deletion after agreed retention period',
-          ],
-          conclusion: 'On request, we conclude a Data Processing Agreement (DPA) according to Art. 28 GDPR with you.',
-        },
+        answer: 'All data is processed GDPR-compliant on German servers with end-to-end encryption. We are ISO 27001 certified and sign a data processing agreement upon request.',
       },
       implementation: {
         question: 'How long does implementation take?',
-        answer: {
-          intro: 'Implementation time depends on your chosen service level:',
-          points: [
-            'Self-Service API: Ready immediately – receive API key and get started',
-            'Full Service: 1-2 weeks for onboarding and form template creation',
-            'Enterprise: 2-4 weeks incl. ERP integration, workflow customization, and training',
-          ],
-          conclusion: 'In most cases, you can have your first test documents processed within 24-48h.',
-        },
+        answer: 'You can process your first test documents within 24-48h. Full implementation takes between immediate (Self-Service) and 2-4 weeks (Enterprise) depending on service tier.',
       },
       aiFailure: {
         question: 'What happens if the AI cannot recognize a field?',
-        answer: {
-          intro: 'This is exactly where the strength of our hybrid approach lies:',
-          points: [
-            'AI Analysis: Our AI first processes all fields automatically',
-            'Confidence Check: Fields with low recognition confidence are marked',
-            'Human Verification: Our trained team manually reviews and corrects these fields',
-            'Quality Control: Additional spot checks for 99.8% accuracy guarantee',
-          ],
-          conclusion: 'You always receive fully verified data – without having to worry about illegible fields.',
-        },
+        answer: 'Our human verification automatically steps in when AI is uncertain. The trained team checks and corrects all flagged fields, ensuring you receive guaranteed 99.8% accuracy.',
       },
       formTypes: {
         question: 'What types of forms can you process?',
-        answer: {
-          intro: 'Formalogix processes nearly all types of structured forms:',
-          points: [
-            'Insurance: Applications, claim forms, health questionnaires',
-            'Education: Exam sheets, registration forms, evaluation forms',
-            'Healthcare: Patient questionnaires, medical history forms, consent forms',
-            'Wholesale: Order forms, delivery notes, invoices',
-            'Public Administration: Applications, permits, notices',
-          ],
-          conclusion: 'Contact us with your form – we\'ll create a free test evaluation within 24h!',
-        },
+        answer: 'Formalogix processes nearly all structured forms – from insurance applications to patient questionnaires to order forms. Contact us for a free test evaluation within 24h!',
       },
     },
     ctaQuestion: 'Do you have more questions?',

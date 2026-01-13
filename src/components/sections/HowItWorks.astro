@@ -6,7 +6,7 @@ const t = getTranslations(locale);
 ---
 
 <!-- How It Works Section -->
-<section id="howitworks" class="py-20 bg-gradient-to-br from-gray-50 to-white">
+<section id="howitworks" class="py-24 bg-white">
 	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 		<h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-900">
 			{t.howItWorks.title}
@@ -17,19 +17,19 @@ const t = getTranslations(locale);
 
 		<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 relative">
 			<!-- Connecting arrows for desktop - 4 steps -->
-			<div class="hidden lg:block absolute top-1/4 left-[12.5%] w-[20.83%] border-t-2 border-dashed border-formalogix-300" style="transform: translateY(-50%);"></div>
-			<div class="hidden lg:block absolute top-1/4 left-[37.5%] w-[20.83%] border-t-2 border-dashed border-formalogix-300" style="transform: translateY(-50%);"></div>
-			<div class="hidden lg:block absolute top-1/4 left-[62.5%] w-[20.83%] border-t-2 border-dashed border-formalogix-300" style="transform: translateY(-50%);"></div>
+			<div class="hidden lg:block absolute top-1/4 left-[12.5%] w-[20.83%] border-t-3 border-dashed border-formalogix-400" style="transform: translateY(-50%);"></div>
+			<div class="hidden lg:block absolute top-1/4 left-[37.5%] w-[20.83%] border-t-3 border-dashed border-formalogix-400" style="transform: translateY(-50%);"></div>
+			<div class="hidden lg:block absolute top-1/4 left-[62.5%] w-[20.83%] border-t-3 border-dashed border-formalogix-400" style="transform: translateY(-50%);"></div>
 
 			<!-- Step 1: Data Capture -->
-			<div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow relative">
+			<div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow relative flex flex-col">
 				<div class="flex items-center justify-center w-16 h-16 bg-formalogix-500 text-white rounded-full text-2xl font-bold mb-6 mx-auto">
 					1
 				</div>
 				<h3 class="text-xl font-bold text-gray-900 mb-3 text-center">
 					{t.howItWorks.steps.capture.title}
 				</h3>
-				<p class="text-gray-600 text-center">
+				<p class="text-gray-600 text-center flex-grow">
 					{t.howItWorks.steps.capture.description}
 				</p>
 				<div class="mt-6 flex justify-center">
@@ -40,14 +40,14 @@ const t = getTranslations(locale);
 			</div>
 
 			<!-- Step 2: AI Analysis -->
-			<div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow relative">
+			<div class="bg-formalogix-50 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow relative flex flex-col">
 				<div class="flex items-center justify-center w-16 h-16 bg-formalogix-500 text-white rounded-full text-2xl font-bold mb-6 mx-auto">
 					2
 				</div>
 				<h3 class="text-xl font-bold text-gray-900 mb-3 text-center">
 					{t.howItWorks.steps.analysis.title}
 				</h3>
-				<p class="text-gray-600 text-center">
+				<p class="text-gray-600 text-center flex-grow">
 					{t.howItWorks.steps.analysis.description}
 				</p>
 				<div class="mt-6 flex justify-center">
@@ -58,14 +58,14 @@ const t = getTranslations(locale);
 			</div>
 
 			<!-- Step 3: Human Verification -->
-			<div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow relative">
+			<div class="bg-formalogix-100 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow relative flex flex-col">
 				<div class="flex items-center justify-center w-16 h-16 bg-formalogix-500 text-white rounded-full text-2xl font-bold mb-6 mx-auto">
 					3
 				</div>
 				<h3 class="text-xl font-bold text-gray-900 mb-3 text-center">
 					{t.howItWorks.steps.verification.title}
 				</h3>
-				<p class="text-gray-600 text-center">
+				<p class="text-gray-600 text-center flex-grow">
 					{t.howItWorks.steps.verification.description}
 				</p>
 				<div class="mt-6 flex justify-center">
@@ -76,14 +76,14 @@ const t = getTranslations(locale);
 			</div>
 
 			<!-- Step 4: Structured Data Output -->
-			<div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow relative">
+			<div class="bg-formalogix-200 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow relative flex flex-col">
 				<div class="flex items-center justify-center w-16 h-16 bg-formalogix-500 text-white rounded-full text-2xl font-bold mb-6 mx-auto">
 					4
 				</div>
-				<h3 class="text-xl font-bold text-gray-900 mb-3 text-center">
+				<h3 class="text-xl font-bold mb-3 text-center text-gray-900">
 					{t.howItWorks.steps.output.title}
 				</h3>
-				<p class="text-gray-600 text-center">
+				<p class="text-gray-600 text-center flex-grow">
 					{t.howItWorks.steps.output.description}
 				</p>
 				<div class="mt-6 flex justify-center">
@@ -98,9 +98,6 @@ const t = getTranslations(locale);
 			<a href="#contact" class="btn-primary inline-block" data-track-cta="how-it-works-cta">
 				{t.howItWorks.cta}
 			</a>
-			<p class="mt-6 text-gray-600 font-semibold">
-				{t.howItWorks.tagline}
-			</p>
 		</div>
 	</div>
 </section>

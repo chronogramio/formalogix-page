@@ -155,3 +155,31 @@ h1, h2, h3, h4, h5, h6 {
   padding: 1rem;
   border-radius: 0.5rem;
 }
+
+/* Gradient text effect */
+.text-gradient-blue-green {
+  background: linear-gradient(to right, var(--color-formalogix-600), var(--color-formalogix-green-500));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Gentle pulse for badges */
+@keyframes gentlePulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.95; transform: scale(1.02); }
+}
+
+.animate-gentle-pulse {
+  animation: gentlePulse 3s ease-in-out infinite;
+}
+
+/* Section badges */
+.section-badge {
+  display: inline-block;
+  padding: 0.25rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}

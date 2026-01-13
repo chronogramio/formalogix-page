@@ -45,8 +45,11 @@ export default function DynamicPricingSection({ initialLocale, initialRegion }: 
   }
 
   return (
-    <section id="pricing" className="py-20 bg-gray-50">
+    <section id="pricing" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-4">
+          <span className="section-badge bg-blue-100 text-blue-800">Transparent & Fair</span>
+        </div>
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-900">
           {t.pricing.title}
         </h2>
@@ -55,26 +58,26 @@ export default function DynamicPricingSection({ initialLocale, initialRegion }: 
         </p>
 
         {/* Modular Pricing Breakdown */}
-        <div className="bg-white rounded-xl shadow-lg p-8 max-w-4xl mx-auto mb-12">
+        <div className="bg-white rounded-xl shadow-lg p-12 max-w-4xl mx-auto mb-12">
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="border-l-4 border-formalogix-500 pl-4">
+            <div className="bg-white border-l-4 border-formalogix-500 pl-4 pr-4 py-4 rounded-lg">
               <div className="flex justify-between items-center mb-2">
                 <span className="font-semibold text-gray-900">
                   {t.pricing.services.analysis.name}
                 </span>
-                <span className="text-lg font-bold text-formalogix-600">
+                <span className="text-2xl font-bold text-formalogix-600">
                   {formatPrice(pricing.analysis)} / {t.pricing.services.analysis.unit}
                 </span>
               </div>
               <p className="text-sm text-gray-600">{t.pricing.services.analysis.description}</p>
             </div>
 
-            <div className="border-l-4 border-formalogix-500 pl-4">
+            <div className="bg-white border-l-4 border-formalogix-500 pl-4 pr-4 py-4 rounded-lg">
               <div className="flex justify-between items-center mb-2">
                 <span className="font-semibold text-gray-900">
                   {t.pricing.services.verification.name}
                 </span>
-                <span className="text-lg font-bold text-formalogix-600">
+                <span className="text-2xl font-bold text-formalogix-600">
                   {t.pricing.services.verification.prefix} {formatPrice(pricing.verification)} /{' '}
                   {t.pricing.services.verification.unit}
                 </span>
@@ -84,24 +87,24 @@ export default function DynamicPricingSection({ initialLocale, initialRegion }: 
               </p>
             </div>
 
-            <div className="border-l-4 border-formalogix-500 pl-4">
+            <div className="bg-white border-l-4 border-formalogix-500 pl-4 pr-4 py-4 rounded-lg">
               <div className="flex justify-between items-center mb-2">
                 <span className="font-semibold text-gray-900">
                   {t.pricing.services.scanning.name}
                 </span>
-                <span className="text-lg font-bold text-formalogix-600">
+                <span className="text-2xl font-bold text-formalogix-600">
                   {formatPrice(pricing.scanning)} / {t.pricing.services.scanning.unit}
                 </span>
               </div>
               <p className="text-sm text-gray-600">{t.pricing.services.scanning.description}</p>
             </div>
 
-            <div className="border-l-4 border-formalogix-500 pl-4">
+            <div className="bg-white border-l-4 border-formalogix-500 pl-4 pr-4 py-4 rounded-lg">
               <div className="flex justify-between items-center mb-2">
                 <span className="font-semibold text-gray-900">
                   {t.pricing.services.extras.name}
                 </span>
-                <span className="text-lg font-bold text-formalogix-600">
+                <span className="text-2xl font-bold text-formalogix-600">
                   {t.pricing.services.extras.price}
                 </span>
               </div>
@@ -109,7 +112,7 @@ export default function DynamicPricingSection({ initialLocale, initialRegion }: 
             </div>
           </div>
 
-          <div className="mt-8 bg-blue-50 p-6 rounded-lg">
+          <div className="mt-8 bg-blue-50 p-6 rounded-lg border-2 border-blue-200">
             <h4 className="font-semibold text-blue-900 mb-2">
               💰 {t.pricing.volumeDiscount.title}
             </h4>

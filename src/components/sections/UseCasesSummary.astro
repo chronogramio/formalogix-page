@@ -13,7 +13,7 @@ function getLink(path: string) {
 ---
 
 <!-- Use Cases Summary Section -->
-<section id="usecases" class="py-20 bg-white">
+<section id="usecases" class="py-24 bg-gradient-to-br from-gray-50 to-white">
 	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 		<h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-900">{t.useCases.title}</h2>
 		<p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
@@ -24,7 +24,7 @@ function getLink(path: string) {
 			<!-- Use Case 1: Building Insurance -->
 			<a
 				href={getLink('/use-cases/gebaudeversicherung')}
-				class="group bg-white rounded-xl shadow-lg p-6 border-2 border-gray-100 hover:border-formalogix-500 hover:shadow-xl transition-all duration-300"
+				class="group bg-white rounded-xl shadow-lg p-8 border-2 border-gray-100 border-t-4 border-t-blue-500 hover:border-formalogix-500 hover:shadow-xl transition-all duration-300"
 				onclick="if(window.umami) window.umami.track('use-case-card-clicked', {industry: 'building-insurance', href: this.href});"
 			>
 				<div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
@@ -32,8 +32,8 @@ function getLink(path: string) {
 						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
 					</svg>
 				</div>
-				<h3 class="text-xl font-bold mb-2 text-gray-900">{t.useCases.buildingInsurance.title}</h3>
-				<p class="text-sm text-blue-600 font-semibold mb-3">{t.useCases.buildingInsurance.volume}</p>
+				<h3 class="text-2xl font-bold mb-2 text-gray-900">{t.useCases.buildingInsurance.title}</h3>
+				<p class="text-sm bg-gradient-to-r from-blue-500 to-blue-600 text-white px-3 py-1 rounded-full font-semibold mb-3 inline-block">{t.useCases.buildingInsurance.volume}</p>
 				<p class="text-sm text-gray-600 mb-4">
 					{t.useCases.buildingInsurance.description}
 				</p>
@@ -49,7 +49,7 @@ function getLink(path: string) {
 			<!-- Use Case 2: GDPR Event -->
 			<a
 				href={getLink('/use-cases/dsgvo-eventanmeldung')}
-				class="group bg-white rounded-xl shadow-lg p-6 border-2 border-gray-100 hover:border-formalogix-500 hover:shadow-xl transition-all duration-300"
+				class="group bg-white rounded-xl shadow-lg p-8 border-2 border-gray-100 border-t-4 border-t-purple-500 hover:border-formalogix-500 hover:shadow-xl transition-all duration-300"
 				onclick="if(window.umami) window.umami.track('use-case-card-clicked', {industry: 'gdpr-event', href: this.href});"
 			>
 				<div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
@@ -57,8 +57,8 @@ function getLink(path: string) {
 						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
 					</svg>
 				</div>
-				<h3 class="text-xl font-bold mb-2 text-gray-900">{t.useCases.gdprEvent.title}</h3>
-				<p class="text-sm text-purple-600 font-semibold mb-3">{t.useCases.gdprEvent.volume}</p>
+				<h3 class="text-2xl font-bold mb-2 text-gray-900">{t.useCases.gdprEvent.title}</h3>
+				<p class="text-sm bg-gradient-to-r from-purple-500 to-purple-600 text-white px-3 py-1 rounded-full font-semibold mb-3 inline-block">{t.useCases.gdprEvent.volume}</p>
 				<p class="text-sm text-gray-600 mb-4">
 					{t.useCases.gdprEvent.description}
 				</p>
@@ -74,7 +74,7 @@ function getLink(path: string) {
 			<!-- Use Case 3: Trade Fair Raffle -->
 			<a
 				href={getLink('/use-cases/messegewinnspiel')}
-				class="group bg-white rounded-xl shadow-lg p-6 border-2 border-gray-100 hover:border-formalogix-500 hover:shadow-xl transition-all duration-300"
+				class="group bg-white rounded-xl shadow-lg p-8 border-2 border-gray-100 border-t-4 border-t-orange-500 hover:border-formalogix-500 hover:shadow-xl transition-all duration-300"
 				onclick="if(window.umami) window.umami.track('use-case-card-clicked', {industry: 'trade-fair-raffle', href: this.href});"
 			>
 				<div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
@@ -82,8 +82,8 @@ function getLink(path: string) {
 						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7" />
 					</svg>
 				</div>
-				<h3 class="text-xl font-bold mb-2 text-gray-900">{t.useCases.tradeFairRaffle.title}</h3>
-				<p class="text-sm text-orange-600 font-semibold mb-3">{t.useCases.tradeFairRaffle.volume}</p>
+				<h3 class="text-2xl font-bold mb-2 text-gray-900">{t.useCases.tradeFairRaffle.title}</h3>
+				<p class="text-sm bg-gradient-to-r from-orange-500 to-orange-600 text-white px-3 py-1 rounded-full font-semibold mb-3 inline-block">{t.useCases.tradeFairRaffle.volume}</p>
 				<p class="text-sm text-gray-600 mb-4">
 					{t.useCases.tradeFairRaffle.description}
 				</p>

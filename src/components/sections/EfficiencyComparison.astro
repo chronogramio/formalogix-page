@@ -6,7 +6,7 @@ const t = getTranslations(locale);
 ---
 
 <!-- Efficiency Comparison Section -->
-<section class="py-20 bg-white">
+<section class="py-20 bg-gradient-to-br from-gray-50 via-white to-blue-50">
 	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 		<h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-900">
 			{t.efficiencyComparison.title}
@@ -15,9 +15,14 @@ const t = getTranslations(locale);
 			{t.efficiencyComparison.subtitle}
 		</p>
 
-		<div class="grid md:grid-cols-2 gap-8 mb-8">
+		<div class="grid md:grid-cols-2 gap-12 mb-8 relative">
+			<!-- VS Badge -->
+			<div class="hidden md:flex absolute left-1/2 top-1/3 -translate-x-1/2 -translate-y-1/2 z-20 bg-gradient-to-br from-white to-gray-50 rounded-full w-20 h-20 items-center justify-center shadow-2xl border-4 border-gray-300 font-bold text-gray-800 text-lg">
+				VS
+			</div>
+
 			<!-- Manual Processing -->
-			<div class="bg-slate-50 border-2 border-slate-200 rounded-xl p-8">
+			<div class="bg-slate-100 border-4 border-slate-400 rounded-xl p-8 shadow-inner">
 				<div class="flex items-center mb-6">
 					<svg class="w-8 h-8 text-slate-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -59,7 +64,7 @@ const t = getTranslations(locale);
 			</div>
 
 			<!-- Formalogix Automated (Solution) -->
-			<div class="bg-blue-50 border-2 border-blue-200 rounded-xl p-8">
+			<div class="bg-gradient-to-br from-blue-50 to-formalogix-100 border-4 border-formalogix-500 rounded-xl p-8 shadow-lg shadow-formalogix-200/50">
 				<div class="flex items-center mb-6">
 					<svg class="w-8 h-8 text-blue-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -104,10 +109,10 @@ const t = getTranslations(locale);
 
 		<div class="text-center">
 			<a
-				href="#contact"
+				href="#services"
 				class="btn-primary inline-block"
 				data-track-cta="efficiency-comparison"
-				onclick="if(window.umami) window.umami.track('cta-efficiency-comparison-clicked', {destination: 'contact'});"
+				onclick="if(window.umami) window.umami.track('cta-efficiency-comparison-clicked', {destination: 'services'});"
 			>
 				{t.efficiencyComparison.cta}
 			</a>

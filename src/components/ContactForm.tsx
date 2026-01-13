@@ -129,7 +129,8 @@ export default function ContactForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="max-w-2xl mx-auto space-y-6">
+    <div className="max-w-3xl mx-auto bg-white rounded-2xl shadow-2xl p-8 md:p-12 border-t-4 border-formalogix-500">
+      <form onSubmit={handleSubmit} className="space-y-6">
 
       <div className="grid md:grid-cols-2 gap-6">
         <div>
@@ -314,5 +315,6 @@ export default function ContactForm() {
         )}
       </div>
     </form>
+    </div>
   );
 }

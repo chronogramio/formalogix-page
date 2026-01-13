@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { ContactFormTracking } from '../utils/analytics';
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -15,10 +16,31 @@ export default function ContactForm() {
   const [file, setFile] = useState<File | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [formStarted, setFormStarted] = useState(false);
+
+  // Track form start on first interaction
+  const handleFormStart = () => {
+    if (!formStarted) {
+      ContactFormTracking.started({
+        industry: formData.industry || undefined,
+        formCount: formData.formCount,
+      });
+      setFormStarted(true);
+    }
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+
+    // Track form submission attempt
+    const trackingData = {
+      industry: formData.industry,
+      formCount: formData.formCount,
+      hasFile: !!file,
+      timeline: formData.timeline,
+    };
+    ContactFormTracking.submitted(trackingData);
 
     try {
       // Create FormData for API submission
@@ -46,6 +68,9 @@ export default function ContactForm() {
       const result = await response.json();
 
       if (response.ok && result.success) {
+        // Track successful submission
+        ContactFormTracking.success(trackingData);
+
         setIsSubmitting(false);
         setSubmitStatus('success');
 
@@ -64,12 +89,21 @@ export default function ContactForm() {
           });
           setFile(null);
           setSubmitStatus('idle');
+          setFormStarted(false);
         }, 5000);
       } else {
         throw new Error(result.error || 'Form submission failed');
       }
     } catch (error) {
       console.error('Form submission error:', error);
+
+      // Track error
+      ContactFormTracking.error({
+        industry: formData.industry || undefined,
+        formCount: formData.formCount,
+        errorMessage: error instanceof Error ? error.message : 'Unknown error',
+      });
+
       setIsSubmitting(false);
       setSubmitStatus('error');
 
@@ -82,7 +116,15 @@ export default function ContactForm() {
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
-      setFile(e.target.files[0]);
+      const selectedFile = e.target.files[0];
+      setFile(selectedFile);
+
+      // Track file upload
+      ContactFormTracking.fileUploaded({
+        fileName: selectedFile.name,
+        fileSize: selectedFile.size,
+        fileType: selectedFile.type,
+      });
     }
   };
 
@@ -99,6 +141,7 @@ export default function ContactForm() {
             id="company"
             value={formData.company}
             onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+            onFocus={handleFormStart}
             className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-formalogix-500 focus:border-transparent outline-none"
           />
         </div>

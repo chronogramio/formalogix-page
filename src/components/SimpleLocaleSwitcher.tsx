@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
+import { LocaleTracking } from '../utils/analytics';
 
 interface SimpleLocaleSwitcherProps {
   initialLocale: 'de' | 'en';
@@ -37,6 +38,14 @@ export default function SimpleLocaleSwitcher({ initialLocale, initialCurrency }:
   }, []);
 
   const handleLanguageChange = (newLocale: 'de' | 'en') => {
+    // Track language switch
+    if (newLocale !== locale) {
+      LocaleTracking.languageSwitched({
+        from: locale,
+        to: newLocale,
+      });
+    }
+
     const currentPath = window.location.pathname;
     let newPath = currentPath;
 
@@ -58,6 +67,14 @@ export default function SimpleLocaleSwitcher({ initialLocale, initialCurrency }:
   };
 
   const handleCurrencyChange = (newCurrency: 'EUR' | 'CHF') => {
+    // Track currency switch
+    if (newCurrency !== currency) {
+      LocaleTracking.currencySwitched({
+        from: currency,
+        to: newCurrency,
+      });
+    }
+
     const newRegion = newCurrency === 'CHF' ? 'CH' : 'EU';
     localStorage.setItem('formalogix-region', newRegion);
     setCurrency(newCurrency);

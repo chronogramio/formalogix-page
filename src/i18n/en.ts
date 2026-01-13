@@ -74,6 +74,7 @@ export default {
       total: 'Total Cost',
     },
     disclaimer: '* Prices are estimates. Extra services such as data processing or conversion to special formats available on request.',
+    requestOfferButton: 'Request Offer',
   },
 
   footer: {
@@ -179,39 +180,194 @@ export default {
 
   useCases: {
     title: 'Success Stories from Practice',
-    subtitle: 'Measurable results in insurance, education, healthcare, and wholesale.',
-    insurance: {
-      title: 'Insurance',
-      volume: '50,000 forms / month',
-      description: 'Application forms processed in 24-48h instead of 6 weeks. €140,000 annual savings.',
-      timeBefore: '6 weeks',
-      timeAfter: '48 hours',
-      improvement: '85% time savings',
+    subtitle: 'Real projects. Real results. Real challenges solved.',
+
+    // Use Case 1: Building Insurance
+    buildingInsurance: {
+      // Homepage card content
+      title: 'Property Insurance',
+      volume: '103,000 forms',
+      tagline: '16M data points from handwritten forms',
+      description: '156 fields per form, varying handwriting since 1996, complex signature verification.',
+
+      // Detail page sections
+      hero: {
+        title: 'Property Insurance: 16M Data Points in 2 Weeks',
+        subtitle: 'From unstructured PDFs to fully analyzable databases',
+      },
+      problem: {
+        title: 'The Challenge',
+        intro: '103,000 historical insurance forms with 156 fields per document needed to be digitized.',
+        challenges: [
+          'Varying handwriting styles from 1996 to present',
+          'Multiple fields distributed across different areas',
+          'Signature verification required',
+          'Checkboxes and handwritten notes combined',
+          'Traditional OCR completely failed with handwriting'
+        ],
+      },
+      situation: {
+        title: 'Initial Condition',
+        description: 'The forms existed as scanned PDFs. Previous attempts with traditional OCR software failed on checkboxes and illegible handwriting. Manual data entry by 3 people over 3 months for 1,000 forms was economically unfeasible.',
+      },
+      solution: {
+        title: 'The Solution',
+        description: 'Formalogix developed a tailored hybrid approach:',
+        steps: [
+          'Automated AI analysis of all 156 fields',
+          'Human-in-the-Loop verification for critical fields',
+          'Unified data structure for all 103,000 forms',
+          'Signature verification by trained auditors',
+          'Structured output in desired database format'
+        ],
+      },
+      results: {
+        title: 'Results',
+        metrics: {
+          forms: '103,000 forms',
+          fields: '16M fields',
+          timeframe: '2 weeks',
+          accuracy: '99.7% accuracy',
+        },
+        outcomes: [
+          'All 103,000 forms processed in just 2 weeks',
+          '16 million individual fields evaluated',
+          'In comparison: 3 people would have needed 3 months for 1,000 forms',
+          'Fully structured data, immediately analyzable',
+          'Massive cost savings compared to manual entry',
+          '99.7% accuracy through Human-in-the-Loop'
+        ],
+      },
+      quote: {
+        text: 'The combination of AI and human verification enabled us to implement a project that would have been impossible with traditional methods. The data quality exceeds our expectations.',
+        author: 'Project Manager Digitalization, Insurance Company'
+      },
     },
-    education: {
-      title: 'Education',
-      volume: '100,000+ exam sheets annually',
-      description: 'Exam results in 24h instead of 2 weeks. Students receive results the next day.',
-      timeBefore: '2 weeks',
-      timeAfter: '24 hours',
-      improvement: '93% faster',
+
+    // Use Case 2: GDPR Event Registration
+    gdprEvent: {
+      // Homepage card content
+      title: 'GDPR Event Registration',
+      volume: '3,000 forms',
+      tagline: 'GDPR-compliant processing during ongoing registration',
+      description: '3 months of dynamic form intake, automatic batch assignment, direct database integration.',
+
+      // Detail page sections
+      hero: {
+        title: 'GDPR Forms for Event Registration',
+        subtitle: '3,000 forms seamlessly processed during registration period',
+      },
+      problem: {
+        title: 'The Challenge',
+        intro: 'An annual major event required GDPR-compliant consent forms from all participants.',
+        challenges: [
+          'Registration period over 3 months with continuous form intake',
+          'Forms contain batch assignments for photo/film/press releases',
+          'Entire team had to manually review forms under time pressure',
+          'Data had to be GDPR-compliant and error-free in existing database',
+          'Increasing form numbers exponentially increased administrative overhead'
+        ],
+      },
+      situation: {
+        title: 'Initial Condition',
+        description: 'Forms were transmitted via API from the organizer. The dynamically arriving forms massively increased administrative overhead. Data had to be integrated into the existing event database in a GDPR-compliant and error-free manner.',
+      },
+      solution: {
+        title: 'The Solution',
+        description: 'Formalogix implemented a fully automated workflow:',
+        steps: [
+          'Automated analysis of all incoming forms',
+          'Human-in-the-Loop only for critical fields',
+          'Direct database integration via API',
+          'Automatic batch assignment based on releases',
+          'Fast processing even with increasing form numbers'
+        ],
+      },
+      results: {
+        title: 'Results',
+        metrics: {
+          forms: '3,000 forms',
+          timeframe: '3 months',
+          processing: 'Seamlessly integrated',
+          compliance: '100% GDPR compliant',
+        },
+        outcomes: [
+          'All 3,000 forms seamlessly processed during registration period',
+          'Fully structured data for event logistics',
+          'Automatic batch assignment worked flawlessly',
+          'High data quality and GDPR compliance guaranteed',
+          'Team resources freed for other tasks',
+          'Stress-free handling despite time pressure'
+        ],
+      },
+      quote: {
+        text: 'The seamless integration during the ongoing registration period relieved us enormously. We could focus on event planning while Formalogix processed the forms in the background.',
+        author: 'Event Manager, Major Event'
+      },
     },
-    healthcare: {
-      title: 'Healthcare',
-      volume: '20,000 forms / quarter',
-      description: 'GDPR-compliant processing in 3 days instead of 3 weeks. On-premise solution for sensitive data.',
-      timeBefore: '3 weeks',
-      timeAfter: '3 days',
-      improvement: '90% faster',
+
+    // Use Case 3: Trade Fair Raffle
+    tradeFairRaffle: {
+      // Homepage card content
+      title: 'Trade Fair Raffle',
+      volume: '10,000 forms',
+      tagline: 'From paper form to marketing database in 3 days',
+      description: 'Capturing address, contact data, raffle answers, and consents.',
+
+      // Detail page sections
+      hero: {
+        title: 'Marketing Raffle at Trade Fair',
+        subtitle: '10,000 forms efficiently processed – over 830 hours saved',
+      },
+      problem: {
+        title: 'The Challenge',
+        intro: 'A company conducted a raffle at a major trade fair where visitors had to fill out a form.',
+        challenges: [
+          '10,000 paper forms with multiple required fields',
+          'Required information: address, phone, email, signature, raffle answer, terms acceptance',
+          'Manual data entry would take ~5 minutes per form',
+          'Data should be quickly available for marketing campaigns',
+          'High quality requirements for email addresses and signatures'
+        ],
+      },
+      situation: {
+        title: 'Initial Condition',
+        description: 'Paper forms had to be integrated into the existing database. Manual entry of 10,000 forms at 5 minutes each would have taken over 830 hours or 104 working days (more than 5 months full-time).',
+      },
+      solution: {
+        title: 'The Solution',
+        description: 'Formalogix handled the entire process:',
+        steps: [
+          'Scanning all 10,000 paper forms',
+          'Automated data extraction via AI',
+          'Human-in-the-Loop for critical fields (signatures, emails)',
+          'Validation of all email addresses and phone numbers',
+          'Direct integration into marketing database'
+        ],
+      },
+      results: {
+        title: 'Results',
+        metrics: {
+          forms: '10,000 forms',
+          timeframe: '3 working days',
+          timeSaved: '830+ hours',
+          equivalentTime: '104 working days',
+        },
+        outcomes: [
+          '10,000 forms processed efficiently and error-free',
+          'Completed in just 3 working days',
+          'Saved over 830 hours (104 working days = 5+ months full-time)',
+          'Fully structured datasets ready for marketing',
+          'Maximum data quality for subsequent campaigns',
+          'Quick campaign start one week after the fair'
+        ],
+      },
+      quote: {
+        text: 'Without Formalogix, we would have needed months to capture the raffle data. Instead, we were able to start the marketing campaign one week after the trade fair.',
+        author: 'Marketing Manager, B2B Company'
+      },
     },
-    wholesale: {
-      title: 'Wholesale',
-      volume: '5,000 forms / week',
-      description: 'Order forms processed in 1.5 days instead of 5 days. Direct ERP integration.',
-      timeBefore: '5 days',
-      timeAfter: '1.5 days',
-      improvement: '70% faster',
-    },
+
     ctaQuestion: 'Would you like to achieve similar results in your company?',
     cta: 'Get Consultation Now',
   },
@@ -427,5 +583,98 @@ export default {
       terms: 'Terms & Conditions',
       copyright: 'All rights reserved.',
     },
+  },
+
+  offerRequest: {
+    modalTitle: 'Request Offer',
+    modalSubtitle: 'Fill out the form and we\'ll create a custom quote for you.',
+
+    calculatorSummary: {
+      title: 'Your Calculation',
+      pages: 'Pages',
+      services: 'Services',
+      estimatedCost: 'Estimated Cost',
+    },
+
+    form: {
+      documentDetails: 'Document Details',
+      pageSize: {
+        label: 'Page Size',
+        placeholder: 'Select size',
+        options: {
+          a5: 'A5',
+          a4: 'A4',
+          a3: 'A3',
+          other: 'Other',
+        },
+        otherPlaceholder: 'Please specify size',
+      },
+      documentCondition: {
+        label: 'Document Condition',
+        placeholder: 'Select condition',
+        options: {
+          pristine: 'Pristine/Undamaged',
+          good: 'Good Condition',
+          worn: 'Worn',
+          crumpled: 'Crumpled',
+          waterDamaged: 'Water Damaged',
+          bound: 'Bound (Binder)',
+          stapled: 'Stapled',
+          loose: 'Loose Sheets',
+        },
+      },
+
+      businessContext: 'Business Context',
+      industry: {
+        label: 'Industry',
+        placeholder: 'Select industry',
+        options: {
+          insurance: 'Insurance',
+          education: 'Education',
+          healthcare: 'Healthcare',
+          wholesale: 'Wholesale',
+          publicAdmin: 'Public Administration',
+          other: 'Other',
+        },
+      },
+      urgency: {
+        label: 'Urgency',
+        placeholder: 'Select urgency',
+        options: {
+          within24h: 'Within 24 Hours',
+          within1week: 'Within 1 Week',
+          within1month: 'Within 1 Month',
+          flexible: 'Flexible',
+          specificDate: 'Specific Date',
+        },
+        datePlaceholder: 'Select date',
+      },
+
+      contactInfo: 'Contact Information',
+      company: 'Company',
+      companyPlaceholder: 'Your Company',
+      name: 'Name',
+      namePlaceholder: 'Your Name',
+      email: 'Email',
+      emailPlaceholder: 'your.email@example.com',
+      phone: 'Phone (optional)',
+      phonePlaceholder: '+1 234 567 8900',
+      message: 'Additional Notes (optional)',
+      messagePlaceholder: 'Describe special requirements...',
+
+      fileUpload: 'Upload Sample Form (optional)',
+
+      submitButton: 'Request Offer',
+      submitting: 'Sending...',
+      successMessage: 'Thank you! We\'ll get back to you within 24 hours.',
+      errorMessage: 'Error sending. Please try again.',
+    },
+
+    close: 'Close',
+  },
+
+  contactModal: {
+    modalTitle: 'Contact Us',
+    close: 'Close',
   },
 } as const;

@@ -162,13 +162,6 @@ export default function MobileMenu({ initialLocale }: MobileMenuProps) {
               {t.nav.pricing}
             </a>
             <a
-              href={`${getLink('/')}#contact`}
-              className="text-gray-700 hover:text-formalogix-500 transition-colors py-2"
-              onClick={() => setIsOpen(false)}
-            >
-              {t.nav.contact}
-            </a>
-            <a
               href="https://app.formalogix.com"
               className="text-gray-700 hover:text-formalogix-500 transition-colors py-2"
               onClick={() => setIsOpen(false)}

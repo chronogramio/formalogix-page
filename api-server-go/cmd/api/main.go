@@ -31,6 +31,7 @@ func main() {
 	// Initialize handlers
 	healthHandler := handlers.NewHealthHandler()
 	contactHandler := handlers.NewContactHandler(cfg, emailService)
+	offerRequestHandler := handlers.NewOfferRequestHandler(cfg, emailService)
 
 	// Setup router
 	r := chi.NewRouter()
@@ -46,6 +47,7 @@ func main() {
 	// Routes
 	r.Get("/health", healthHandler.Handle)
 	r.Post("/api/contact", contactHandler.Handle)
+	r.Post("/api/offer-request", offerRequestHandler.Handle)
 
 	// Create server
 	srv := &http.Server{

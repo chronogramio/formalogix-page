@@ -13,6 +13,32 @@ type ContactRequest struct {
 	Message         string
 }
 
+// OfferRequest represents an offer request from the pricing calculator
+type OfferRequest struct {
+	// Calculator data
+	Pages     string
+	Services  string // JSON array: ["analysis", "verification", "scanning"]
+	TotalCost string
+	Currency  string
+
+	// Document details
+	PageSize          string
+	PageSizeOther     string
+	DocumentCondition string
+
+	// Business context
+	Industry    string
+	Urgency     string
+	UrgencyDate string
+
+	// Contact info
+	Company string
+	Name    string
+	Email   string
+	Phone   string
+	Message string
+}
+
 // SuccessResponse represents a successful API response
 type SuccessResponse struct {
 	Success bool   `json:"success"`

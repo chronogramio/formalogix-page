@@ -112,7 +112,12 @@ const t = getTranslations(locale);
 		</div>
 
 		<div class="text-center">
-			<a href="#pricing" class="btn-primary inline-block">
+			<a
+				href="#contact"
+				class="btn-primary inline-block"
+				data-track-cta="efficiency-comparison"
+				onclick="if(window.umami) window.umami.track('cta-efficiency-comparison-clicked', {destination: 'contact'});"
+			>
 				{t.efficiencyComparison.cta}
 			</a>
 		</div>

@@ -67,11 +67,21 @@ function getLink(path: string) {
 				</div>
 
 				<div class="flex flex-col sm:flex-row gap-4">
-					<a href={`${getLink('/')}#pricing`} class="btn-primary text-center inline-block group" data-track-cta="primary-hero">
+					<a
+						href={`${getLink('/')}#contact`}
+						class="btn-primary text-center inline-block group"
+						data-track-cta="primary-hero"
+						onclick="if(window.umami) window.umami.track('cta-hero-primary-clicked', {destination: 'contact'});"
+					>
 						<span class="block">{t.hero.cta.primary}</span>
 						<span class="block text-sm opacity-90 mt-1">{t.hero.cta.primarySub}</span>
 					</a>
-					<a href={`${getLink('/')}#usecases`} class="btn-secondary text-center inline-block group" data-track-cta="secondary-hero">
+					<a
+						href={`${getLink('/')}#pricing`}
+						class="btn-secondary text-center inline-block group"
+						data-track-cta="secondary-hero"
+						onclick="if(window.umami) window.umami.track('cta-hero-secondary-clicked', {destination: 'pricing'});"
+					>
 						<span class="block">{t.hero.cta.secondary}</span>
 						<span class="block text-sm opacity-90 mt-1">{t.hero.cta.secondarySub}</span>
 					</a>

@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
 import { getPricingByRegion, formatCurrency, getRegionFromLocale } from '../config/pricing';
 import { getTranslations } from '../i18n';
+import { PricingCalculatorTracking } from '../utils/analytics';
 import type { Region, Currency } from '../config/pricing';
 import type { Locale } from '../i18n';
+import OfferRequestModal from './OfferRequestModal';
 
 interface SimplePricingCalculatorProps {
   initialLocale: Locale;
@@ -16,6 +18,7 @@ export default function SimplePricingCalculator({ initialLocale, initialRegion }
   const [needsScanning, setNeedsScanning] = useState(false);
   const [region, setRegion] = useState<Region>(initialRegion);
   const [locale, setLocale] = useState<Locale>(initialLocale);
+  const [isOfferModalOpen, setIsOfferModalOpen] = useState(false);
 
   // Sync with localStorage
   useEffect(() => {
@@ -50,6 +53,25 @@ export default function SimplePricingCalculator({ initialLocale, initialRegion }
   const totalCost = analysisCost + verificationCost + scanningCost;
 
   const formatPrice = (amount: number) => formatCurrency(amount, pricing.currency, t.locale);
+
+  // Track calculator usage with debounce
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      // Only track if at least one service is selected
+      if (needsAnalysis || needsVerification || needsScanning) {
+        PricingCalculatorTracking.used({
+          pages,
+          analysisEnabled: needsAnalysis,
+          verificationEnabled: needsVerification,
+          scanningEnabled: needsScanning,
+          totalCost,
+          currency: pricing.currency,
+        });
+      }
+    }, 1000); // Debounce for 1 second
+
+    return () => clearTimeout(timeoutId);
+  }, [pages, needsAnalysis, needsVerification, needsScanning, totalCost, pricing.currency]);
 
   return (
     <div className="max-w-2xl mx-auto bg-white rounded-xl shadow-lg p-8">
@@ -149,8 +171,30 @@ export default function SimplePricingCalculator({ initialLocale, initialRegion }
           <p className="text-xs text-gray-500 mt-4">
             {t.calculator.disclaimer}
           </p>
+
+          <button
+            onClick={() => setIsOfferModalOpen(true)}
+            className="w-full mt-6 bg-formalogix-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-formalogix-600 transition-colors"
+          >
+            {t.calculator.requestOfferButton}
+          </button>
         </div>
       </div>
+
+      <OfferRequestModal
+        isOpen={isOfferModalOpen}
+        onClose={() => setIsOfferModalOpen(false)}
+        calculatorData={{
+          pages,
+          needsAnalysis,
+          needsVerification,
+          needsScanning,
+          totalCost,
+          region,
+          currency: pricing.currency,
+        }}
+        locale={locale}
+      />
     </div>
   );
 }

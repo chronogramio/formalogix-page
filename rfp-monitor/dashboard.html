@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formalogix RFP Monitor - Dashboard</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+      background-color: #f5f7fa;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    .header {
+      background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+      color: white;
+      padding: 2rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .header h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .header p {
+      opacity: 0.9;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .stat-card {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      border-left: 4px solid #1e40af;
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #1e40af;
+    }
+
+    .stat-label {
+      color: #666;
+      text-transform: uppercase;
+      font-size: 0.875rem;
+      margin-top: 0.5rem;
+    }
+
+    .controls {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .controls select,
+    .controls input,
+    .controls button {
+      padding: 0.5rem 1rem;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+
+    .controls button {
+      background: #1e40af;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .controls button:hover {
+      background: #1e3a8a;
+    }
+
+    .tender-list {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .tender-card {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      border-left: 4px solid #6b7280;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .tender-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    .tender-card.high-priority {
+      border-left-color: #dc2626;
+    }
+
+    .tender-card.medium-priority {
+      border-left-color: #f59e0b;
+    }
+
+    .tender-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      margin-bottom: 1rem;
+    }
+
+    .tender-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #1e40af;
+      margin-bottom: 0.5rem;
+    }
+
+    .priority-badge {
+      padding: 0.25rem 0.75rem;
+      border-radius: 12px;
+      font-size: 0.75rem;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .priority-badge.high {
+      background: #dc2626;
+      color: white;
+    }
+
+    .priority-badge.medium {
+      background: #f59e0b;
+      color: white;
+    }
+
+    .priority-badge.low {
+      background: #6b7280;
+      color: white;
+    }
+
+    .tender-meta {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      font-size: 0.875rem;
+      color: #666;
+      margin-bottom: 1rem;
+    }
+
+    .tender-meta span {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .tender-description {
+      color: #444;
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+
+    .tender-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 1rem;
+      border-top: 1px solid #e5e7eb;
+    }
+
+    .cpv-codes {
+      font-size: 0.75rem;
+      color: #666;
+    }
+
+    .view-button {
+      background: #1e40af;
+      color: white;
+      padding: 0.5rem 1.5rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.875rem;
+    }
+
+    .view-button:hover {
+      background: #1e3a8a;
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 4rem 2rem;
+      background: white;
+      border-radius: 8px;
+    }
+
+    .empty-state h2 {
+      color: #666;
+      margin-bottom: 1rem;
+    }
+
+    .loading {
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .error {
+      background: #fef2f2;
+      border: 1px solid #fecaca;
+      color: #991b1b;
+      padding: 1rem;
+      border-radius: 6px;
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>🎯 Formalogix RFP Monitor</h1>
+    <p>Automatische Überwachung öffentlicher Ausschreibungen für Formulardigitalisierung</p>
+  </div>
+
+  <div class="container">
+    <!-- Statistics -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-number" id="stat-total">-</div>
+        <div class="stat-label">Gesamt Ausschreibungen</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number" id="stat-high">-</div>
+        <div class="stat-label">Hohe Priorität</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number" id="stat-medium">-</div>
+        <div class="stat-label">Mittlere Priorität</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number" id="stat-low">-</div>
+        <div class="stat-label">Niedrige Priorität</div>
+      </div>
+    </div>
+
+    <!-- Controls -->
+    <div class="controls">
+      <select id="filter-priority">
+        <option value="all">Alle Prioritäten</option>
+        <option value="high">Hohe Priorität</option>
+        <option value="medium">Mittlere Priorität</option>
+        <option value="low">Niedrige Priorität</option>
+      </select>
+
+      <select id="filter-country">
+        <option value="all">Alle Länder</option>
+        <option value="DE">Deutschland</option>
+        <option value="AT">Österreich</option>
+        <option value="CH">Schweiz</option>
+      </select>
+
+      <input type="text" id="search-input" placeholder="Suche nach Stichwort...">
+
+      <button onclick="applyFilters()">Filter anwenden</button>
+      <button onclick="loadLatestData()">Aktualisieren</button>
+    </div>
+
+    <!-- Tender List -->
+    <div id="tender-list" class="tender-list">
+      <div class="loading">
+        <p>Lade Daten...</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let allTenders = [];
+    let filteredTenders = [];
+
+    // Enhanced scoring for form digitization
+    function enhanceScoring(tenders) {
+      const highPriorityKeywords = [
+        'formular', 'formulare', 'digitalisierung', 'digitization',
+        'ocr', 'handschrift', 'handwriting', 'scanning', 'scan',
+        'erfassung', 'capture', 'texterkennung', 'recognition'
+      ];
+
+      const mediumPriorityKeywords = [
+        'dokument', 'document', 'verarbeitung', 'processing',
+        'papier', 'paper', 'daten', 'data', 'eingabe', 'input',
+        'archiv', 'archive'
+      ];
+
+      return tenders.map(tender => {
+        let score = tender.priorityScore || 0;
+        const text = `${tender.title} ${tender.description}`.toLowerCase();
+
+        // High priority keywords (+15 each)
+        highPriorityKeywords.forEach(keyword => {
+          if (text.includes(keyword.toLowerCase())) {
+            score += 15;
+          }
+        });
+
+        // Medium priority keywords (+8 each)
+        mediumPriorityKeywords.forEach(keyword => {
+          if (text.includes(keyword.toLowerCase())) {
+            score += 8;
+          }
+        });
+
+        return {
+          ...tender,
+          priorityScore: score
+        };
+      }).sort((a, b) => b.priorityScore - a.priorityScore);
+    }
+
+    // Load latest data on page load
+    window.addEventListener('DOMContentLoaded', loadLatestData);
+
+    async function loadLatestData() {
+      try {
+        // Try full scan first (most comprehensive data - 5000 tenders)
+        const today = new Date().toISOString().split('T')[0];
+        const fullScanFile = `data/full-scan-${today}.json`;
+
+        try {
+          const response = await fetch(fullScanFile);
+          if (response.ok) {
+            const data = await response.json();
+            allTenders = data.tenders || [];
+
+            // Apply enhanced scoring for form digitization
+            allTenders = enhanceScoring(allTenders);
+
+            // Recalculate stats with enhanced scores
+            const enhancedStats = {
+              total: allTenders.length,
+              highPriority: allTenders.filter(t => t.priorityScore >= 20).length,
+              mediumPriority: allTenders.filter(t => t.priorityScore >= 10 && t.priorityScore < 20).length,
+              lowPriority: allTenders.filter(t => t.priorityScore < 10).length,
+            };
+
+            updateStats(enhancedStats);
+            filteredTenders = allTenders;
+            renderTenders(filteredTenders);
+            console.log(`✅ Loaded full scan: ${allTenders.length} tenders`);
+            console.log(`✅ Enhanced scoring: ${enhancedStats.highPriority} high priority`);
+            return;
+          }
+        } catch (e) {
+          // Try automated scan
+        }
+
+        // Try automated scan (250 tenders)
+        const automatedFile = `data/automated-scan-${today}.json`;
+
+        try {
+          const response = await fetch(automatedFile);
+          if (response.ok) {
+            const data = await response.json();
+            allTenders = data.tenders || [];
+
+            // Apply enhanced scoring
+            allTenders = enhanceScoring(allTenders);
+
+            // Recalculate stats
+            const enhancedStats = {
+              total: allTenders.length,
+              highPriority: allTenders.filter(t => t.priorityScore >= 20).length,
+              mediumPriority: allTenders.filter(t => t.priorityScore >= 10 && t.priorityScore < 20).length,
+              lowPriority: allTenders.filter(t => t.priorityScore < 10).length,
+            };
+
+            updateStats(enhancedStats);
+            filteredTenders = allTenders;
+            renderTenders(filteredTenders);
+            console.log(`✅ Loaded automated scan: ${allTenders.length} tenders`);
+            console.log(`✅ Enhanced scoring: ${enhancedStats.highPriority} high priority`);
+            return;
+          }
+        } catch (e) {
+          // Try test results
+        }
+
+        // Try to load test results
+        try {
+          const response = await fetch('data/test-results.json');
+          if (response.ok) {
+            const data = await response.json();
+            allTenders = data.tenders || [];
+            updateStats(data.stats);
+            filteredTenders = allTenders;
+            renderTenders(filteredTenders);
+            return;
+          }
+        } catch (e) {
+          // Test results not found, try date-based files
+        }
+
+        // Get list of data files
+        const files = await listDataFiles();
+        if (files.length === 0) {
+          showEmptyState('Noch keine Daten vorhanden. Führen Sie "npm test" aus.');
+          return;
+        }
+
+        // Load the most recent file
+        const latestFile = files[files.length - 1];
+        const response = await fetch(`data/${latestFile}`);
+        const data = await response.json();
+
+        allTenders = data.tenders || [];
+        updateStats(data.stats);
+        filteredTenders = allTenders;
+        renderTenders(filteredTenders);
+      } catch (error) {
+        console.error('Error loading data:', error);
+        showError('Fehler beim Laden der Daten. Führen Sie "npm test" aus.');
+      }
+    }
+
+    async function listDataFiles() {
+      // In production, you'd need a server endpoint to list files
+      // For now, try to load today's file
+      const today = new Date().toISOString().split('T')[0];
+      return [`scan-${today}.json`];
+    }
+
+    function updateStats(stats) {
+      document.getElementById('stat-total').textContent = stats.total || 0;
+      document.getElementById('stat-high').textContent = stats.highPriority || 0;
+      document.getElementById('stat-medium').textContent = stats.mediumPriority || 0;
+      document.getElementById('stat-low').textContent = stats.lowPriority || 0;
+    }
+
+    function applyFilters() {
+      const priorityFilter = document.getElementById('filter-priority').value;
+      const countryFilter = document.getElementById('filter-country').value;
+      const searchTerm = document.getElementById('search-input').value.toLowerCase();
+
+      filteredTenders = allTenders.filter(tender => {
+        // Priority filter
+        if (priorityFilter !== 'all') {
+          const priority = getPriorityLevel(tender.priorityScore);
+          if (priority !== priorityFilter) return false;
+        }
+
+        // Country filter
+        if (countryFilter !== 'all' && tender.country !== countryFilter) {
+          return false;
+        }
+
+        // Search filter
+        if (searchTerm) {
+          const searchText = `${tender.title} ${tender.description}`.toLowerCase();
+          if (!searchText.includes(searchTerm)) return false;
+        }
+
+        return true;
+      });
+
+      renderTenders(filteredTenders);
+    }
+
+    function renderTenders(tenders) {
+      const container = document.getElementById('tender-list');
+
+      if (tenders.length === 0) {
+        showEmptyState('Keine Ausschreibungen gefunden.');
+        return;
+      }
+
+      container.innerHTML = tenders.map(tender => {
+        const priority = getPriorityLevel(tender.priorityScore);
+        return `
+          <div class="tender-card ${priority}-priority">
+            <div class="tender-header">
+              <div>
+                <div class="tender-title">${tender.title || 'Unbenannt'}</div>
+                <div class="tender-meta">
+                  <span>🏢 ${tender.buyerName || 'Nicht angegeben'}</span>
+                  <span>🌍 ${tender.country || 'N/A'}</span>
+                  ${tender.deadline ? `<span>📅 ${tender.deadline}</span>` : ''}
+                  <span>⭐ Score: ${tender.priorityScore}</span>
+                </div>
+              </div>
+              <span class="priority-badge ${priority}">${getPriorityLabel(priority)}</span>
+            </div>
+
+            ${tender.description ? `
+              <div class="tender-description">
+                ${truncateText(tender.description, 300)}
+              </div>
+            ` : ''}
+
+            <div class="tender-footer">
+              <div class="cpv-codes">
+                ${tender.cpvCodes && tender.cpvCodes.length > 0
+                  ? `CPV: ${tender.cpvCodes.slice(0, 3).join(', ')}`
+                  : ''}
+              </div>
+              <a href="${tender.url}" target="_blank" class="view-button">
+                Ausschreibung ansehen →
+              </a>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function getPriorityLevel(score) {
+      if (score >= 20) return 'high';
+      if (score >= 10) return 'medium';
+      return 'low';
+    }
+
+    function getPriorityLabel(level) {
+      const labels = {
+        high: 'Hoch',
+        medium: 'Mittel',
+        low: 'Niedrig'
+      };
+      return labels[level] || level;
+    }
+
+    function truncateText(text, maxLength) {
+      if (text.length <= maxLength) return text;
+      return text.substring(0, maxLength) + '...';
+    }
+
+    function showEmptyState(message) {
+      document.getElementById('tender-list').innerHTML = `
+        <div class="empty-state">
+          <h2>📭 ${message}</h2>
+          <p>Führen Sie einen Test aus mit: <code>npm test</code></p>
+          <p style="margin-top: 10px; font-size: 14px; color: #666;">
+            Oder einen echten Scan: <code>npm start</code>
+          </p>
+        </div>
+      `;
+    }
+
+    function showError(message) {
+      document.getElementById('tender-list').innerHTML = `
+        <div class="error">
+          ❌ ${message}
+        </div>
+      `;
+    }
+  </script>
+</body>
+</html>

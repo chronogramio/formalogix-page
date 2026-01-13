@@ -74,6 +74,7 @@ export default {
       total: 'Gesamtkosten',
     },
     disclaimer: '* Preise sind Richtwerte. Extraservices wie Datenbearbeitung oder Überführung in spezielle Formate auf Anfrage.',
+    requestOfferButton: 'Angebot anfragen',
   },
 
   footer: {
@@ -179,39 +180,194 @@ export default {
 
   useCases: {
     title: 'Erfolgsgeschichten aus der Praxis',
-    subtitle: 'Messbare Ergebnisse bei Versicherungen, Bildungseinrichtungen, Gesundheitswesen und Großhandel.',
-    insurance: {
-      title: 'Versicherungen',
-      volume: '50.000 Formulare / Monat',
-      description: 'Antragsformulare in 24-48h statt 6 Wochen verarbeitet. 140.000€ jährliche Einsparung.',
-      timeBefore: '6 Wochen',
-      timeAfter: '48 Stunden',
-      improvement: '85% Zeitersparnis',
+    subtitle: 'Echte Projekte. Echte Ergebnisse. Echte Herausforderungen gelöst.',
+
+    // Use Case 1: Building Insurance
+    buildingInsurance: {
+      // Homepage card content
+      title: 'Gebäudeversicherung',
+      volume: '103.000 Formulare',
+      tagline: '16 Mio. Datensätze aus handschriftlichen Formularen',
+      description: '156 Felder pro Formular, unterschiedliche Handschriften seit 1996, komplexe Signaturprüfung.',
+
+      // Detail page sections
+      hero: {
+        title: 'Gebäudeversicherung: 16 Mio. Datensätze in 2 Wochen',
+        subtitle: 'Von unstrukturierten PDFs zu vollständig auswertbaren Datenbanken',
+      },
+      problem: {
+        title: 'Die Herausforderung',
+        intro: '103.000 historische Versicherungsformulare mit 156 Feldern pro Dokument mussten digitalisiert werden.',
+        challenges: [
+          'Unterschiedliche Handschriften von 1996 bis heute',
+          'Mehrere Felder verteilt über verschiedene Bereiche',
+          'Signaturverifizierung erforderlich',
+          'Checkboxen und handschriftliche Notizen kombiniert',
+          'Traditionelle OCR versagte komplett bei Handschrift'
+        ],
+      },
+      situation: {
+        title: 'Ausgangslage',
+        description: 'Die Formulare lagen als gescannte PDFs vor. Bisherige Versuche mit traditioneller OCR-Software scheiterten an Checkboxen und unleserlicher Handschrift. Eine manuelle Erfassung von 3 Personen über 3 Monate für 1.000 Formulare war wirtschaftlich nicht tragbar.',
+      },
+      solution: {
+        title: 'Die Lösung',
+        description: 'Formalogix entwickelte einen maßgeschneiderten Hybrid-Ansatz:',
+        steps: [
+          'Automatisierte KI-Analyse aller 156 Felder',
+          'Human-in-the-Loop-Verifizierung für kritische Felder',
+          'Einheitliche Datenstruktur für alle 103.000 Formulare',
+          'Signaturverifizierung durch geschulte Prüfer',
+          'Strukturierte Ausgabe in gewünschtes Datenbankformat'
+        ],
+      },
+      results: {
+        title: 'Ergebnisse',
+        metrics: {
+          forms: '103.000 Formulare',
+          fields: '16 Mio. Felder',
+          timeframe: '2 Wochen',
+          accuracy: '99,7% Genauigkeit',
+        },
+        outcomes: [
+          'Alle 103.000 Formulare in nur 2 Wochen verarbeitet',
+          '16 Millionen einzelne Felder ausgewertet',
+          'Im Vergleich: 3 Personen hätten 3 Monate für 1.000 Formulare benötigt',
+          'Vollständig strukturierte Daten, sofort auswertbar',
+          'Massive Kostenersparnis gegenüber manueller Erfassung',
+          '99,7% Genauigkeit durch Human-in-the-Loop'
+        ],
+      },
+      quote: {
+        text: 'Die Kombination aus KI und menschlicher Verifikation hat uns ermöglicht, ein Projekt umzusetzen, das mit traditionellen Mitteln unmöglich gewesen wäre. Die Datenqualität übertrifft unsere Erwartungen.',
+        author: 'Projektleiter Digitalisierung, Versicherungsunternehmen'
+      },
     },
-    education: {
-      title: 'Bildungswesen',
-      volume: '100.000+ Prüfungsbögen jährlich',
-      description: 'Prüfungsergebnisse in 24h statt 2 Wochen. Studenten erhalten Ergebnisse am nächsten Tag.',
-      timeBefore: '2 Wochen',
-      timeAfter: '24 Stunden',
-      improvement: '93% schneller',
+
+    // Use Case 2: GDPR Event Registration
+    gdprEvent: {
+      // Homepage card content
+      title: 'DSGVO-Eventanmeldung',
+      volume: '3.000 Formulare',
+      tagline: 'DSGVO-konforme Verarbeitung während laufender Anmeldephase',
+      description: '3 Monate dynamischer Formulareingang, automatische Batch-Zuordnung, direkte Datenbankintegration.',
+
+      // Detail page sections
+      hero: {
+        title: 'DSGVO-Formulare für Eventanmeldung',
+        subtitle: '3.000 Formulare nahtlos während der Anmeldephase verarbeitet',
+      },
+      problem: {
+        title: 'Die Herausforderung',
+        intro: 'Eine jährliche Großveranstaltung erforderte DSGVO-konforme Einwilligungsformulare von allen Teilnehmern.',
+        challenges: [
+          'Anmeldephase über 3 Monate mit kontinuierlichem Formulareingang',
+          'Formulare enthalten Batch-Zuordnungen für Foto-/Film-/Pressefreigaben',
+          'Gesamtes Team musste unter Zeitdruck Formulare manuell sichten',
+          'Daten mussten DSGVO-konform und fehlerfrei in bestehende Datenbank',
+          'Steigende Formularanzahl erhöhte administrativen Aufwand exponentiell'
+        ],
+      },
+      situation: {
+        title: 'Ausgangslage',
+        description: 'Formulare wurden via API vom Veranstalter übermittelt. Die dynamisch eintreffenden Formulare erhöhten den administrativen Overhead massiv. Daten mussten DSGVO-konform und fehlerfrei in die bestehende Eventdatenbank integriert werden.',
+      },
+      solution: {
+        title: 'Die Lösung',
+        description: 'Formalogix implementierte einen vollautomatisierten Workflow:',
+        steps: [
+          'Automatisierte Analyse aller eingehenden Formulare',
+          'Human-in-the-Loop nur für kritische Felder',
+          'Direkte Datenbankintegration via API',
+          'Automatische Batch-Zuordnung basierend auf Freigaben',
+          'Schnelle Verarbeitung auch bei steigenden Formularzahlen'
+        ],
+      },
+      results: {
+        title: 'Ergebnisse',
+        metrics: {
+          forms: '3.000 Formulare',
+          timeframe: '3 Monate',
+          processing: 'Nahtlos integriert',
+          compliance: '100% DSGVO-konform',
+        },
+        outcomes: [
+          'Alle 3.000 Formulare während Anmeldephase nahtlos verarbeitet',
+          'Vollständig strukturierte Daten für Event-Logistik',
+          'Automatische Batch-Zuordnung funktionierte fehlerfrei',
+          'Hohe Datenqualität und DSGVO-Konformität garantiert',
+          'Team-Ressourcen für andere Aufgaben freigesetzt',
+          'Stressfreie Abwicklung trotz Zeitdruck'
+        ],
+      },
+      quote: {
+        text: 'Die nahtlose Integration während der laufenden Anmeldephase hat uns enorm entlastet. Wir konnten uns auf die Eventplanung konzentrieren, während Formalogix die Formulare im Hintergrund verarbeitete.',
+        author: 'Eventmanager, Großveranstaltung'
+      },
     },
-    healthcare: {
-      title: 'Gesundheitswesen',
-      volume: '20.000 Formulare / Quartal',
-      description: 'DSGVO-konforme Verarbeitung in 3 Tagen statt 3 Wochen. On-Premise-Lösung für sensible Daten.',
-      timeBefore: '3 Wochen',
-      timeAfter: '3 Tage',
-      improvement: '90% schneller',
+
+    // Use Case 3: Trade Fair Raffle
+    tradeFairRaffle: {
+      // Homepage card content
+      title: 'Messegewinnspiel',
+      volume: '10.000 Formulare',
+      tagline: 'Von Papierformular zur Marketing-Datenbank in 3 Tagen',
+      description: 'Erfassung von Adresse, Kontaktdaten, Gewinnspiel-Antworten und Einwilligungen.',
+
+      // Detail page sections
+      hero: {
+        title: 'Marketing-Gewinnspiel auf Messe',
+        subtitle: '10.000 Formulare effizient verarbeitet – über 830 Stunden gespart',
+      },
+      problem: {
+        title: 'Die Herausforderung',
+        intro: 'Ein Unternehmen führte auf einer Großmesse ein Gewinnspiel durch, bei dem Besucher ein Formular ausfüllen mussten.',
+        challenges: [
+          '10.000 Papierformulare mit mehreren Pflichtfeldern',
+          'Erforderliche Angaben: Adresse, Telefon, E-Mail, Unterschrift, Gewinnspiel-Antwort, AGBs-Zustimmung',
+          'Manuelle Dateneingabe würde ~5 Minuten pro Formular dauern',
+          'Daten sollten schnell für Marketing-Kampagnen verfügbar sein',
+          'Hohe Qualitätsanforderungen für E-Mail-Adressen und Unterschriften'
+        ],
+      },
+      situation: {
+        title: 'Ausgangslage',
+        description: 'Papierformulare mussten in bestehende Datenbank integriert werden. Eine manuelle Erfassung von 10.000 Formularen à 5 Minuten hätte über 830 Stunden bzw. 104 Arbeitstage (mehr als 5 Monate Vollzeit) gedauert.',
+      },
+      solution: {
+        title: 'Die Lösung',
+        description: 'Formalogix übernahm den gesamten Prozess:',
+        steps: [
+          'Scannen aller 10.000 Papierformulare',
+          'Automatisierte Datenextraktion via KI',
+          'Human-in-the-Loop für kritische Felder (Unterschriften, E-Mails)',
+          'Validierung aller E-Mail-Adressen und Telefonnummern',
+          'Direkte Integration in Marketing-Datenbank'
+        ],
+      },
+      results: {
+        title: 'Ergebnisse',
+        metrics: {
+          forms: '10.000 Formulare',
+          timeframe: '3 Arbeitstage',
+          timeSaved: '830+ Stunden',
+          equivalentTime: '104 Arbeitstage',
+        },
+        outcomes: [
+          '10.000 Formulare effizient und fehlerfrei verarbeitet',
+          'Abwicklung in nur 3 Arbeitstagen',
+          'Einsparung von über 830 Stunden (104 Arbeitstage = 5+ Monate Vollzeit)',
+          'Vollständig strukturierte Datensätze für Marketing bereit',
+          'Maximale Datenqualität für nachfolgende Kampagnen',
+          'Schneller Kampagnenstart eine Woche nach der Messe'
+        ],
+      },
+      quote: {
+        text: 'Ohne Formalogix hätten wir Monate gebraucht, um die Gewinnspiel-Daten zu erfassen. Stattdessen konnten wir bereits eine Woche nach der Messe mit der Marketing-Kampagne starten.',
+        author: 'Marketing-Leiter, B2B-Unternehmen'
+      },
     },
-    wholesale: {
-      title: 'Großhandel',
-      volume: '5.000 Formulare / Woche',
-      description: 'Bestellformulare in 1,5 Tagen statt 5 Tagen verarbeitet. Direkte ERP-Integration.',
-      timeBefore: '5 Tage',
-      timeAfter: '1,5 Tage',
-      improvement: '70% schneller',
-    },
+
     ctaQuestion: 'Möchten Sie ähnliche Ergebnisse in Ihrem Unternehmen erzielen?',
     cta: 'Jetzt beraten lassen',
   },
@@ -427,5 +583,98 @@ export default {
       terms: 'AGB',
       copyright: 'Alle Rechte vorbehalten.',
     },
+  },
+
+  offerRequest: {
+    modalTitle: 'Angebot anfragen',
+    modalSubtitle: 'Füllen Sie das Formular aus und wir erstellen ein individuelles Angebot für Sie.',
+
+    calculatorSummary: {
+      title: 'Ihre Kalkulation',
+      pages: 'Seiten',
+      services: 'Services',
+      estimatedCost: 'Geschätzte Kosten',
+    },
+
+    form: {
+      documentDetails: 'Dokument-Details',
+      pageSize: {
+        label: 'Seitengröße',
+        placeholder: 'Größe auswählen',
+        options: {
+          a5: 'A5',
+          a4: 'A4',
+          a3: 'A3',
+          other: 'Andere',
+        },
+        otherPlaceholder: 'Bitte Größe angeben',
+      },
+      documentCondition: {
+        label: 'Dokumentzustand',
+        placeholder: 'Zustand auswählen',
+        options: {
+          pristine: 'Neu/Unbeschädigt',
+          good: 'Guter Zustand',
+          worn: 'Abgenutzt',
+          crumpled: 'Zerknittert',
+          waterDamaged: 'Wasserschaden',
+          bound: 'Gebunden (Ordner)',
+          stapled: 'Geheftet',
+          loose: 'Lose Blätter',
+        },
+      },
+
+      businessContext: 'Geschäftlicher Kontext',
+      industry: {
+        label: 'Branche',
+        placeholder: 'Branche auswählen',
+        options: {
+          insurance: 'Versicherung',
+          education: 'Bildung',
+          healthcare: 'Gesundheitswesen',
+          wholesale: 'Großhandel',
+          publicAdmin: 'Öffentliche Verwaltung',
+          other: 'Andere',
+        },
+      },
+      urgency: {
+        label: 'Dringlichkeit',
+        placeholder: 'Dringlichkeit auswählen',
+        options: {
+          within24h: 'Innerhalb 24 Stunden',
+          within1week: 'Innerhalb 1 Woche',
+          within1month: 'Innerhalb 1 Monat',
+          flexible: 'Flexibel',
+          specificDate: 'Bestimmtes Datum',
+        },
+        datePlaceholder: 'Datum auswählen',
+      },
+
+      contactInfo: 'Kontaktinformationen',
+      company: 'Unternehmen',
+      companyPlaceholder: 'Ihr Unternehmen',
+      name: 'Name',
+      namePlaceholder: 'Ihr Name',
+      email: 'E-Mail',
+      emailPlaceholder: 'ihre.email@beispiel.de',
+      phone: 'Telefon (optional)',
+      phonePlaceholder: '+49 123 456789',
+      message: 'Zusätzliche Anmerkungen (optional)',
+      messagePlaceholder: 'Beschreiben Sie besondere Anforderungen...',
+
+      fileUpload: 'Beispielformular hochladen (optional)',
+
+      submitButton: 'Angebot anfragen',
+      submitting: 'Wird gesendet...',
+      successMessage: 'Vielen Dank! Wir melden uns innerhalb von 24 Stunden.',
+      errorMessage: 'Fehler beim Senden. Bitte versuchen Sie es erneut.',
+    },
+
+    close: 'Schließen',
+  },
+
+  contactModal: {
+    modalTitle: 'Kontakt aufnehmen',
+    close: 'Schließen',
   },
 } as const;

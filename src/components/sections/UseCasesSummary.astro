@@ -20,33 +20,23 @@ function getLink(path: string) {
 			{t.useCases.subtitle}
 		</p>
 
-		<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-			<!-- Use Case 1: Insurance -->
+		<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+			<!-- Use Case 1: Building Insurance -->
 			<a
-				href={getLink('/use-cases/versicherungen')}
+				href={getLink('/use-cases/gebaudeversicherung')}
 				class="group bg-white rounded-xl shadow-lg p-6 border-2 border-gray-100 hover:border-formalogix-500 hover:shadow-xl transition-all duration-300"
-				onclick="if(window.umami) window.umami.track('use-case-card-clicked', {industry: 'insurance', href: this.href});"
+				onclick="if(window.umami) window.umami.track('use-case-card-clicked', {industry: 'building-insurance', href: this.href});"
 			>
 				<div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
 					<svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
 					</svg>
 				</div>
-				<h3 class="text-xl font-bold mb-2 text-gray-900">{t.useCases.insurance.title}</h3>
-				<p class="text-sm text-blue-600 font-semibold mb-3">{t.useCases.insurance.volume}</p>
+				<h3 class="text-xl font-bold mb-2 text-gray-900">{t.useCases.buildingInsurance.title}</h3>
+				<p class="text-sm text-blue-600 font-semibold mb-3">{t.useCases.buildingInsurance.volume}</p>
 				<p class="text-sm text-gray-600 mb-4">
-					{t.useCases.insurance.description}
+					{t.useCases.buildingInsurance.description}
 				</p>
-
-				<!-- Metrics Highlight -->
-				<div class="bg-gradient-to-r from-red-50 to-green-50 rounded-lg p-3 mb-4">
-					<div class="flex items-center justify-between text-sm">
-						<span class="text-red-600 font-bold">{t.useCases.insurance.timeBefore}</span>
-						<span class="text-gray-400">→</span>
-						<span class="text-green-600 font-bold">{t.useCases.insurance.timeAfter}</span>
-					</div>
-					<div class="text-xs text-center text-gray-600 mt-1">{t.useCases.insurance.improvement}</div>
-				</div>
 
 				<div class="flex items-center text-formalogix-500 font-semibold text-sm group-hover:text-formalogix-600">
 					{t.common.learnMore}
@@ -56,32 +46,22 @@ function getLink(path: string) {
 				</div>
 			</a>
 
-			<!-- Use Case 2: Education -->
+			<!-- Use Case 2: GDPR Event -->
 			<a
-				href={getLink('/use-cases/bildungswesen')}
+				href={getLink('/use-cases/dsgvo-eventanmeldung')}
 				class="group bg-white rounded-xl shadow-lg p-6 border-2 border-gray-100 hover:border-formalogix-500 hover:shadow-xl transition-all duration-300"
-				onclick="if(window.umami) window.umami.track('use-case-card-clicked', {industry: 'education', href: this.href});"
+				onclick="if(window.umami) window.umami.track('use-case-card-clicked', {industry: 'gdpr-event', href: this.href});"
 			>
 				<div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
 					<svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
 					</svg>
 				</div>
-				<h3 class="text-xl font-bold mb-2 text-gray-900">{t.useCases.education.title}</h3>
-				<p class="text-sm text-purple-600 font-semibold mb-3">{t.useCases.education.volume}</p>
+				<h3 class="text-xl font-bold mb-2 text-gray-900">{t.useCases.gdprEvent.title}</h3>
+				<p class="text-sm text-purple-600 font-semibold mb-3">{t.useCases.gdprEvent.volume}</p>
 				<p class="text-sm text-gray-600 mb-4">
-					{t.useCases.education.description}
+					{t.useCases.gdprEvent.description}
 				</p>
-
-				<!-- Metrics Highlight -->
-				<div class="bg-gradient-to-r from-red-50 to-green-50 rounded-lg p-3 mb-4">
-					<div class="flex items-center justify-between text-sm">
-						<span class="text-red-600 font-bold">{t.useCases.education.timeBefore}</span>
-						<span class="text-gray-400">→</span>
-						<span class="text-green-600 font-bold">{t.useCases.education.timeAfter}</span>
-					</div>
-					<div class="text-xs text-center text-gray-600 mt-1">{t.useCases.education.improvement}</div>
-				</div>
 
 				<div class="flex items-center text-formalogix-500 font-semibold text-sm group-hover:text-formalogix-600">
 					{t.common.learnMore}
@@ -91,67 +71,22 @@ function getLink(path: string) {
 				</div>
 			</a>
 
-			<!-- Use Case 3: Healthcare -->
+			<!-- Use Case 3: Trade Fair Raffle -->
 			<a
-				href={getLink('/use-cases/gesundheitswesen')}
+				href={getLink('/use-cases/messegewinnspiel')}
 				class="group bg-white rounded-xl shadow-lg p-6 border-2 border-gray-100 hover:border-formalogix-500 hover:shadow-xl transition-all duration-300"
-				onclick="if(window.umami) window.umami.track('use-case-card-clicked', {industry: 'healthcare', href: this.href});"
+				onclick="if(window.umami) window.umami.track('use-case-card-clicked', {industry: 'trade-fair-raffle', href: this.href});"
 			>
 				<div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
 					<svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7" />
 					</svg>
 				</div>
-				<h3 class="text-xl font-bold mb-2 text-gray-900">{t.useCases.healthcare.title}</h3>
-				<p class="text-sm text-orange-600 font-semibold mb-3">{t.useCases.healthcare.volume}</p>
+				<h3 class="text-xl font-bold mb-2 text-gray-900">{t.useCases.tradeFairRaffle.title}</h3>
+				<p class="text-sm text-orange-600 font-semibold mb-3">{t.useCases.tradeFairRaffle.volume}</p>
 				<p class="text-sm text-gray-600 mb-4">
-					{t.useCases.healthcare.description}
+					{t.useCases.tradeFairRaffle.description}
 				</p>
-
-				<!-- Metrics Highlight -->
-				<div class="bg-gradient-to-r from-red-50 to-green-50 rounded-lg p-3 mb-4">
-					<div class="flex items-center justify-between text-sm">
-						<span class="text-red-600 font-bold">{t.useCases.healthcare.timeBefore}</span>
-						<span class="text-gray-400">→</span>
-						<span class="text-green-600 font-bold">{t.useCases.healthcare.timeAfter}</span>
-					</div>
-					<div class="text-xs text-center text-gray-600 mt-1">{t.useCases.healthcare.improvement}</div>
-				</div>
-
-				<div class="flex items-center text-formalogix-500 font-semibold text-sm group-hover:text-formalogix-600">
-					{t.common.learnMore}
-					<svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-					</svg>
-				</div>
-			</a>
-
-			<!-- Use Case 4: Wholesale -->
-			<a
-				href={getLink('/use-cases/grosshandel')}
-				class="group bg-white rounded-xl shadow-lg p-6 border-2 border-gray-100 hover:border-formalogix-500 hover:shadow-xl transition-all duration-300"
-				onclick="if(window.umami) window.umami.track('use-case-card-clicked', {industry: 'wholesale', href: this.href});"
-			>
-				<div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
-					<svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
-					</svg>
-				</div>
-				<h3 class="text-xl font-bold mb-2 text-gray-900">{t.useCases.wholesale.title}</h3>
-				<p class="text-sm text-red-600 font-semibold mb-3">{t.useCases.wholesale.volume}</p>
-				<p class="text-sm text-gray-600 mb-4">
-					{t.useCases.wholesale.description}
-				</p>
-
-				<!-- Metrics Highlight -->
-				<div class="bg-gradient-to-r from-red-50 to-green-50 rounded-lg p-3 mb-4">
-					<div class="flex items-center justify-between text-sm">
-						<span class="text-red-600 font-bold">{t.useCases.wholesale.timeBefore}</span>
-						<span class="text-gray-400">→</span>
-						<span class="text-green-600 font-bold">{t.useCases.wholesale.timeAfter}</span>
-					</div>
-					<div class="text-xs text-center text-gray-600 mt-1">{t.useCases.wholesale.improvement}</div>
-				</div>
 
 				<div class="flex items-center text-formalogix-500 font-semibold text-sm group-hover:text-formalogix-600">
 					{t.common.learnMore}

@@ -123,32 +123,25 @@ export default function MobileMenu({ initialLocale }: MobileMenuProps) {
                     {locale === 'de' ? 'Übersicht' : 'Overview'}
                   </a>
                   <a
-                    href={getLink('/use-cases/versicherungen')}
+                    href={getLink('/use-cases/gebaudeversicherung')}
                     className="text-gray-600 hover:text-formalogix-500 transition-colors text-sm"
                     onClick={() => setIsOpen(false)}
                   >
-                    {locale === 'de' ? 'Versicherungen' : 'Insurance'}
+                    {locale === 'de' ? 'Gebäudeversicherung' : 'Property Insurance'}
                   </a>
                   <a
-                    href={getLink('/use-cases/bildungswesen')}
+                    href={getLink('/use-cases/dsgvo-eventanmeldung')}
                     className="text-gray-600 hover:text-formalogix-500 transition-colors text-sm"
                     onClick={() => setIsOpen(false)}
                   >
-                    {locale === 'de' ? 'Bildungswesen' : 'Education'}
+                    {locale === 'de' ? 'DSGVO-Eventanmeldung' : 'GDPR Event Registration'}
                   </a>
                   <a
-                    href={getLink('/use-cases/gesundheitswesen')}
+                    href={getLink('/use-cases/messegewinnspiel')}
                     className="text-gray-600 hover:text-formalogix-500 transition-colors text-sm"
                     onClick={() => setIsOpen(false)}
                   >
-                    {locale === 'de' ? 'Gesundheitswesen' : 'Healthcare'}
-                  </a>
-                  <a
-                    href={getLink('/use-cases/grosshandel')}
-                    className="text-gray-600 hover:text-formalogix-500 transition-colors text-sm"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {locale === 'de' ? 'Großhandel' : 'Wholesale'}
+                    {locale === 'de' ? 'Messegewinnspiel' : 'Trade Fair Raffle'}
                   </a>
                 </div>
               )}

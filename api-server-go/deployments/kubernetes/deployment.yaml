@@ -41,8 +41,8 @@ spec:
 
       containers:
       - name: api-server
-        image: formalogix-api:v1.0.0
-        imagePullPolicy: IfNotPresent
+        image: registry.flickflauder.com/formalogix-api:v1.0.0
+        imagePullPolicy: Always
 
         ports:
         - name: http

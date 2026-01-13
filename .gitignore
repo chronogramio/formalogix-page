@@ -17,6 +17,9 @@ pnpm-debug.log*
 .env
 .env.production
 
+# kubernetes secrets (contains credentials)
+api-server-go/deployments/kubernetes/secret.yaml
+
 # macOS-specific files
 .DS_Store
 

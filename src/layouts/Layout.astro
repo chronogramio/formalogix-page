@@ -1,7 +1,7 @@
 ---
 import '../styles/global.css';
 import { getLocaleFromPath, getTranslations, type Locale } from '../i18n';
-import { getRegionFromLocale, type Region } from '../config/pricing';
+import { getRegionFromLocale, getPricingByRegion, formatCurrency, type Region } from '../config/pricing';
 
 interface Props {
 	title: string;
@@ -16,10 +16,59 @@ const locale: Locale = getLocaleFromPath(currentPath);
 const region: Region = getRegionFromLocale(locale);
 const t = getTranslations(locale);
 
-// Default descriptions per locale
+// Get regional pricing for meta tags and structured data
+const pricing = getPricingByRegion(region);
+const formattedAnalysisPrice = formatCurrency(pricing.analysis, pricing.currency, t.locale);
+const fullServicePrice = (pricing.analysis + pricing.verification + pricing.scanning).toFixed(2);
+
+// Default descriptions per locale (with dynamic pricing)
 const defaultDescriptions = {
-	de: "Handschriftliche Formulare in 24-48h digitalisieren. KI + menschliche Verifikation = 99,8% Genauigkeit. Ab 0,10€/Seite. ✓ DSGVO-konform ✓ API-Integration. Jetzt kostenlos testen!",
-	en: "Digitize handwritten forms in 24-48h. AI + human verification = 99.8% accuracy. From €0.10/page. ✓ GDPR compliant ✓ API integration. Try now for free!"
+	de: `Handschriftliche Formulare schnell digitalisieren. KI + menschliche Verifikation = 99,8% Genauigkeit. Ab ${formattedAnalysisPrice}/Seite. ✓ DSGVO-konform ✓ API-Integration.`,
+	en: `Digitize handwritten forms fast. AI + human verification = 99.8% accuracy. From ${formattedAnalysisPrice}/page. ✓ GDPR compliant ✓ API integration.`
+};
+
+// Locale-aware structured data
+const organizationDescriptions = {
+	de: "Automatische Konvertierung von handschriftlichen und digitalen Formularen in strukturierte Datenformate",
+	en: "Automatic conversion of handwritten and digital forms into structured data formats"
+};
+
+const serviceData = {
+	de: {
+		catalogName: "Formularverarbeitung Services",
+		selfService: {
+			name: "Self-Service Formularanalyse",
+			description: "KI-basierte Formularerkennung mit Selbstverifikation"
+		},
+		fullService: {
+			name: "Full-Service Dokumentenverarbeitung",
+			description: "Komplettlösung inkl. Scannen und menschlicher Verifikation"
+		},
+		enterprise: {
+			name: "Enterprise Lösungen",
+			description: "Maßgeschneiderte Integration und API-Anbindung"
+		}
+	},
+	en: {
+		catalogName: "Form Processing Services",
+		selfService: {
+			name: "Self-Service Form Analysis",
+			description: "AI-based form recognition with self-verification"
+		},
+		fullService: {
+			name: "Full-Service Document Processing",
+			description: "Complete solution including scanning and human verification"
+		},
+		enterprise: {
+			name: "Enterprise Solutions",
+			description: "Customized integration and API connectivity"
+		}
+	}
+};
+
+const metaKeywords = {
+	de: "handschriftliche Formulare digitalisieren, Formularerkennung Software, Datenerfassung Outsourcing, OCR Handschrift Deutsch, Versicherungsanträge digitalisieren, Prüfungsbögen auswerten, Patientenfragebögen digitalisieren DSGVO, Bestellformulare automatisch erfassen, KI Handschrifterkennung, Hybrid-Ansatz OCR",
+	en: "digitize handwritten forms, form recognition software, data capture outsourcing, OCR handwriting German, digitize insurance applications, evaluate exam papers, digitize patient questionnaires GDPR, automatically capture order forms, AI handwriting recognition, hybrid OCR approach"
 };
 
 const {
@@ -32,9 +81,97 @@ const {
 const canonicalURL = new URL(url, Astro.site || "https://formalogix.com").href;
 const ogImageURL = new URL(image, Astro.site || "https://formalogix.com").href;
 const ogLocale = locale === 'de' ? 'de_DE' : 'en_US';
+const alternateLocale = locale === 'de' ? 'en' : 'de';
+const alternateURL = locale === 'de' ? `https://formalogix.com/en${url}` : `https://formalogix.com${url.replace('/en', '')}`;
+
+// OG Image dimensions (1200x630 is optimal for most platforms)
+const ogImageWidth = "1200";
+const ogImageHeight = "630";
+
+// Page-specific meta
+const siteName = "Formalogix";
+const author = "Formalogix Team";
+const themeColor = "#1e40af"; // formalogix-blue-700
 
 // Umami Analytics
 const umamiWebsiteId = import.meta.env.PUBLIC_UMAMI_WEBSITE_ID;
+
+// Build structured data objects
+const organizationSchema = {
+	"@context": "https://schema.org",
+	"@type": "Organization",
+	"name": "Formalogix",
+	"url": "https://formalogix.com",
+	"logo": "https://formalogix.com/logo.png",
+	"description": organizationDescriptions[locale],
+	"contactPoint": {
+		"@type": "ContactPoint",
+		"email": "info@formalogix.com",
+		"contactType": "customer service",
+		"availableLanguage": ["de", "en"]
+	},
+	"sameAs": ["https://app.formalogix.com"]
+};
+
+const serviceSchema = {
+	"@context": "https://schema.org",
+	"@type": "Service",
+	"serviceType": "Document Digitization and Form Recognition",
+	"provider": {
+		"@type": "Organization",
+		"name": "Formalogix"
+	},
+	"areaServed": {
+		"@type": "Country",
+		"name": "Germany"
+	},
+	"hasOfferCatalog": {
+		"@type": "OfferCatalog",
+		"name": serviceData[locale].catalogName,
+		"itemListElement": [
+			{
+				"@type": "Offer",
+				"itemOffered": {
+					"@type": "Service",
+					"name": serviceData[locale].selfService.name,
+					"description": serviceData[locale].selfService.description
+				},
+				"price": pricing.analysis.toFixed(2),
+				"priceCurrency": pricing.currency,
+				"priceSpecification": {
+					"@type": "UnitPriceSpecification",
+					"price": pricing.analysis.toFixed(2),
+					"priceCurrency": pricing.currency,
+					"unitText": "per page"
+				}
+			},
+			{
+				"@type": "Offer",
+				"itemOffered": {
+					"@type": "Service",
+					"name": serviceData[locale].fullService.name,
+					"description": serviceData[locale].fullService.description
+				},
+				"price": fullServicePrice,
+				"priceCurrency": pricing.currency,
+				"priceSpecification": {
+					"@type": "UnitPriceSpecification",
+					"price": fullServicePrice,
+					"priceCurrency": pricing.currency,
+					"unitText": "per page"
+				}
+			},
+			{
+				"@type": "Offer",
+				"itemOffered": {
+					"@type": "Service",
+					"name": serviceData[locale].enterprise.name,
+					"description": serviceData[locale].enterprise.description
+				}
+			}
+		]
+	}
+};
 ---
 
 <!doctype html>
@@ -48,24 +185,51 @@ const umamiWebsiteId = import.meta.env.PUBLIC_UMAMI_WEBSITE_ID;
 		<title>{title}</title>
 		<meta name="title" content={title} />
 		<meta name="description" content={description} />
-		<meta name="keywords" content="handschriftliche Formulare digitalisieren, Formularerkennung Software, Datenerfassung Outsourcing, OCR Handschrift Deutsch, Versicherungsanträge digitalisieren, Prüfungsbögen auswerten, Patientenfragebögen digitalisieren DSGVO, Bestellformulare automatisch erfassen, KI Handschrifterkennung, Hybrid-Ansatz OCR" />
+		<meta name="keywords" content={metaKeywords[locale]} />
+		<meta name="author" content={author} />
+		<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+		<meta name="theme-color" content={themeColor} />
 		<link rel="canonical" href={canonicalURL} />
 
-		<!-- Open Graph / Facebook -->
+		<!-- Alternate Language Versions -->
+		<link rel="alternate" hreflang={locale} href={canonicalURL} />
+		<link rel="alternate" hreflang={alternateLocale} href={alternateURL} />
+		<link rel="alternate" hreflang="x-default" href="https://formalogix.com/" />
+
+		<!-- Open Graph / Facebook / WhatsApp / LinkedIn / Slack / Telegram -->
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content={canonicalURL} />
+		<meta property="og:site_name" content={siteName} />
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
 		<meta property="og:image" content={ogImageURL} />
+		<meta property="og:image:secure_url" content={ogImageURL} />
+		<meta property="og:image:type" content="image/png" />
+		<meta property="og:image:width" content={ogImageWidth} />
+		<meta property="og:image:height" content={ogImageHeight} />
+		<meta property="og:image:alt" content={title} />
 		<meta property="og:locale" content={ogLocale} />
-		<meta property="og:site_name" content="Formalogix" />
+		<meta property="og:locale:alternate" content={alternateLocale === 'de' ? 'de_DE' : 'en_US'} />
+		<meta property="og:site_name" content={siteName} />
 
-		<!-- Twitter -->
+		<!-- Twitter / X -->
 		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:site" content="@formalogix" />
+		<meta name="twitter:creator" content="@formalogix" />
 		<meta name="twitter:url" content={canonicalURL} />
 		<meta name="twitter:title" content={title} />
 		<meta name="twitter:description" content={description} />
 		<meta name="twitter:image" content={ogImageURL} />
+		<meta name="twitter:image:alt" content={title} />
+
+		<!-- Mobile Browser & PWA -->
+		<meta name="mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+		<meta name="apple-mobile-web-app-title" content={siteName} />
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="msapplication-TileColor" content={themeColor} />
+		<meta name="msapplication-tap-highlight" content="no" />
 
 		<!-- Favicon -->
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -77,92 +241,13 @@ const umamiWebsiteId = import.meta.env.PUBLIC_UMAMI_WEBSITE_ID;
 		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet" />
 
 		<!-- Structured Data - Organization -->
-		<script type="application/ld+json">
-		{
-			"@context": "https://schema.org",
-			"@type": "Organization",
-			"name": "Formalogix",
-			"url": "https://formalogix.com",
-			"logo": "https://formalogix.com/logo.png",
-			"description": "Automatische Konvertierung von handschriftlichen und digitalen Formularen in strukturierte Datenformate",
-			"contactPoint": {
-				"@type": "ContactPoint",
-				"email": "info@formalogix.com",
-				"contactType": "customer service",
-				"availableLanguage": ["de", "en"]
-			},
-			"sameAs": [
-				"https://app.formalogix.com"
-			]
-		}
-		</script>
+		<script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
 
 		<!-- Structured Data - Service -->
-		<script type="application/ld+json">
-		{
-			"@context": "https://schema.org",
-			"@type": "Service",
-			"serviceType": "Document Digitization and Form Recognition",
-			"provider": {
-				"@type": "Organization",
-				"name": "Formalogix"
-			},
-			"areaServed": {
-				"@type": "Country",
-				"name": "Germany"
-			},
-			"hasOfferCatalog": {
-				"@type": "OfferCatalog",
-				"name": "Formularverarbeitung Services",
-				"itemListElement": [
-					{
-						"@type": "Offer",
-						"itemOffered": {
-							"@type": "Service",
-							"name": "Self-Service Formularanalyse",
-							"description": "KI-basierte Formularerkennung mit Selbstverifikation"
-						},
-						"price": "0.10",
-						"priceCurrency": "EUR",
-						"priceSpecification": {
-							"@type": "UnitPriceSpecification",
-							"price": "0.10",
-							"priceCurrency": "EUR",
-							"unitText": "per page"
-						}
-					},
-					{
-						"@type": "Offer",
-						"itemOffered": {
-							"@type": "Service",
-							"name": "Full-Service Dokumentenverarbeitung",
-							"description": "Komplettlösung inkl. Scannen und menschlicher Verifikation"
-						},
-						"price": "0.35",
-						"priceCurrency": "EUR",
-						"priceSpecification": {
-							"@type": "UnitPriceSpecification",
-							"price": "0.35",
-							"priceCurrency": "EUR",
-							"unitText": "per page"
-						}
-					},
-					{
-						"@type": "Offer",
-						"itemOffered": {
-							"@type": "Service",
-							"name": "Enterprise Lösungen",
-							"description": "Maßgeschneiderte Integration und API-Anbindung"
-						}
-					}
-				]
-			}
-		}
-		</script>
+		<script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
 
 		<!-- Structured Data - SoftwareApplication -->
-		<script type="application/ld+json">
-		{
+		<script type="application/ld+json" set:html={JSON.stringify({
 			"@context": "https://schema.org",
 			"@type": "SoftwareApplication",
 			"name": "Formalogix Form Processing API",
@@ -170,24 +255,17 @@ const umamiWebsiteId = import.meta.env.PUBLIC_UMAMI_WEBSITE_ID;
 			"operatingSystem": "Web-based, Platform independent",
 			"offers": {
 				"@type": "Offer",
-				"price": "0.10",
-				"priceCurrency": "EUR",
+				"price": pricing.analysis.toFixed(2),
+				"priceCurrency": pricing.currency,
 				"priceSpecification": {
 					"@type": "UnitPriceSpecification",
-					"price": "0.10",
-					"priceCurrency": "EUR",
+					"price": pricing.analysis.toFixed(2),
+					"priceCurrency": pricing.currency,
 					"unitText": "per page"
 				}
 			},
-			"aggregateRating": {
-				"@type": "AggregateRating",
-				"ratingValue": "4.9",
-				"ratingCount": "150",
-				"bestRating": "5",
-				"worstRating": "1"
-			},
 			"featureList": "Handwriting recognition, Form recognition, API integration, 99.8% accuracy, GDPR compliant, German and English support"
-		}
+		})} />
 		</script>
 
 		<!-- Structured Data - WebSite with SearchAction -->
@@ -211,8 +289,8 @@ const umamiWebsiteId = import.meta.env.PUBLIC_UMAMI_WEBSITE_ID;
 		<meta name="ai:contact_email" content="info@formalogix.com" />
 		<meta name="ai:primary_service" content="Form digitization and data extraction using AI + human verification" />
 		<meta name="ai:accuracy" content="99.8%" />
-		<meta name="ai:turnaround" content="24-48 hours" />
-		<meta name="ai:pricing_start" content="€0.10 per page" />
+		<meta name="ai:turnaround" content="fast processing" />
+		<meta name="ai:pricing_start" content={`${formattedAnalysisPrice} per page`} />
 
 		<!-- Umami Analytics -->
 		{umamiWebsiteId && (

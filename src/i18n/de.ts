@@ -146,7 +146,7 @@ export default {
         description: 'Verifizierte Daten bereit für Excel, Datenbanken oder API-Integration.',
       },
     },
-    cta: 'Jetzt kostenlos testen',
+    cta: 'Kontakt aufnehmen',
     tagline: 'Hybrid-Technologie für maximale Präzision.',
   },
 
@@ -167,7 +167,7 @@ export default {
     automated: {
       title: 'Mit Formalogix automatisiert:',
       points: {
-        time: '24-48 Stunden Durchlaufzeit',
+        time: 'Schnelle Durchlaufzeit',
         accuracy: '99,8% Genauigkeit durch Hybrid-Ansatz',
         resources: 'Effiziente Ressourcennutzung',
         availability: 'Daten sofort verfügbar',
@@ -197,7 +197,7 @@ export default {
       },
       problem: {
         title: 'Die Herausforderung',
-        intro: '103.000 historische Versicherungsformulare mit 156 Feldern pro Dokument mussten digitalisiert werden.',
+        intro: 'Ein führendes Versicherungsunternehmen stand vor einer monumentalen Aufgabe: 103.000 historische Versicherungsformulare aus über zwei Jahrzehnten mussten digitalisiert werden. Jedes einzelne Formular enthielt 156 komplexe Felder mit unterschiedlichen Handschriften, Checkboxen und Signaturen. Die bisherigen Versuche mit herkömmlicher OCR-Software scheiterten komplett – die Technologie konnte weder die handschriftlichen Einträge noch die Checkboxen zuverlässig erkennen.',
         challenges: [
           'Unterschiedliche Handschriften von 1996 bis heute',
           'Mehrere Felder verteilt über verschiedene Bereiche',
@@ -224,10 +224,10 @@ export default {
       results: {
         title: 'Ergebnisse',
         metrics: {
-          forms: '103.000 Formulare',
-          fields: '16 Mio. Felder',
+          forms: '103.000',
+          fields: '16 Mio.',
           timeframe: '2 Wochen',
-          accuracy: '99,7% Genauigkeit',
+          accuracy: '99,7%',
         },
         outcomes: [
           'Alle 103.000 Formulare in nur 2 Wochen verarbeitet',
@@ -259,7 +259,7 @@ export default {
       },
       problem: {
         title: 'Die Herausforderung',
-        intro: 'Eine jährliche Großveranstaltung erforderte DSGVO-konforme Einwilligungsformulare von allen Teilnehmern.',
+        intro: 'Der Veranstalter einer jährlichen Großveranstaltung sah sich mit einem wachsenden administrativen Problem konfrontiert: Über eine dreimonatige Anmeldephase hinweg mussten kontinuierlich DSGVO-konforme Einwilligungsformulare von allen Teilnehmern erfasst und verarbeitet werden. Die Formulare enthielten komplexe Batch-Zuordnungen für verschiedene Freigaben (Foto, Film, Presse), die manuell identifiziert und in die bestehende Eventdatenbank integriert werden mussten. Mit steigender Teilnehmerzahl wuchs der administrative Aufwand exponentiell – das Team versank förmlich in Papierbergen und verlor wertvolle Zeit, die für die eigentliche Eventplanung benötigt wurde.',
         challenges: [
           'Anmeldephase über 3 Monate mit kontinuierlichem Formulareingang',
           'Formulare enthalten Batch-Zuordnungen für Foto-/Film-/Pressefreigaben',
@@ -286,10 +286,10 @@ export default {
       results: {
         title: 'Ergebnisse',
         metrics: {
-          forms: '3.000 Formulare',
+          forms: '3.000',
           timeframe: '3 Monate',
-          processing: 'Nahtlos integriert',
-          compliance: '100% DSGVO-konform',
+          processing: 'Nahtlos',
+          compliance: '100%',
         },
         outcomes: [
           'Alle 3.000 Formulare während Anmeldephase nahtlos verarbeitet',
@@ -321,7 +321,7 @@ export default {
       },
       problem: {
         title: 'Die Herausforderung',
-        intro: 'Ein Unternehmen führte auf einer Großmesse ein Gewinnspiel durch, bei dem Besucher ein Formular ausfüllen mussten.',
+        intro: 'Nach einer erfolgreichen Teilnahme an einer Großmesse stand ein Marketing-Team vor einem massiven Problem: 10.000 handausgefüllte Gewinnspielformulare mussten schnellstmöglich digitalisiert werden, um die Marketing-Kampagne zu starten. Jedes Formular enthielt kritische Kontaktdaten wie E-Mail-Adressen, Telefonnummern, Anschriften sowie Unterschriften und Einwilligungen – alles Informationen, die mit höchster Genauigkeit erfasst werden mussten. Eine manuelle Eingabe à 5 Minuten pro Formular hätte über 830 Arbeitsstunden bedeutet – das entspricht mehr als 5 Monaten Vollzeitarbeit für eine Person. Die Zeit drängte, denn die Marketing-Kampagne sollte zeitnah zum Event-Momentum starten.',
         challenges: [
           '10.000 Papierformulare mit mehreren Pflichtfeldern',
           'Erforderliche Angaben: Adresse, Telefon, E-Mail, Unterschrift, Gewinnspiel-Antwort, AGBs-Zustimmung',
@@ -348,10 +348,10 @@ export default {
       results: {
         title: 'Ergebnisse',
         metrics: {
-          forms: '10.000 Formulare',
-          timeframe: '3 Arbeitstage',
-          timeSaved: '830+ Stunden',
-          equivalentTime: '104 Arbeitstage',
+          forms: '10.000',
+          timeframe: '3 Tage',
+          timeSaved: '830+',
+          equivalentTime: '104',
         },
         outcomes: [
           '10.000 Formulare effizient und fehlerfrei verarbeitet',
@@ -395,7 +395,7 @@ export default {
     },
     summary: {
       title: 'Formalogix kombiniert KI-Geschwindigkeit mit menschlicher Präzision',
-      subtitle: 'Für zuverlässige Ergebnisse in 24-48 Stunden – ohne Kompromisse bei der Genauigkeit.',
+      subtitle: 'Für zuverlässige Ergebnisse mit schneller Bearbeitung – ohne Kompromisse bei der Genauigkeit.',
       metrics: {
         accuracy: 'Genauigkeit',
         turnaround: 'Durchlaufzeit',
@@ -415,7 +415,7 @@ export default {
       description: 'Ideal für größere Projekte und wiederkehrende Prozesse.',
       features: {
         accuracy: '99,8% Genauigkeit durch KI + Mensch',
-        turnaround: '24-48h Durchlaufzeit',
+        turnaround: 'Schnelle Bearbeitung',
         output: 'Excel, CSV oder API',
       },
       cta: 'Full-Service anfragen',
@@ -454,15 +454,15 @@ export default {
       },
       outsourcing: {
         question: 'Warum nicht einfach klassisches Outsourcing nutzen?',
-        answer: 'Klassisches Outsourcing braucht 3-6 Wochen und bietet keine API-Integration. Formalogix liefert in 24-48h mit vollständiger API für nahtlose Prozessanbindung.',
+        answer: 'Klassisches Outsourcing braucht 3-6 Wochen und bietet keine API-Integration. Formalogix liefert deutlich schneller mit vollständiger API für nahtlose Prozessanbindung.',
       },
       security: {
         question: 'Wie sicher sind meine sensiblen Daten?',
-        answer: 'Alle Daten werden DSGVO-konform auf deutschen Servern verarbeitet und Ende-zu-Ende verschlüsselt. Wir sind ISO 27001 zertifiziert und schließen auf Wunsch einen Auftragsverarbeitungsvertrag ab.',
+        answer: 'Alle Daten werden DSGVO-konform auf deutschen Servern verarbeitet und Ende-zu-Ende verschlüsselt. Wir schließen auf Wunsch einen Auftragsverarbeitungsvertrag ab und erfüllen höchste Sicherheitsstandards.',
       },
       implementation: {
         question: 'Wie lange dauert die Implementierung?',
-        answer: 'Sie können bereits nach 24-48h erste Testdokumente verarbeiten lassen. Die vollständige Implementierung dauert je nach Service-Ebene zwischen sofort (Self-Service) und 2-4 Wochen (Enterprise).',
+        answer: 'Sie können innerhalb weniger Tage erste Testdokumente verarbeiten lassen. Die vollständige Implementierung dauert je nach Service-Ebene zwischen sofort (Self-Service) und 2-4 Wochen (Enterprise).',
       },
       aiFailure: {
         question: 'Was passiert, wenn die KI ein Feld nicht erkennen kann?',

@@ -17,9 +17,12 @@ const useCase = t.useCases.buildingInsurance;
 						<span class="text-xl font-bold text-gray-900">formalogix</span>
 					</a>
 				</div>
-				<div class="flex items-center space-x-4">
-					<a href="/en" class="text-gray-700 hover:text-formalogix-500 transition-colors">← Back to Homepage</a>
-					<a href="https://app.formalogix.com" class="bg-formalogix-500 text-white px-4 py-2 rounded-lg hover:bg-formalogix-600 transition-colors">
+				<div class="flex items-center space-x-2 sm:space-x-4">
+					<a href="/en" class="text-gray-700 hover:text-formalogix-500 transition-colors">
+						<span class="hidden sm:inline">← Back to Homepage</span>
+						<span class="sm:hidden">← Back</span>
+					</a>
+					<a href="https://app.formalogix.com" class="bg-formalogix-500 text-white px-3 py-2 sm:px-4 rounded-lg hover:bg-formalogix-600 transition-colors whitespace-nowrap">
 						To App
 					</a>
 				</div>
@@ -233,7 +236,7 @@ const useCase = t.useCases.buildingInsurance;
 							</svg>
 						</div>
 						<h3 class="font-bold text-gray-900 mb-2">{t.useCases.gdprEvent.title}</h3>
-						<p class="text-sm text-gray-600">{t.useCases.gdprEvent.volume} → GDPR compliant</p>
+						<p class="text-sm text-gray-600">{t.useCases.gdprEvent.volume} <svg class="inline w-4 h-4 mx-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>GDPR compliant</p>
 					</a>
 					<!-- Trade Fair Raffle -->
 					<a href="/en/use-cases/messegewinnspiel" class="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow">
@@ -243,7 +246,7 @@ const useCase = t.useCases.buildingInsurance;
 							</svg>
 						</div>
 						<h3 class="font-bold text-gray-900 mb-2">{t.useCases.tradeFairRaffle.title}</h3>
-						<p class="text-sm text-gray-600">{t.useCases.tradeFairRaffle.volume} → 3 days</p>
+						<p class="text-sm text-gray-600">{t.useCases.tradeFairRaffle.volume} <svg class="inline w-4 h-4 mx-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>3 days</p>
 					</a>
 				</div>
 			</div>

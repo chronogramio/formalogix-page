@@ -1,8 +1,11 @@
 ---
 import { getLocaleFromPath, getTranslations } from '../../i18n';
+import DynamicPriceMetric from '../DynamicPriceMetric';
+import { getRegionFromLocale } from '../../config/pricing';
 
 const locale = getLocaleFromPath(Astro.url.pathname);
 const t = getTranslations(locale);
+const region = getRegionFromLocale(t.locale);
 ---
 
 <!-- Competitive Positioning Section -->
@@ -92,11 +95,18 @@ const t = getTranslations(locale);
 					<div class="text-sm opacity-90">{t.competitive.summary.metrics.accuracy}</div>
 				</div>
 				<div class="flex flex-col items-center">
-					<div class="text-4xl font-bold mb-2">24-48h</div>
+					<div class="text-4xl font-bold mb-2">⚡ Schnell</div>
 					<div class="text-sm opacity-90">{t.competitive.summary.metrics.turnaround}</div>
 				</div>
 				<div class="flex flex-col items-center">
-					<div class="text-4xl font-bold mb-2">€0,10+</div>
+					<DynamicPriceMetric
+						initialLocale={locale}
+						initialRegion={region}
+						priceType="analysis"
+						showPlus={true}
+						className="text-4xl font-bold mb-2"
+						client:load
+					/>
 					<div class="text-sm opacity-90">{t.competitive.summary.metrics.price}</div>
 				</div>
 			</div>

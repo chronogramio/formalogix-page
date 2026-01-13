@@ -148,10 +148,10 @@ export default function ContactForm() {
 
         <div>
           <label htmlFor="homepage" className="block text-sm font-medium text-gray-700 mb-2">
-            Homepage
+            Website
           </label>
           <input
-            type="url"
+            type="text"
             id="homepage"
             value={formData.homepage}
             onChange={(e) => setFormData({ ...formData, homepage: e.target.value })}

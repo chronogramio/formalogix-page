@@ -146,7 +146,7 @@ export default {
         description: 'Verified data ready for Excel, databases, or API integration.',
       },
     },
-    cta: 'Try It Free Now',
+    cta: 'Get in Touch',
     tagline: 'Hybrid technology for maximum precision.',
   },
 
@@ -167,7 +167,7 @@ export default {
     automated: {
       title: 'Automated with Formalogix:',
       points: {
-        time: '24-48 hours turnaround time',
+        time: 'Fast turnaround time',
         accuracy: '99.8% accuracy through hybrid approach',
         resources: 'Efficient resource utilization',
         availability: 'Data immediately available',
@@ -197,7 +197,7 @@ export default {
       },
       problem: {
         title: 'The Challenge',
-        intro: '103,000 historical insurance forms with 156 fields per document needed to be digitized.',
+        intro: 'A leading insurance company faced a monumental task: 103,000 historical insurance forms spanning over two decades needed to be digitized. Each individual form contained 156 complex fields with varying handwriting styles, checkboxes, and signatures. Previous attempts with conventional OCR software failed completely – the technology could neither reliably recognize the handwritten entries nor the checkboxes.',
         challenges: [
           'Varying handwriting styles from 1996 to present',
           'Multiple fields distributed across different areas',
@@ -224,10 +224,10 @@ export default {
       results: {
         title: 'Results',
         metrics: {
-          forms: '103,000 forms',
-          fields: '16M fields',
+          forms: '103,000',
+          fields: '16M',
           timeframe: '2 weeks',
-          accuracy: '99.7% accuracy',
+          accuracy: '99.7%',
         },
         outcomes: [
           'All 103,000 forms processed in just 2 weeks',
@@ -259,7 +259,7 @@ export default {
       },
       problem: {
         title: 'The Challenge',
-        intro: 'An annual major event required GDPR-compliant consent forms from all participants.',
+        intro: 'The organizer of an annual major event was confronted with a growing administrative problem: Over a three-month registration period, GDPR-compliant consent forms from all participants had to be continuously collected and processed. The forms contained complex batch assignments for various releases (photo, film, press) that had to be manually identified and integrated into the existing event database. As participant numbers increased, the administrative burden grew exponentially – the team was literally drowning in piles of paper and losing valuable time needed for actual event planning.',
         challenges: [
           'Registration period over 3 months with continuous form intake',
           'Forms contain batch assignments for photo/film/press releases',
@@ -286,10 +286,10 @@ export default {
       results: {
         title: 'Results',
         metrics: {
-          forms: '3,000 forms',
+          forms: '3,000',
           timeframe: '3 months',
-          processing: 'Seamlessly integrated',
-          compliance: '100% GDPR compliant',
+          processing: 'Seamless',
+          compliance: '100%',
         },
         outcomes: [
           'All 3,000 forms seamlessly processed during registration period',
@@ -321,7 +321,7 @@ export default {
       },
       problem: {
         title: 'The Challenge',
-        intro: 'A company conducted a raffle at a major trade fair where visitors had to fill out a form.',
+        intro: 'After successful participation at a major trade fair, a marketing team faced a massive problem: 10,000 hand-filled raffle forms needed to be digitized as quickly as possible to launch the marketing campaign. Each form contained critical contact data such as email addresses, phone numbers, postal addresses, as well as signatures and consents – all information that had to be captured with the highest accuracy. Manual entry at 5 minutes per form would have meant over 830 work hours – equivalent to more than 5 months of full-time work for one person. Time was pressing, as the marketing campaign should start promptly to capitalize on the event momentum.',
         challenges: [
           '10,000 paper forms with multiple required fields',
           'Required information: address, phone, email, signature, raffle answer, terms acceptance',
@@ -348,10 +348,10 @@ export default {
       results: {
         title: 'Results',
         metrics: {
-          forms: '10,000 forms',
-          timeframe: '3 working days',
-          timeSaved: '830+ hours',
-          equivalentTime: '104 working days',
+          forms: '10,000',
+          timeframe: '3 days',
+          timeSaved: '830+',
+          equivalentTime: '104',
         },
         outcomes: [
           '10,000 forms processed efficiently and error-free',
@@ -395,7 +395,7 @@ export default {
     },
     summary: {
       title: 'Formalogix Combines AI Speed with Human Precision',
-      subtitle: 'For reliable results in 24-48 hours – without compromising accuracy.',
+      subtitle: 'For reliable results with fast processing – without compromising accuracy.',
       metrics: {
         accuracy: 'Accuracy',
         turnaround: 'Turnaround',
@@ -415,7 +415,7 @@ export default {
       description: 'Ideal for larger projects and recurring processes.',
       features: {
         accuracy: '99.8% accuracy via AI + human',
-        turnaround: '24-48h turnaround time',
+        turnaround: 'Fast processing',
         output: 'Excel, CSV, or API',
       },
       cta: 'Request Full Service',
@@ -454,15 +454,15 @@ export default {
       },
       outsourcing: {
         question: 'Why not just use classic outsourcing?',
-        answer: 'Traditional outsourcing takes 3-6 weeks and offers no API integration. Formalogix delivers in 24-48h with full API for seamless process integration.',
+        answer: 'Traditional outsourcing takes 3-6 weeks and offers no API integration. Formalogix delivers significantly faster with full API for seamless process integration.',
       },
       security: {
         question: 'How secure is my sensitive data?',
-        answer: 'All data is processed GDPR-compliant on German servers with end-to-end encryption. We are ISO 27001 certified and sign a data processing agreement upon request.',
+        answer: 'All data is processed GDPR-compliant on German servers with end-to-end encryption. We sign a data processing agreement upon request and meet the highest security standards.',
       },
       implementation: {
         question: 'How long does implementation take?',
-        answer: 'You can process your first test documents within 24-48h. Full implementation takes between immediate (Self-Service) and 2-4 weeks (Enterprise) depending on service tier.',
+        answer: 'You can process your first test documents within a few days. Full implementation takes between immediate (Self-Service) and 2-4 weeks (Enterprise) depending on service tier.',
       },
       aiFailure: {
         question: 'What happens if the AI cannot recognize a field?',

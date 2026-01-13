@@ -73,17 +73,7 @@ function getLink(path: string) {
 						data-track-cta="primary-hero"
 						onclick="if(window.umami) window.umami.track('cta-hero-primary-clicked', {destination: 'contact'});"
 					>
-						<span class="block">{t.hero.cta.primary}</span>
-						<span class="block text-sm opacity-90 mt-1">{t.hero.cta.primarySub}</span>
-					</a>
-					<a
-						href={getLink('/pricing')}
-						class="btn-secondary text-center inline-block group"
-						data-track-cta="secondary-hero"
-						onclick="if(window.umami) window.umami.track('cta-hero-secondary-clicked', {destination: 'pricing-page'});"
-					>
-						<span class="block">{t.hero.cta.secondary}</span>
-						<span class="block text-sm opacity-90 mt-1">{t.hero.cta.secondarySub}</span>
+						{t.hero.cta.primary}
 					</a>
 				</div>
 			</div>

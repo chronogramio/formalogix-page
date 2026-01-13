@@ -56,6 +56,35 @@ export default {
       title: 'Volume Discounts Available',
       description: 'For larger projects (10,000+ pages), we offer attractive volume discounts. Contact us for a custom quote.',
     },
+    faq: {
+      title: 'Frequently Asked Questions',
+      questions: [
+        {
+          q: 'Do larger formats than A4 cost more to process?',
+          a: 'Yes, forms larger than A4 (e.g., A3, double-sided unfolded documents) incur additional charges as they require more processing effort. Contact us for a precise quote.'
+        },
+        {
+          q: 'Does the number of fields affect the price?',
+          a: 'Yes, forms with many fields (over 50 fields per page) may incur additional costs due to increased processing complexity. We analyze your form and provide a transparent quote.'
+        },
+        {
+          q: 'Does the paper condition matter?',
+          a: 'Yes, paper condition affects both processing quality and cost. Heavily creased, folded, or damaged documents may require additional charges. Flat, undamaged pages are optimal for best recognition rates.'
+        },
+        {
+          q: 'Can I submit forms in binders or folders?',
+          a: 'Forms should ideally be submitted loose. Documents in binders or folders must be removed before processing, which requires additional effort. For large volumes, we offer a de-binding service.'
+        },
+        {
+          q: 'Do you offer volume discounts?',
+          a: 'Yes, for projects over 10,000 pages we offer attractive volume discounts. Contact us for a customized quote based on your specific volume.'
+        },
+        {
+          q: 'How quickly will I receive a quote?',
+          a: 'We respond within 24 hours on business days with a personalized quote. Send us a sample form for a precise cost estimate.'
+        }
+      ]
+    },
     detailedCalculator: 'Go to Detailed Pricing Calculator',
   },
 
@@ -175,7 +204,7 @@ export default {
       },
       example: 'Example: 50,000 forms are automatically processed with guaranteed quality and fast availability',
     },
-    cta: 'Calculate Your Savings Potential',
+    cta: 'Explore Solutions',
   },
 
   useCases: {

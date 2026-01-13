@@ -56,6 +56,35 @@ export default {
       title: 'Mengenrabatte verfügbar',
       description: 'Bei größeren Projekten (ab 10.000 Seiten) bieten wir attraktive Mengenrabatte. Kontaktieren Sie uns für ein individuelles Angebot.',
     },
+    faq: {
+      title: 'Häufig gestellte Fragen',
+      questions: [
+        {
+          q: 'Kostet die Verarbeitung größerer Formate als A4 mehr?',
+          a: 'Ja, für Formulare größer als A4 (z.B. A3, doppelseitige ausgeklappte Dokumente) fallen Zuschläge an, da diese einen höheren Verarbeitungsaufwand erfordern. Kontaktieren Sie uns für ein genaues Angebot.'
+        },
+        {
+          q: 'Beeinflusst die Anzahl der Felder den Preis?',
+          a: 'Ja, Formulare mit besonders vielen Feldern (über 50 Felder pro Seite) können zusätzliche Kosten verursachen, da sie komplexer in der Verarbeitung sind. Wir analysieren Ihr Formular und erstellen ein transparentes Angebot.'
+        },
+        {
+          q: 'Spielt der Zustand des Papiers eine Rolle?',
+          a: 'Ja, der Papierzustand beeinflusst die Verarbeitungsqualität und -kosten. Stark geknickte, gefaltete oder beschädigte Dokumente können Zuschläge erfordern. Optimal sind flache, unbeschädigte Seiten für beste Erkennungsraten.'
+        },
+        {
+          q: 'Kann ich Formulare in Ordnern oder Bindern einreichen?',
+          a: 'Formulare sollten idealerweise lose eingereicht werden. Dokumente in Ordnern oder Bindern müssen vor der Verarbeitung entfernt werden, was zusätzlichen Aufwand bedeutet. Für große Mengen bieten wir einen Entbindungsservice an.'
+        },
+        {
+          q: 'Gibt es Mengenrabatte?',
+          a: 'Ja, ab 10.000 Seiten bieten wir attraktive Mengenrabatte an. Kontaktieren Sie uns für ein individuelles Angebot basierend auf Ihrem spezifischen Volumen.'
+        },
+        {
+          q: 'Wie schnell erhalte ich ein Angebot?',
+          a: 'Wir antworten innerhalb von 24 Stunden an Werktagen mit einem individuellen Angebot. Senden Sie uns ein Beispielformular für eine präzise Kostenschätzung.'
+        }
+      ]
+    },
     detailedCalculator: 'Zum detaillierten Preisrechner',
   },
 
@@ -175,7 +204,7 @@ export default {
       },
       example: 'Beispiel: 50.000 Formulare werden automatisiert verarbeitet mit garantierter Qualität und schneller Verfügbarkeit',
     },
-    cta: 'Berechnen Sie Ihr Einsparpotenzial',
+    cta: 'Lösungen kennenlernen',
   },
 
   useCases: {

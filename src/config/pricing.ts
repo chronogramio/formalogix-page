@@ -17,9 +17,9 @@ export const PRICING_CONFIG: Record<Region, RegionalPricing> = {
   },
   CH: {
     currency: 'CHF',
-    analysis: 0.12,
-    verification: 0.70,
-    scanning: 0.35,
+    analysis: 0.10,
+    verification: 0.60,
+    scanning: 0.30,
   },
 };
 

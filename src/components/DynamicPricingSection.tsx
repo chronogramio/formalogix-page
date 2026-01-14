@@ -40,102 +40,90 @@ export default function DynamicPricingSection({ initialLocale, initialRegion }: 
 
   const formatPrice = (amount: number) => formatCurrency(amount, pricing.currency, t.locale);
 
-  function getLink(path: string) {
-    return locale === 'en' ? `/en${path}` : path;
-  }
-
   return (
-    <section id="pricing" className="py-20 bg-white">
+    <section id="pricing" className="py-24 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-4">
+        <div className="text-center mb-6">
           <span className="section-badge bg-blue-100 text-blue-800">Transparent & Fair</span>
         </div>
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-900">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-6 text-gray-900">
           {t.pricing.title}
         </h2>
-        <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto text-lg">
+        <p className="text-center text-gray-600 mb-16 max-w-2xl mx-auto text-lg">
           {t.pricing.subtitle}
         </p>
 
-        {/* Modular Pricing Breakdown */}
-        <div className="bg-white rounded-xl shadow-lg p-12 max-w-4xl mx-auto mb-12">
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-white border-l-4 border-formalogix-500 pl-4 pr-4 py-4 rounded-lg">
-              <div className="flex justify-between items-center mb-2">
-                <span className="font-semibold text-gray-900">
+        {/* Vertical Pricing List (matching pricing page) */}
+        <div className="bg-white rounded-xl shadow-lg p-8 max-w-3xl mx-auto mb-12">
+          <div className="space-y-4">
+            <div className="flex justify-between items-center pb-4 border-b">
+              <div className="flex-1">
+                <p className="font-semibold text-gray-900 mb-1">
                   {t.pricing.services.analysis.name}
-                </span>
-                <span className="text-2xl font-bold text-formalogix-600">
-                  {formatPrice(pricing.analysis)} / {t.pricing.services.analysis.unit}
-                </span>
+                </p>
+                <p className="text-sm text-gray-600">{t.pricing.services.analysis.description}</p>
               </div>
-              <p className="text-sm text-gray-600">{t.pricing.services.analysis.description}</p>
+              <div className="ml-8 text-right flex-shrink-0">
+                <p className="text-lg font-bold text-formalogix-500">
+                  {formatPrice(pricing.analysis)}
+                </p>
+                <p className="text-sm text-gray-500">{t.pricing.services.analysis.unit}</p>
+              </div>
             </div>
 
-            <div className="bg-white border-l-4 border-formalogix-500 pl-4 pr-4 py-4 rounded-lg">
-              <div className="flex justify-between items-center mb-2">
-                <span className="font-semibold text-gray-900">
+            <div className="flex justify-between items-center pb-4 border-b">
+              <div className="flex-1">
+                <p className="font-semibold text-gray-900 mb-1">
                   {t.pricing.services.verification.name}
-                </span>
-                <span className="text-2xl font-bold text-formalogix-600">
-                  {t.pricing.services.verification.prefix} {formatPrice(pricing.verification)} /{' '}
-                  {t.pricing.services.verification.unit}
-                </span>
+                </p>
+                <p className="text-sm text-gray-600">
+                  {t.pricing.services.verification.description}
+                </p>
               </div>
-              <p className="text-sm text-gray-600">
-                {t.pricing.services.verification.description}
-              </p>
+              <div className="ml-8 text-right flex-shrink-0">
+                <p className="text-lg font-bold text-formalogix-500">
+                  {t.pricing.services.verification.prefix} {formatPrice(pricing.verification)}
+                </p>
+                <p className="text-sm text-gray-500">{t.pricing.services.verification.unit}</p>
+              </div>
             </div>
 
-            <div className="bg-white border-l-4 border-formalogix-500 pl-4 pr-4 py-4 rounded-lg">
-              <div className="flex justify-between items-center mb-2">
-                <span className="font-semibold text-gray-900">
+            <div className="flex justify-between items-center pb-4 border-b">
+              <div className="flex-1">
+                <p className="font-semibold text-gray-900 mb-1">
                   {t.pricing.services.scanning.name}
-                </span>
-                <span className="text-2xl font-bold text-formalogix-600">
-                  {formatPrice(pricing.scanning)} / {t.pricing.services.scanning.unit}
-                </span>
+                </p>
+                <p className="text-sm text-gray-600">{t.pricing.services.scanning.description}</p>
               </div>
-              <p className="text-sm text-gray-600">{t.pricing.services.scanning.description}</p>
+              <div className="ml-8 text-right flex-shrink-0">
+                <p className="text-lg font-bold text-formalogix-500">
+                  {formatPrice(pricing.scanning)}
+                </p>
+                <p className="text-sm text-gray-500">{t.pricing.services.scanning.unit}</p>
+              </div>
             </div>
 
-            <div className="bg-white border-l-4 border-formalogix-500 pl-4 pr-4 py-4 rounded-lg">
-              <div className="flex justify-between items-center mb-2">
-                <span className="font-semibold text-gray-900">
+            <div className="flex justify-between items-center pb-4">
+              <div className="flex-1">
+                <p className="font-semibold text-gray-900 mb-1">
                   {t.pricing.services.extras.name}
-                </span>
-                <span className="text-2xl font-bold text-formalogix-600">
-                  {t.pricing.services.extras.price}
-                </span>
+                </p>
+                <p className="text-sm text-gray-600">{t.pricing.services.extras.description}</p>
               </div>
-              <p className="text-sm text-gray-600">{t.pricing.services.extras.description}</p>
+              <div className="ml-8 text-right flex-shrink-0">
+                <p className="text-lg font-bold text-formalogix-500">
+                  {t.pricing.services.extras.price}
+                </p>
+              </div>
             </div>
           </div>
 
           <div className="mt-8 bg-blue-50 p-6 rounded-lg border-2 border-blue-200">
             <h4 className="font-semibold text-blue-900 mb-2">
-              💰 {t.pricing.volumeDiscount.title}
+              {t.pricing.volumeDiscount.title}
             </h4>
             <p className="text-sm text-blue-800">{t.pricing.volumeDiscount.description}</p>
           </div>
-        </div>
-
-        {/* CTA to detailed pricing page */}
-        <div className="text-center">
-          <a
-            href={getLink('/pricing')}
-            className="inline-flex items-center text-formalogix-600 hover:text-formalogix-700 font-semibold text-lg"
-          >
-            {t.pricing.detailedCalculator}
-            <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M17 8l4 4m0 0l-4 4m4-4H3"
-              />
-            </svg>
-          </a>
         </div>
       </div>
     </section>

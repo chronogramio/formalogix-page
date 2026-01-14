@@ -20,9 +20,7 @@ export default defineConfig({
 
   vite: {
     plugins: [
-      tailwindcss({
-        config: './tailwind.config.mjs'
-      })
+      tailwindcss()
     ]
   },
 

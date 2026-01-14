@@ -229,24 +229,42 @@ const useCase = t.useCases.gdprEvent;
 				<h2 class="text-2xl font-bold text-gray-900 mb-6">Weitere Erfolgsgeschichten</h2>
 				<div class="grid md:grid-cols-2 gap-6">
 					<!-- Building Insurance -->
-					<a href="/use-cases/gebaudeversicherung" class="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow">
+					<a href="/use-cases/gebaudeversicherung" class="group bg-white rounded-xl shadow-lg p-6 sm:p-8 border-l-4 border-blue-500 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
 						<div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
 							<svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
 							</svg>
 						</div>
-						<h3 class="font-bold text-gray-900 mb-2">{t.useCases.buildingInsurance.title}</h3>
-						<p class="text-sm text-gray-600">{t.useCases.buildingInsurance.volume} <svg class="inline w-4 h-4 mx-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>16 Mio. Felder</p>
+						<h3 class="text-2xl font-bold mb-2 text-gray-900">{t.useCases.buildingInsurance.title}</h3>
+						<p class="text-sm bg-gradient-to-r from-blue-500 to-blue-600 text-white px-3 py-1 rounded-full font-semibold mb-3 inline-block">{t.useCases.buildingInsurance.volume}</p>
+						<p class="text-sm text-gray-600 mb-4">
+							156 Felder pro Formular, unterschiedliche Handschriften seit 1996, komplexe Signaturprüfung.
+						</p>
+						<div class="flex items-center text-formalogix-500 font-semibold text-sm group-hover:text-formalogix-600">
+							Mehr erfahren
+							<svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+							</svg>
+						</div>
 					</a>
 					<!-- Trade Fair Raffle -->
-					<a href="/use-cases/messegewinnspiel" class="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow">
+					<a href="/use-cases/messegewinnspiel" class="group bg-white rounded-xl shadow-lg p-6 sm:p-8 border-l-4 border-orange-500 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
 						<div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
 							<svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7" />
 							</svg>
 						</div>
-						<h3 class="font-bold text-gray-900 mb-2">{t.useCases.tradeFairRaffle.title}</h3>
-						<p class="text-sm text-gray-600">{t.useCases.tradeFairRaffle.volume} <svg class="inline w-4 h-4 mx-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>3 Tage</p>
+						<h3 class="text-2xl font-bold mb-2 text-gray-900">{t.useCases.tradeFairRaffle.title}</h3>
+						<p class="text-sm bg-gradient-to-r from-orange-500 to-orange-600 text-white px-3 py-1 rounded-full font-semibold mb-3 inline-block">{t.useCases.tradeFairRaffle.volume}</p>
+						<p class="text-sm text-gray-600 mb-4">
+							Handschriftliche Gewinnspiel-Teilnahmeformulare von einer Fachmesse digitalisiert.
+						</p>
+						<div class="flex items-center text-formalogix-500 font-semibold text-sm group-hover:text-formalogix-600">
+							Mehr erfahren
+							<svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+							</svg>
+						</div>
 					</a>
 				</div>
 			</div>

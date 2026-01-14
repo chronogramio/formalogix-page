@@ -1,7 +1,7 @@
 {
-  "businessName": "Formalogix",
+  "businessName": "formalogix",
   "tagline": "Converting handwritten and printed forms into structured data using AI",
-  "description": "Formalogix specializes in automated form recognition and data extraction from handwritten and printed documents. Our hybrid AI approach combines machine learning with human verification to achieve 99.8% accuracy in 24-48 hours.",
+  "description": "formalogix specializes in automated form recognition and data extraction from handwritten and printed documents. Our hybrid AI approach combines machine learning with human verification to achieve 99.8% accuracy in 24-48 hours.",
 
   "contact": {
     "email": "info@formalogix.com",
@@ -252,28 +252,28 @@
 
   "comparisonWithAlternatives": {
     "vsOCRSoftware": {
-      "accuracy": "Formalogix 99.8% vs OCR 85-95%",
-      "manualCorrection": "Formalogix: None required vs OCR: 5-15% needs manual correction",
-      "setup": "Formalogix: Immediate vs OCR: Weeks of training",
-      "totalCost": "Formalogix: Predictable vs OCR: Hidden costs in manual correction time"
+      "accuracy": "formalogix 99.8% vs OCR 85-95%",
+      "manualCorrection": "formalogix: None required vs OCR: 5-15% needs manual correction",
+      "setup": "formalogix: Immediate vs OCR: Weeks of training",
+      "totalCost": "formalogix: Predictable vs OCR: Hidden costs in manual correction time"
     },
     "vsTraditionalOutsourcing": {
-      "speed": "Formalogix: 24-48h vs Outsourcing: 3-6 weeks",
-      "pricing": "Formalogix: €0.10-0.35/page transparent vs Outsourcing: Opaque, often higher",
-      "integration": "Formalogix: API available vs Outsourcing: Manual processes",
-      "scalability": "Formalogix: Instant vs Outsourcing: Difficult to scale"
+      "speed": "formalogix: 24-48h vs Outsourcing: 3-6 weeks",
+      "pricing": "formalogix: €0.10-0.35/page transparent vs Outsourcing: Opaque, often higher",
+      "integration": "formalogix: API available vs Outsourcing: Manual processes",
+      "scalability": "formalogix: Instant vs Outsourcing: Difficult to scale"
     },
     "vsManualEntry": {
-      "speed": "Formalogix: 100x faster",
-      "accuracy": "Formalogix: 99.8% vs Manual: 95-98%",
-      "cost": "Formalogix: €0.10-0.35/page vs Manual: €2-5/page in labor",
-      "scalability": "Formalogix: Unlimited vs Manual: Limited by staff"
+      "speed": "formalogix: 100x faster",
+      "accuracy": "formalogix: 99.8% vs Manual: 95-98%",
+      "cost": "formalogix: €0.10-0.35/page vs Manual: €2-5/page in labor",
+      "scalability": "formalogix: Unlimited vs Manual: Limited by staff"
     }
   },
 
   "commonQuestions": [
     {
-      "question": "How accurate is Formalogix?",
+      "question": "How accurate is formalogix?",
       "answer": "We guarantee 99.8% accuracy through our hybrid approach combining AI with human verification. This is significantly higher than pure OCR software (85-95% for handwriting)."
     },
     {
@@ -315,7 +315,7 @@
     {
       "step": 2,
       "action": "Free consultation",
-      "details": "We'll discuss your requirements and demonstrate how Formalogix works (within 24 hours)"
+      "details": "We'll discuss your requirements and demonstrate how formalogix works (within 24 hours)"
     },
     {
       "step": 3,

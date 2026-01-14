@@ -65,7 +65,7 @@ export default function DynamicPricingSection({ initialLocale, initialRegion }: 
               </div>
               <div className="ml-8 text-right flex-shrink-0">
                 <p className="text-lg font-bold text-formalogix-500">
-                  {formatPrice(pricing.analysis)}
+                  {t.pricing.services.analysis.prefix} {formatPrice(pricing.analysis)}
                 </p>
                 <p className="text-sm text-gray-500">{t.pricing.services.analysis.unit}</p>
               </div>
@@ -97,7 +97,7 @@ export default function DynamicPricingSection({ initialLocale, initialRegion }: 
               </div>
               <div className="ml-8 text-right flex-shrink-0">
                 <p className="text-lg font-bold text-formalogix-500">
-                  {formatPrice(pricing.scanning)}
+                  {t.pricing.services.scanning.prefix} {formatPrice(pricing.scanning)}
                 </p>
                 <p className="text-sm text-gray-500">{t.pricing.services.scanning.unit}</p>
               </div>

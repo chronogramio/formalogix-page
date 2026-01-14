@@ -6,20 +6,20 @@ const t = getTranslations(locale);
 ---
 
 <!-- How It Works Section -->
-<section id="howitworks" class="py-24 bg-gray-50">
+<section id="howitworks" class="py-24 bg-gradient-to-br from-formalogix-600 to-formalogix-800">
 	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-		<h2 class="text-3xl md:text-4xl font-bold text-center mb-6 text-gray-900">
+		<h2 class="text-3xl md:text-4xl font-bold text-center mb-6 text-white">
 			{t.howItWorks.title}
 		</h2>
-		<p class="text-center text-gray-600 mb-20 max-w-2xl mx-auto">
+		<p class="text-center text-blue-100 mb-20 max-w-2xl mx-auto">
 			{t.howItWorks.subtitle}
 		</p>
 
 		<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 relative">
 			<!-- Connecting arrows for desktop - 4 steps -->
-			<div class="hidden lg:block absolute top-1/4 left-[12.5%] w-[20.83%] border-t-3 border-dashed border-formalogix-400" style="transform: translateY(-50%);"></div>
-			<div class="hidden lg:block absolute top-1/4 left-[37.5%] w-[20.83%] border-t-3 border-dashed border-formalogix-400" style="transform: translateY(-50%);"></div>
-			<div class="hidden lg:block absolute top-1/4 left-[62.5%] w-[20.83%] border-t-3 border-dashed border-formalogix-400" style="transform: translateY(-50%);"></div>
+			<div class="hidden lg:block absolute top-1/4 left-[12.5%] w-[20.83%] border-t-3 border-dashed border-white/30" style="transform: translateY(-50%);"></div>
+			<div class="hidden lg:block absolute top-1/4 left-[37.5%] w-[20.83%] border-t-3 border-dashed border-white/30" style="transform: translateY(-50%);"></div>
+			<div class="hidden lg:block absolute top-1/4 left-[62.5%] w-[20.83%] border-t-3 border-dashed border-white/30" style="transform: translateY(-50%);"></div>
 
 			<!-- Step 1: Data Capture -->
 			<div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow relative flex flex-col">
@@ -94,10 +94,10 @@ const t = getTranslations(locale);
 			</div>
 		</div>
 
-		<div class="mt-20 text-center">
-			<a href="#contact" class="btn-primary inline-block" data-track-cta="how-it-works-cta">
-				{t.howItWorks.cta}
-			</a>
+		<div class="mt-16 text-center">
+			<p class="text-xl text-white font-medium">
+				{t.howItWorks.tagline}
+			</p>
 		</div>
 	</div>
 </section>

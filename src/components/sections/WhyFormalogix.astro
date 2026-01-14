@@ -1,0 +1,236 @@
+---
+import { getLocaleFromPath, getTranslations } from '../../i18n';
+import DynamicPriceMetric from '../DynamicPriceMetric';
+import { getRegionFromLocale } from '../../config/pricing';
+
+const locale = getLocaleFromPath(Astro.url.pathname);
+const t = getTranslations(locale);
+const region = getRegionFromLocale(t.locale);
+---
+
+<!-- Why formalogix Merged Section (Competitive + Service Tiers) -->
+<section id="services" class="py-24 bg-formalogix-50">
+	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+		<!-- Part 1: Competitive Differentiators -->
+		<h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-900">
+			{t.competitive.title}
+		</h2>
+		<p class="text-center text-gray-600 mb-16 max-w-3xl mx-auto text-lg">
+			{t.competitive.subtitle}
+		</p>
+
+		<!-- 4 Key Differentiators -->
+		<div class="grid md:grid-cols-2 gap-6 mb-20">
+			<!-- Differentiator 1 -->
+			<div class="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all border-l-4 border-formalogix-500">
+				<div class="flex items-center mb-4">
+					<div class="w-12 h-12 bg-formalogix-100 rounded-lg flex items-center justify-center mr-4">
+						<svg class="w-6 h-6 text-formalogix-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+						</svg>
+					</div>
+					<h3 class="font-bold text-gray-900 text-lg">{t.competitive.differentiators.responsibility.title}</h3>
+				</div>
+				<p class="text-sm text-gray-600">
+					{t.competitive.differentiators.responsibility.description}
+				</p>
+			</div>
+
+			<!-- Differentiator 2 -->
+			<div class="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all border-l-4 border-formalogix-green-500">
+				<div class="flex items-center mb-4">
+					<div class="w-12 h-12 bg-formalogix-100 rounded-lg flex items-center justify-center mr-4">
+						<svg class="w-6 h-6 text-formalogix-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+						</svg>
+					</div>
+					<h3 class="font-bold text-gray-900 text-lg">{t.competitive.differentiators.humanInLoop.title}</h3>
+				</div>
+				<p class="text-sm text-gray-600">
+					{t.competitive.differentiators.humanInLoop.description}
+				</p>
+			</div>
+
+			<!-- Differentiator 3 -->
+			<div class="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all border-l-4 border-formalogix-600">
+				<div class="flex items-center mb-4">
+					<div class="w-12 h-12 bg-formalogix-100 rounded-lg flex items-center justify-center mr-4">
+						<svg class="w-6 h-6 text-formalogix-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
+						</svg>
+					</div>
+					<h3 class="font-bold text-gray-900 text-lg">{t.competitive.differentiators.dataStructures.title}</h3>
+				</div>
+				<p class="text-sm text-gray-600">
+					{t.competitive.differentiators.dataStructures.description}
+				</p>
+			</div>
+
+			<!-- Differentiator 4 -->
+			<div class="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all border-l-4 border-formalogix-green-500">
+				<div class="flex items-center mb-4">
+					<div class="w-12 h-12 bg-formalogix-100 rounded-lg flex items-center justify-center mr-4">
+						<svg class="w-6 h-6 text-formalogix-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+						</svg>
+					</div>
+					<h3 class="font-bold text-gray-900 text-lg">{t.competitive.differentiators.scalability.title}</h3>
+				</div>
+				<p class="text-sm text-gray-600">
+					{t.competitive.differentiators.scalability.description}
+				</p>
+			</div>
+		</div>
+
+		<!-- Part 2: Service Tiers -->
+		<div class="mb-20">
+			<h3 class="text-2xl md:text-3xl font-bold text-center mb-4 text-gray-900">
+				{t.services.title}
+			</h3>
+			<p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+				{t.services.subtitle}
+			</p>
+
+			<div class="grid md:grid-cols-3 gap-6">
+				<!-- Full-Service (Popular) -->
+				<div class="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all hover:-translate-y-1 border-2 border-formalogix-500 relative flex flex-col">
+					<div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-formalogix-500 text-white px-4 py-1 rounded-full text-sm font-semibold">
+						{t.services.popular}
+					</div>
+					<div class="w-12 h-12 bg-formalogix-500 rounded-lg flex items-center justify-center mb-4">
+						<svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+						</svg>
+					</div>
+					<h4 class="text-xl font-bold mb-2 text-gray-900">{t.services.fullService.title}</h4>
+					<p class="text-sm text-formalogix-600 font-semibold mb-4">{t.services.fullService.tagline}</p>
+					<ul class="space-y-2 mb-6 flex-grow">
+						<li class="flex items-start text-sm">
+							<svg class="w-5 h-5 text-formalogix-500 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+								<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+							</svg>
+							<span class="text-gray-600">{t.services.fullService.features.accuracy}</span>
+						</li>
+						<li class="flex items-start text-sm">
+							<svg class="w-5 h-5 text-formalogix-500 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+								<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+							</svg>
+							<span class="text-gray-600">{t.services.fullService.features.turnaround}</span>
+						</li>
+						<li class="flex items-start text-sm">
+							<svg class="w-5 h-5 text-formalogix-500 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+								<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+							</svg>
+							<span class="text-gray-600">{t.services.fullService.features.output}</span>
+						</li>
+					</ul>
+					<a href="#contact" class="block text-center bg-formalogix-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-formalogix-600 transition-colors text-sm">
+						{t.services.fullService.cta}
+					</a>
+				</div>
+
+				<!-- Enterprise -->
+				<div class="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all hover:-translate-y-1 border-2 border-formalogix-500 flex flex-col">
+					<div class="w-12 h-12 bg-formalogix-100 rounded-lg flex items-center justify-center mb-4">
+						<svg class="w-6 h-6 text-formalogix-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+						</svg>
+					</div>
+					<h4 class="text-xl font-bold mb-2 text-gray-900">{t.services.enterprise.title}</h4>
+					<p class="text-sm text-formalogix-600 font-semibold mb-4">{t.services.enterprise.tagline}</p>
+					<ul class="space-y-2 mb-6 flex-grow">
+						<li class="flex items-start text-sm">
+							<svg class="w-5 h-5 text-formalogix-500 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+								<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+							</svg>
+							<span class="text-gray-600">{t.services.enterprise.features.workflows}</span>
+						</li>
+						<li class="flex items-start text-sm">
+							<svg class="w-5 h-5 text-formalogix-500 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+								<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+							</svg>
+							<span class="text-gray-600">{t.services.enterprise.features.integration}</span>
+						</li>
+						<li class="flex items-start text-sm">
+							<svg class="w-5 h-5 text-formalogix-500 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+								<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+							</svg>
+							<span class="text-gray-600">{t.services.enterprise.features.support}</span>
+						</li>
+					</ul>
+					<a href="#contact" class="block text-center border-2 border-formalogix-500 text-formalogix-500 px-6 py-3 rounded-lg font-semibold hover:bg-formalogix-500 hover:text-white transition-colors text-sm">
+						{t.services.enterprise.cta}
+					</a>
+				</div>
+
+				<!-- Self-Service -->
+				<div class="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all hover:-translate-y-1 border-2 border-formalogix-500 flex flex-col">
+					<div class="w-12 h-12 bg-formalogix-100 rounded-lg flex items-center justify-center mb-4">
+						<svg class="w-6 h-6 text-formalogix-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+						</svg>
+					</div>
+					<h4 class="text-xl font-bold mb-2 text-gray-900">{t.services.selfService.title}</h4>
+					<p class="text-sm text-formalogix-600 font-semibold mb-4">{t.services.selfService.tagline}</p>
+					<ul class="space-y-2 mb-6 flex-grow">
+						<li class="flex items-start text-sm">
+							<svg class="w-5 h-5 text-formalogix-500 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+								<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+							</svg>
+							<span class="text-gray-600">{t.services.selfService.features.analysis}</span>
+						</li>
+						<li class="flex items-start text-sm">
+							<svg class="w-5 h-5 text-formalogix-500 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+								<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+							</svg>
+							<span class="text-gray-600">{t.services.selfService.features.api}</span>
+						</li>
+						<li class="flex items-start text-sm">
+							<svg class="w-5 h-5 text-formalogix-500 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+								<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+							</svg>
+							<span class="text-gray-600">{t.services.selfService.features.flexible}</span>
+						</li>
+					</ul>
+					<a href="https://app.formalogix.com" target="_blank" rel="noopener noreferrer" class="block text-center border-2 border-formalogix-500 text-formalogix-500 px-6 py-3 rounded-lg font-semibold hover:bg-formalogix-500 hover:text-white transition-colors text-sm">
+						{t.services.selfService.cta}
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<!-- Part 3: Summary Statement with Metrics -->
+		<div class="text-center bg-formalogix-500 rounded-xl p-8 max-w-4xl mx-auto shadow-lg">
+			<p class="text-2xl font-bold text-white mb-4">
+				{t.competitive.summary.title}
+			</p>
+			<p class="text-lg text-white opacity-90 mb-8">
+				{t.competitive.summary.subtitle}
+			</p>
+			<div class="grid md:grid-cols-3 gap-6 text-white mb-8">
+				<div class="flex flex-col items-center">
+					<div class="text-5xl font-bold mb-2">99,8%</div>
+					<div class="text-sm opacity-90">{t.competitive.summary.metrics.accuracy}</div>
+				</div>
+				<div class="flex flex-col items-center">
+					<div class="text-5xl font-bold mb-2">Schnell</div>
+					<div class="text-sm opacity-90">{t.competitive.summary.metrics.turnaround}</div>
+				</div>
+				<div class="flex flex-col items-center">
+					<DynamicPriceMetric
+						initialLocale={locale}
+						initialRegion={region}
+						priceType="analysis"
+						showPlus={true}
+						className="text-5xl font-bold mb-2"
+						client:load
+					/>
+					<div class="text-sm opacity-90">{t.competitive.summary.metrics.price}</div>
+				</div>
+			</div>
+			<a href="#contact" class="inline-block bg-white text-formalogix-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors" data-track-cta="why-formalogix">
+				{t.competitive.summary.cta}
+			</a>
+		</div>
+	</div>
+</section>

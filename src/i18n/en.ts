@@ -19,8 +19,8 @@ export default {
       accuracy: '99.8% accuracy',
     },
     cta: {
-      primary: 'Contact Us',
-      primarySub: 'Quote in 24h',
+      primary: 'Get Consultation Now',
+      primarySub: 'Response in 24h',
       secondary: 'Calculate Savings',
       secondarySub: 'View pricing',
     },
@@ -34,6 +34,7 @@ export default {
         name: 'Analysis',
         description: 'Automatic AI-based form recognition',
         unit: 'page',
+        prefix: 'from',
       },
       verification: {
         name: 'Human Verification',
@@ -45,6 +46,7 @@ export default {
         name: 'Scanning',
         description: 'Digitization of physical documents',
         unit: 'page',
+        prefix: 'from',
       },
       extras: {
         name: 'Extra Services',
@@ -107,7 +109,7 @@ export default {
   },
 
   footer: {
-    tagline: 'Formalogix – Your Partner for Intelligent Form Processing',
+    tagline: 'formalogix – Your Partner for Intelligent Form Processing',
     company: 'Company',
     legal: 'Legal',
     contact: 'Contact',
@@ -149,17 +151,17 @@ export default {
         description: 'Form processing becomes a bottleneck and delays projects.',
       },
     },
-    solution: 'This is exactly where Formalogix comes in.',
+    solution: 'This is exactly where formalogix comes in.',
     solutionDescription: 'We handle the complete form processing – fast, precise, and reliable.',
-    cta: 'How Formalogix Helps →',
+    cta: 'Get Consultation Now',
   },
 
   howItWorks: {
-    title: 'From Form to Structured Database',
+    title: 'From Forms to Structured Data',
     subtitle: 'In 4 steps, we transform handwritten forms into precise, analyzable data – through the combination of AI technology and human expertise.',
     steps: {
       capture: {
-        title: 'Capture & Digitization',
+        title: 'Capture Capture & Digitization (24h) Digitization',
         description: 'Forms are scanned and prepared for AI analysis.',
       },
       analysis: {
@@ -175,7 +177,7 @@ export default {
         description: 'Verified data ready for Excel, databases, or API integration.',
       },
     },
-    cta: 'Get in Touch',
+    cta: 'Get Consultation Now',
     tagline: 'Hybrid technology for maximum precision.',
   },
 
@@ -194,7 +196,7 @@ export default {
       example: 'Example: 50,000 forms annually require multiple full-time employees and weeks of processing time',
     },
     automated: {
-      title: 'Automated with Formalogix:',
+      title: 'Automated with formalogix:',
       points: {
         time: 'Fast turnaround time',
         accuracy: '99.8% accuracy through hybrid approach',
@@ -204,7 +206,7 @@ export default {
       },
       example: 'Example: 50,000 forms are automatically processed with guaranteed quality and fast availability',
     },
-    cta: 'Explore Solutions',
+    cta: 'Get Consultation Now',
   },
 
   useCases: {
@@ -241,13 +243,12 @@ export default {
       },
       solution: {
         title: 'The Solution',
-        description: 'Formalogix developed a tailored hybrid approach:',
+        description: 'formalogix developed a tailored hybrid approach:',
         steps: [
           'Automated AI analysis of all 156 fields',
-          'Human-in-the-Loop verification for critical fields',
-          'Unified data structure for all 103,000 forms',
-          'Signature verification by trained auditors',
-          'Structured output in desired database format'
+          'Unified data structure for all forms',
+          'Checkboxes and handwritten entries recognized',
+          'Structured output in desired data format'
         ],
       },
       results: {
@@ -303,13 +304,12 @@ export default {
       },
       solution: {
         title: 'The Solution',
-        description: 'Formalogix implemented a fully automated workflow:',
+        description: 'formalogix implemented a fully automated workflow:',
         steps: [
-          'Automated analysis of all incoming forms',
-          'Human-in-the-Loop only for critical fields',
+          'Automated AI analysis with Human-in-the-Loop for critical fields',
           'Direct database integration via API',
           'Automatic batch assignment based on releases',
-          'Fast processing even with increasing form numbers'
+          'Scalable processing throughout registration phase'
         ],
       },
       results: {
@@ -330,7 +330,7 @@ export default {
         ],
       },
       quote: {
-        text: 'The seamless integration during the ongoing registration period relieved us enormously. We could focus on event planning while Formalogix processed the forms in the background.',
+        text: 'The seamless integration during the ongoing registration period relieved us enormously. We could focus on event planning while formalogix processed the forms in the background.',
         author: 'Event Manager, Major Event'
       },
     },
@@ -365,11 +365,10 @@ export default {
       },
       solution: {
         title: 'The Solution',
-        description: 'Formalogix handled the entire process:',
+        description: 'formalogix handled the entire process:',
         steps: [
           'Scanning all 10,000 paper forms',
-          'Automated data extraction via AI',
-          'Human-in-the-Loop for critical fields (signatures, emails)',
+          'AI-powered data extraction with human verification',
           'Validation of all email addresses and phone numbers',
           'Direct integration into marketing database'
         ],
@@ -392,7 +391,7 @@ export default {
         ],
       },
       quote: {
-        text: 'Without Formalogix, we would have needed months to capture the raffle data. Instead, we were able to start the marketing campaign one week after the trade fair.',
+        text: 'Without formalogix, we would have needed months to capture the raffle data. Instead, we were able to start the marketing campaign one week after the trade fair.',
         author: 'Marketing Manager, B2B Company'
       },
     },
@@ -402,8 +401,8 @@ export default {
   },
 
   competitive: {
-    title: 'What Sets Formalogix Apart from Other Solutions',
-    subtitle: 'We solve problems where tools or manual capture reach their limits. Formalogix delivers structured, analyzable data, even with handwritten or complex forms – fast, precise, and reliable.',
+    title: 'What Sets formalogix Apart from Other Solutions',
+    subtitle: 'We solve problems where tools or manual capture reach their limits. formalogix delivers structured, analyzable data, even with handwritten or complex forms – fast, precise, and reliable.',
     differentiators: {
       responsibility: {
         title: 'Taking Responsibility',
@@ -423,7 +422,7 @@ export default {
       },
     },
     summary: {
-      title: 'Formalogix Combines AI Speed with Human Precision',
+      title: 'formalogix Combines AI Speed with Human Precision',
       subtitle: 'For reliable results with fast processing – without compromising accuracy.',
       metrics: {
         accuracy: 'Accuracy',
@@ -475,15 +474,15 @@ export default {
 
   faq: {
     title: 'Frequently Asked Questions',
-    subtitle: 'Answers to the most important questions about Formalogix',
+    subtitle: 'Answers to the most important questions about formalogix',
     questions: {
       pricing: {
-        question: 'Isn\'t Formalogix more expensive than pure OCR software?',
-        answer: 'OCR software seems cheaper, but error correction often costs more than the software itself. With Formalogix, you pay transparently per page and get 99.8% accuracy without expensive post-processing.',
+        question: 'Isn\'t formalogix more expensive than pure OCR software?',
+        answer: 'OCR software seems cheaper, but error correction often costs more than the software itself. With formalogix, you pay transparently per page and get 99.8% accuracy without expensive post-processing.',
       },
       outsourcing: {
         question: 'Why not just use classic outsourcing?',
-        answer: 'Traditional outsourcing takes 3-6 weeks and offers no API integration. Formalogix delivers significantly faster with full API for seamless process integration.',
+        answer: 'Traditional outsourcing takes 3-6 weeks and offers no API integration. formalogix delivers significantly faster with full API for seamless process integration.',
       },
       security: {
         question: 'How secure is my sensitive data?',
@@ -499,7 +498,7 @@ export default {
       },
       formTypes: {
         question: 'What types of forms can you process?',
-        answer: 'Formalogix processes nearly all structured forms – from insurance applications to patient questionnaires to order forms. Contact us for a free test evaluation within 24h!',
+        answer: 'formalogix processes nearly all structured forms – from insurance applications to patient questionnaires to order forms. Contact us for a free test evaluation within 24h!',
       },
     },
     ctaQuestion: 'Do you have more questions?',
@@ -508,7 +507,7 @@ export default {
 
   contact: {
     title: 'Request Non-Binding Consultation',
-    subtitle: 'We\'ll discuss your use case and show you how Formalogix can optimize your processes. Response within 24 hours.',
+    subtitle: 'We\'ll discuss your use case and show you how formalogix can optimize your processes. Response within 24 hours.',
     trustSignals: {
       noObligation: 'No Obligation',
       quickResponse: 'Response in 24 Hours',
@@ -536,7 +535,7 @@ export default {
       gdpr: 'GDPR Compliant',
       gdprSubtext: 'Privacy Guaranteed',
       accuracy: '99.8%',
-      accuracySubtext: 'Accuracy Guarantee',
+      accuracySubtext: 'Accuracy',
       pagesProcessed: '10M+',
       pagesProcessedSubtext: 'Pages Processed',
       responseTime: '24h',

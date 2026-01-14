@@ -50,7 +50,7 @@ export default function DynamicPricingBreakdown({ initialLocale, initialRegion }
             <p className="text-sm text-gray-600">{t.pricing.services.analysis.description}</p>
           </div>
           <p className="text-lg font-bold text-formalogix-500">
-            {formatPrice(pricing.analysis)} / {t.pricing.services.analysis.unit}
+            {t.pricing.services.analysis.prefix} {formatPrice(pricing.analysis)} / {t.pricing.services.analysis.unit}
           </p>
         </div>
         <div className="flex justify-between items-center pb-4 border-b">
@@ -68,7 +68,7 @@ export default function DynamicPricingBreakdown({ initialLocale, initialRegion }
             <p className="text-sm text-gray-600">{t.pricing.services.scanning.description}</p>
           </div>
           <p className="text-lg font-bold text-formalogix-500">
-            {formatPrice(pricing.scanning)} / {t.pricing.services.scanning.unit}
+            {t.pricing.services.scanning.prefix} {formatPrice(pricing.scanning)} / {t.pricing.services.scanning.unit}
           </p>
         </div>
         <div className="flex justify-between items-center pb-4">

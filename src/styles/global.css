@@ -234,3 +234,154 @@ h1, h2, h3, h4, h5, h6 {
 .bg-accent-gradient-blue {
   @apply bg-gradient-to-br from-gray-50 via-white to-blue-50;
 }
+
+/* === Use Case Card Images === */
+
+.use-case-card-image {
+  @apply w-full h-full object-cover transition-transform duration-300;
+}
+
+.group:hover .use-case-card-image {
+  transform: scale(1.03);
+}
+
+/* === Modern Card System (2025) === */
+
+/* Primary card - subtle shadow + hover lift */
+.card-primary {
+  @apply bg-white rounded-xl shadow-sm p-6 transition-all duration-300;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+.card-primary:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Icon card - for features/benefits with icons */
+.card-icon {
+  @apply bg-white rounded-xl shadow-sm p-6 transition-all duration-300;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+.card-icon:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px -2px rgba(60, 127, 243, 0.15);
+}
+
+/* Bordered card - for step sequences or processes */
+.card-bordered {
+  @apply bg-white rounded-xl border-2 border-gray-100 p-6 transition-all duration-300;
+}
+
+.card-bordered:hover {
+  border-color: var(--color-formalogix-200);
+  box-shadow: 0 4px 12px -2px rgba(60, 127, 243, 0.1);
+}
+
+/* === Typography Hierarchy === */
+
+/* Section headings */
+.section-title {
+  @apply text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight;
+}
+
+.section-subtitle {
+  @apply text-lg md:text-xl text-gray-600 leading-relaxed;
+}
+
+/* Card headings */
+.card-title {
+  @apply text-xl md:text-2xl font-semibold text-gray-900 mb-3;
+}
+
+.card-description {
+  @apply text-gray-600 leading-relaxed;
+}
+
+/* === Spacing System === */
+
+/* Consistent section spacing */
+.section-spacing {
+  @apply py-16 md:py-20 lg:py-24;
+}
+
+/* Container max-width */
+.section-container {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+/* === Color Accent System === */
+
+/* Brand accent for highlights */
+.accent-highlight {
+  @apply text-formalogix-600 font-semibold;
+}
+
+/* Success/positive states */
+.accent-success {
+  @apply text-green-600 font-semibold;
+}
+
+/* Warning/attention states */
+.accent-warning {
+  @apply text-amber-600 font-semibold;
+}
+
+/* === Modern Button Enhancements === */
+
+.btn-primary {
+  @apply bg-formalogix-500 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300;
+  box-shadow: 0 4px 6px -1px rgba(60, 127, 243, 0.3);
+}
+
+.btn-primary:hover {
+  @apply bg-formalogix-600;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(60, 127, 243, 0.4);
+}
+
+.btn-secondary {
+  @apply border-2 border-formalogix-500 text-formalogix-600 px-8 py-4 rounded-lg font-semibold transition-all duration-300;
+}
+
+.btn-secondary:hover {
+  @apply bg-formalogix-50 border-formalogix-600 text-formalogix-700;
+  transform: translateY(-1px);
+}
+
+/* === Icon Containers === */
+
+.icon-container {
+  @apply w-12 h-12 rounded-xl flex items-center justify-center mb-4 transition-all duration-300;
+}
+
+.icon-container-primary {
+  @apply bg-formalogix-100 text-formalogix-600;
+}
+
+.icon-container-success {
+  @apply bg-green-100 text-green-600;
+}
+
+.icon-container-warning {
+  @apply bg-amber-100 text-amber-600;
+}
+
+/* === Badge System === */
+
+.badge {
+  @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium;
+}
+
+.badge-primary {
+  @apply bg-formalogix-100 text-formalogix-700;
+}
+
+.badge-success {
+  @apply bg-green-100 text-green-700;
+}
+
+.badge-neutral {
+  @apply bg-gray-100 text-gray-700;
+}

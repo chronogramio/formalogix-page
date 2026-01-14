@@ -4,14 +4,12 @@ import Navigation from '../components/Navigation.astro';
 
 // Import section components
 import Hero from '../components/sections/Hero.astro';
-import ProblemStatement from '../components/sections/ProblemStatement.astro';
-import HowItWorks from '../components/sections/HowItWorks.astro';
-import EfficiencyComparison from '../components/sections/EfficiencyComparison.astro';
+import ProblemSolution from '../components/sections/ProblemSolution.astro';
+import SocialProof from '../components/sections/SocialProof.astro';
 import UseCasesSummary from '../components/sections/UseCasesSummary.astro';
-import CompetitivePositioning from '../components/sections/CompetitivePositioning.astro';
-import ServiceTiers from '../components/sections/ServiceTiers.astro';
-import DynamicPricingSection from '../components/DynamicPricingSection';
+import WhyFormalogix from '../components/sections/WhyFormalogix.astro';
 import FAQ from '../components/sections/FAQ.astro';
+import DynamicPricingSection from '../components/DynamicPricingSection';
 import Contact from '../components/sections/Contact.astro';
 import Footer from '../components/sections/Footer.astro';
 import { getLocaleFromPath } from '../i18n';
@@ -21,20 +19,18 @@ const locale = getLocaleFromPath(Astro.url.pathname);
 const region = getRegionFromLocale(locale);
 ---
 
-<Layout title="Handschriftliche Formulare digitalisieren | 99,8% Genauigkeit & schnelle Bearbeitung | Formalogix">
+<Layout title="Handschriftliche Formulare digitalisieren | 99,8% Genauigkeit & schnelle Bearbeitung | formalogix">
 	<!-- Navigation -->
 	<Navigation />
 
-	<!-- Page Sections -->
+	<!-- Page Sections (8 sections - optimized from 12) -->
 	<Hero />
-	<ProblemStatement />
-	<HowItWorks />
-	<EfficiencyComparison />
+	<ProblemSolution />
+	<SocialProof />
 	<UseCasesSummary />
-	<CompetitivePositioning />
-	<ServiceTiers />
-	<DynamicPricingSection initialLocale={locale} initialRegion={region} client:load />
+	<WhyFormalogix />
 	<FAQ />
+	<DynamicPricingSection initialLocale={locale} initialRegion={region} client:load />
 	<Contact />
 	<Footer />
 

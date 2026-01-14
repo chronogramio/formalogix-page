@@ -1,0 +1,207 @@
+---
+import { getLocaleFromPath, getTranslations } from '../../i18n';
+
+const locale = getLocaleFromPath(Astro.url.pathname);
+const t = getTranslations(locale);
+
+const socialProof = {
+	de: {
+		title: 'Vertraut von führenden Unternehmen',
+		subtitle: 'Tausende Formulare täglich verarbeitet mit höchster Qualität und Sicherheit',
+		metrics: {
+			pagesProcessed: {
+				value: '10M+',
+				label: 'Seiten verarbeitet'
+			},
+			accuracy: {
+				value: '99,8%',
+				label: 'Genauigkeit'
+			},
+			responseTime: {
+				value: '24h',
+				label: 'Antwortzeit'
+			},
+			compliance: {
+				value: 'DSGVO',
+				label: 'Konform & Sicher'
+			}
+		},
+		testimonialPlaceholder: {
+			quote: 'Die Kombination aus KI und menschlicher Verifikation hat uns ermöglicht, ein Projekt umzusetzen, das mit traditionellen Mitteln unmöglich gewesen wäre.',
+			author: 'Projektleiter Digitalisierung',
+			company: 'Führendes Versicherungsunternehmen'
+		},
+		certifications: {
+			gdpr: 'DSGVO-konform',
+			german: 'Deutsche Server',
+			encrypted: 'Ende-zu-Ende verschlüsselt'
+		}
+	},
+	en: {
+		title: 'Trusted by Leading Companies',
+		subtitle: 'Thousands of forms processed daily with highest quality and security',
+		metrics: {
+			pagesProcessed: {
+				value: '10M+',
+				label: 'Pages Processed'
+			},
+			accuracy: {
+				value: '99.8%',
+				label: 'Accuracy'
+			},
+			responseTime: {
+				value: '24h',
+				label: 'Response Time'
+			},
+			compliance: {
+				value: 'GDPR',
+				label: 'Compliant & Secure'
+			}
+		},
+		testimonialPlaceholder: {
+			quote: 'The combination of AI and human verification enabled us to implement a project that would have been impossible with traditional methods.',
+			author: 'Project Manager Digitalization',
+			company: 'Leading Insurance Company'
+		},
+		certifications: {
+			gdpr: 'GDPR Compliant',
+			german: 'German Servers',
+			encrypted: 'End-to-End Encrypted'
+		}
+	}
+};
+
+const content = locale === 'en' ? socialProof.en : socialProof.de;
+---
+
+<!-- Social Proof Section -->
+<section class="py-24 bg-gray-50">
+	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+		<!-- Header -->
+		<div class="text-center mb-16">
+			<h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
+				{content.title}
+			</h2>
+			<p class="text-lg text-gray-600 max-w-3xl mx-auto">
+				{content.subtitle}
+			</p>
+		</div>
+
+		<!-- TODO: Replace with actual client logos when available -->
+		<!-- <div class="mb-16">
+			<div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center opacity-60">
+				<img src="/logos/client-1.svg" alt="Client 1" class="h-12 grayscale hover:grayscale-0 transition-all" />
+				<img src="/logos/client-2.svg" alt="Client 2" class="h-12 grayscale hover:grayscale-0 transition-all" />
+				<img src="/logos/client-3.svg" alt="Client 3" class="h-12 grayscale hover:grayscale-0 transition-all" />
+				<img src="/logos/client-4.svg" alt="Client 4" class="h-12 grayscale hover:grayscale-0 transition-all" />
+			</div>
+		</div> -->
+
+		<!-- Key Metrics -->
+		<div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
+			<!-- Pages Processed -->
+			<div class="text-center">
+				<div class="flex items-center justify-center mb-3">
+					<svg class="w-12 h-12 text-formalogix-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+					</svg>
+				</div>
+				<div class="text-4xl font-bold text-gray-900 mb-2">{content.metrics.pagesProcessed.value}</div>
+				<div class="text-sm text-gray-600">{content.metrics.pagesProcessed.label}</div>
+			</div>
+
+			<!-- Accuracy -->
+			<div class="text-center">
+				<div class="flex items-center justify-center mb-3">
+					<svg class="w-12 h-12 text-formalogix-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+					</svg>
+				</div>
+				<div class="text-4xl font-bold text-gray-900 mb-2">{content.metrics.accuracy.value}</div>
+				<div class="text-sm text-gray-600">{content.metrics.accuracy.label}</div>
+			</div>
+
+			<!-- Response Time -->
+			<div class="text-center">
+				<div class="flex items-center justify-center mb-3">
+					<svg class="w-12 h-12 text-formalogix-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+					</svg>
+				</div>
+				<div class="text-4xl font-bold text-gray-900 mb-2">{content.metrics.responseTime.value}</div>
+				<div class="text-sm text-gray-600">{content.metrics.responseTime.label}</div>
+			</div>
+
+			<!-- Compliance -->
+			<div class="text-center">
+				<div class="flex items-center justify-center mb-3">
+					<svg class="w-12 h-12 text-formalogix-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+					</svg>
+				</div>
+				<div class="text-4xl font-bold text-gray-900 mb-2">{content.metrics.compliance.value}</div>
+				<div class="text-sm text-gray-600">{content.metrics.compliance.label}</div>
+			</div>
+		</div>
+
+		<!-- Certification Badges -->
+		<div class="flex flex-wrap items-center justify-center gap-6 mb-16">
+			<!-- GDPR Badge -->
+			<div class="flex items-center gap-2 bg-white px-6 py-3 rounded-lg shadow-sm border border-gray-200">
+				<svg class="w-6 h-6 text-formalogix-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+				</svg>
+				<span class="font-semibold text-gray-700">{content.certifications.gdpr}</span>
+			</div>
+
+			<!-- German Servers Badge -->
+			<div class="flex items-center gap-2 bg-white px-6 py-3 rounded-lg shadow-sm border border-gray-200">
+				<svg class="w-6 h-6 text-formalogix-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+				</svg>
+				<span class="font-semibold text-gray-700">{content.certifications.german}</span>
+			</div>
+
+			<!-- Encryption Badge -->
+			<div class="flex items-center gap-2 bg-white px-6 py-3 rounded-lg shadow-sm border border-gray-200">
+				<svg class="w-6 h-6 text-formalogix-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+				</svg>
+				<span class="font-semibold text-gray-700">{content.certifications.encrypted}</span>
+			</div>
+		</div>
+
+		<!-- TODO: Replace with actual testimonial when available -->
+		<!-- Testimonial Placeholder -->
+		<div class="max-w-4xl mx-auto">
+			<div class="bg-white rounded-xl p-8 md:p-12 shadow-lg border border-gray-100">
+				<div class="flex items-start mb-6">
+					<svg class="w-12 h-12 text-formalogix-500 opacity-20" fill="currentColor" viewBox="0 0 24 24">
+						<path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+					</svg>
+				</div>
+				<blockquote class="text-xl text-gray-700 mb-6 italic">
+					"{content.testimonialPlaceholder.quote}"
+				</blockquote>
+				<div class="flex items-center">
+					<div class="w-12 h-12 bg-formalogix-100 rounded-full flex items-center justify-center mr-4">
+						<svg class="w-6 h-6 text-formalogix-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+						</svg>
+					</div>
+					<div>
+						<div class="font-semibold text-gray-900">{content.testimonialPlaceholder.author}</div>
+						<div class="text-gray-600 text-sm">{content.testimonialPlaceholder.company}</div>
+					</div>
+				</div>
+			</div>
+			<!-- TODO: When real testimonials are available:
+				1. Add client photo (replace placeholder icon)
+				2. Include specific metrics in quote ("reduced processing time by 85%")
+				3. Add company logo
+				4. Consider multiple testimonials in a carousel
+				5. Link to full case study if available
+			-->
+		</div>
+	</div>
+</section>

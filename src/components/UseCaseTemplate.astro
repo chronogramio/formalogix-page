@@ -1,0 +1,374 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from './Navigation.astro';
+import { useCaseImages } from '../config/usecase-images';
+
+interface Props {
+	useCase: any;
+	translations: any;
+	locale: 'de' | 'en';
+	useCaseKey: 'gdprEvent' | 'buildingInsurance' | 'tradeFairRaffle';
+	themeColor: 'purple' | 'blue' | 'orange';
+	breadcrumbTitle: string;
+	metricsLabels: Record<string, string>;
+}
+
+const { useCase, translations: t, locale, useCaseKey, themeColor, breadcrumbTitle, metricsLabels } = Astro.props;
+
+// Color mappings
+const colorClasses = {
+	purple: {
+		bgLight: 'bg-purple-50',
+		bgMedium: 'bg-purple-100',
+		border: 'border-purple-200',
+		line: 'bg-purple-200',
+		accent: 'bg-purple-600 text-purple-600',
+		gradient: 'from-purple-500 to-purple-600'
+	},
+	blue: {
+		bgLight: 'bg-blue-50',
+		bgMedium: 'bg-blue-100',
+		border: 'border-blue-200',
+		line: 'bg-blue-200',
+		accent: 'bg-blue-600 text-blue-600',
+		gradient: 'from-blue-500 to-blue-600'
+	},
+	orange: {
+		bgLight: 'bg-orange-50',
+		bgMedium: 'bg-orange-100',
+		border: 'border-orange-200',
+		line: 'bg-orange-200',
+		accent: 'bg-orange-600 text-orange-600',
+		gradient: 'from-orange-500 to-orange-600'
+	}
+};
+
+const colors = colorClasses[themeColor];
+
+// Image mapping
+const imageMap = {
+	gdprEvent: useCaseImages.gdprEvent,
+	buildingInsurance: useCaseImages.buildingInsurance,
+	tradeFairRaffle: useCaseImages.tradeFairRaffle
+};
+
+const image = imageMap[useCaseKey];
+
+// Other use cases (exclude current one)
+const otherUseCases = [
+	{ key: 'buildingInsurance', path: 'gebaudeversicherung', color: 'blue' },
+	{ key: 'gdprEvent', path: 'dsgvo-eventanmeldung', color: 'blue' },
+	{ key: 'tradeFairRaffle', path: 'messegewinnspiel', color: 'blue' }
+].filter(uc => uc.key !== useCaseKey).slice(0, 2);
+
+// Locale-aware paths
+const homeLink = locale === 'en' ? '/en' : '/';
+const useCaseBase = locale === 'en' ? '/en/use-cases' : '/use-cases';
+const pricingLink = locale === 'en' ? '/en/pricing' : '/pricing';
+const successStoriesLabel = locale === 'en' ? 'Success Stories' : 'Erfolgsgeschichten';
+const moreStoriesLabel = locale === 'en' ? 'More Success Stories' : 'Weitere Erfolgsgeschichten';
+const learnMoreLabel = locale === 'en' ? 'Learn more' : 'Mehr erfahren';
+const viewPricingLabel = locale === 'en' ? 'View Pricing' : 'Preise ansehen';
+const titleSuffix = locale === 'en' ? 'formalogix Success Story' : 'formalogix Erfolgsgeschichte';
+const ctaDescription = locale === 'en'
+	? 'Schedule a free consultation now and learn how formalogix can transform your form processing.'
+	: 'Vereinbaren Sie jetzt ein kostenloses Beratungsgespräch und erfahren Sie, wie formalogix Ihre Formularverarbeitung transformieren kann.';
+
+// Use case descriptions for "other use cases" section
+const useCaseDescriptions = {
+	de: {
+		buildingInsurance: '156 Felder pro Formular, unterschiedliche Handschriften seit 1996, komplexe Signaturprüfung.',
+		gdprEvent: 'Handschriftliche Eventanmeldungen mit DSGVO-Einwilligungen digitalisiert und verarbeitet.',
+		tradeFairRaffle: 'Handschriftliche Gewinnspiel-Teilnahmeformulare von einer Fachmesse digitalisiert.'
+	},
+	en: {
+		buildingInsurance: '156 fields per form, various handwriting styles since 1996, complex signature verification.',
+		gdprEvent: 'Handwritten event registrations with GDPR consent digitized and processed.',
+		tradeFairRaffle: 'Handwritten trade fair raffle entry forms digitized.'
+	}
+};
+---
+
+<Layout title={`${useCase.hero.title} | ${titleSuffix}`}>
+	<!-- Navigation -->
+	<Navigation />
+
+	<!-- Breadcrumbs -->
+	<div class="bg-gray-50 border-b border-gray-200 py-3">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="flex items-center text-sm text-gray-600">
+				<a href={homeLink} class="hover:text-formalogix-500">Home</a>
+				<svg class="w-4 h-4 mx-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+				</svg>
+				<a href={`${homeLink}#usecases`} class="hover:text-formalogix-500">{successStoriesLabel}</a>
+				<svg class="w-4 h-4 mx-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+				</svg>
+				<span class="text-gray-900 font-medium">{breadcrumbTitle}</span>
+			</div>
+		</div>
+	</div>
+
+	<!-- Hero Section -->
+	<section class="relative overflow-hidden">
+		<!-- Background Image -->
+		<div class="absolute inset-0 z-0">
+			<picture>
+				<source srcset={`${image.url}.webp`} type="image/webp">
+				<img
+					src={`${image.url}.jpg`}
+					alt={image.alt[locale]}
+					class="w-full h-full object-cover"
+				>
+			</picture>
+			<!-- Overlay for text readability -->
+			<div class={`absolute inset-0 bg-gradient-to-br from-white/95 via-white/90 to-${themeColor}-50/95`}></div>
+		</div>
+
+		<!-- Hero Text -->
+		<div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
+			<div class="max-w-6xl mx-auto text-center">
+				<h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">{useCase.hero.title}</h1>
+				<p class="text-xl md:text-2xl text-gray-600 leading-relaxed">{useCase.hero.subtitle}</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- The Problem Section -->
+	<section class="py-20 bg-white border-b border-gray-100">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="max-w-6xl mx-auto">
+				<h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-8">{useCase.problem.title}</h2>
+				<p class="text-xl text-gray-600 mb-12 leading-relaxed">
+					{useCase.problem.intro}
+				</p>
+
+				<!-- Challenges list with improved styling -->
+				<div class={`${colors.bgLight} rounded-2xl p-8 md:p-10 border ${colors.border}`}>
+					<h3 class="text-2xl font-bold text-gray-900 mb-6">
+						{locale === 'de' ? 'Die Herausforderungen im Detail' : 'Challenges in Detail'}
+					</h3>
+					<ul class="space-y-3 list-disc list-inside">
+						{useCase.problem.challenges.map((challenge: string) => (
+							<li class="text-gray-800 text-lg">
+								{challenge}
+							</li>
+						))}
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Initial Condition Section -->
+	<section class="py-20 bg-white border-b border-gray-100">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="max-w-6xl mx-auto">
+				<h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-8">{useCase.situation.title}</h2>
+				<p class="text-xl text-gray-700 leading-relaxed">
+					{useCase.situation.description}
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- Solution Section -->
+	<section class="py-20 bg-white border-b border-gray-100">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-8 text-center">{useCase.solution.title}</h2>
+			<p class="text-xl text-gray-600 mb-12 leading-relaxed text-center max-w-3xl mx-auto">
+				{useCase.solution.description}
+			</p>
+			<div class="max-w-6xl mx-auto">
+
+				<!-- Solution steps with full homepage-style cards -->
+				<div class="relative">
+					<!-- Connecting line (hidden on mobile) -->
+					<div class={`hidden lg:block absolute top-8 left-0 right-0 h-0.5 ${colors.line}`} style="z-index: 0;"></div>
+
+					<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 relative" style="z-index: 1;">
+						{useCase.solution.steps.map((step: string, index: number) => (
+							<div class={`${index % 2 === 0 ? colors.bgLight : colors.bgMedium} rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow relative flex flex-col`}>
+								<div class={`flex items-center justify-center w-16 h-16 ${colors.accent.split(' ')[0]} text-white rounded-full text-2xl font-bold mb-6 mx-auto relative`} style="z-index: 2;">
+									{index + 1}
+								</div>
+								<p class="text-gray-800 text-center flex-grow text-lg leading-relaxed">
+									{step}
+								</p>
+								<div class="mt-6 flex justify-center">
+									{index === 0 ? (
+										<svg class={`w-10 h-10 ${colors.accent.split(' ')[1]}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+											<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+										</svg>
+									) : index === 1 ? (
+										<svg class={`w-10 h-10 ${colors.accent.split(' ')[1]}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+											<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
+										</svg>
+									) : index === 2 ? (
+										<svg class={`w-10 h-10 ${colors.accent.split(' ')[1]}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+											<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+										</svg>
+									) : (
+										<svg class={`w-10 h-10 ${colors.accent.split(' ')[1]}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+											<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+										</svg>
+									)}
+								</div>
+							</div>
+						))}
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Results Section (restructured - focus on outcomes) -->
+	<section class="py-12 bg-gray-50">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<h2 class="text-3xl font-bold text-gray-900 mb-6">{useCase.results.title}</h2>
+
+			<!-- Outcomes list -->
+			<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8 max-w-6xl mx-auto">
+					{useCase.results.outcomes.map((outcome: string) => (
+						<div class="bg-white rounded-lg p-6 shadow-md">
+							<div class="flex items-start">
+								<svg class="w-8 h-8 text-green-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+								</svg>
+								<p class="text-gray-700">{outcome}</p>
+							</div>
+						</div>
+					))}
+			</div>
+		</div>
+	</section>
+
+	<!-- Metrics Summary Box (moved down) -->
+	<section class="py-8 bg-gray-50">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="max-w-6xl mx-auto">
+				<div class={`${colors.bgLight} rounded-xl p-8 border ${colors.border}`}>
+					<h3 class="text-2xl font-bold text-gray-900 mb-6 text-center">
+						{locale === 'de' ? 'Projekt auf einen Blick' : 'Project at a Glance'}
+					</h3>
+					<div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+						{Object.entries(useCase.results.metrics).map(([key, value]) => (
+							<div class="text-center">
+								<div class="text-3xl font-bold text-formalogix-600 mb-2">
+									{value as string}
+								</div>
+								<div class="text-sm text-gray-600 uppercase font-semibold">
+									{metricsLabels[key] || key}
+								</div>
+							</div>
+						))}
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Customer Quote -->
+	<section class="py-12 bg-white">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="max-w-6xl mx-auto">
+				<blockquote class="bg-white border-l-4 border-formalogix-500 pl-8 py-6 italic shadow-lg rounded-r-lg">
+					<p class="text-xl text-gray-700 mb-4">
+						"{useCase.quote.text}"
+					</p>
+					<cite class="text-sm font-semibold text-gray-600 not-italic flex items-center">
+						<svg class="w-5 h-5 text-gray-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+						</svg>
+						{useCase.quote.author}
+					</cite>
+				</blockquote>
+			</div>
+		</div>
+	</section>
+
+	<!-- CTA Section -->
+	<section class="py-12 bg-white">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="max-w-6xl mx-auto">
+				<div class="bg-gradient-to-r from-formalogix-500 to-formalogix-600 rounded-xl p-8 text-center text-white">
+					<h2 class="text-3xl font-bold mb-4">{t.useCases.ctaQuestion}</h2>
+					<p class="text-lg mb-6 opacity-90">
+						{ctaDescription}
+					</p>
+					<div class="flex flex-col sm:flex-row gap-4 justify-center">
+						<a href={`${homeLink}#contact`} class="bg-white text-formalogix-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors inline-block">
+							{t.useCases.cta}
+						</a>
+						<a href={pricingLink} class="bg-formalogix-700 text-white px-8 py-3 rounded-lg font-semibold hover:bg-formalogix-800 transition-colors inline-block">
+							{viewPricingLabel}
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Other Use Cases (show 2 others) -->
+	<section class="py-12 bg-gray-50">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<h2 class="text-2xl font-bold text-gray-900 mb-6">{moreStoriesLabel}</h2>
+			<div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+					{otherUseCases.map((uc) => {
+						const ucData = t.useCases[uc.key];
+						const ucImage = imageMap[uc.key as keyof typeof imageMap];
+						const ucDesc = useCaseDescriptions[locale][uc.key as keyof typeof useCaseDescriptions['de']];
+						return (
+							<a href={`${useCaseBase}/${uc.path}`} class="group bg-white rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden">
+								<div style="aspect-ratio: 16/9;" class="overflow-hidden">
+									<picture>
+										<source srcset={`${ucImage.url}.webp`} type="image/webp">
+										<img
+											src={`${ucImage.url}.jpg`}
+											alt={ucImage.alt[locale]}
+											loading="lazy"
+											class="use-case-card-image"
+										>
+									</picture>
+								</div>
+								<div class="p-6 sm:p-8">
+									<h3 class="text-2xl font-bold mb-2 text-gray-900">{ucData.title}</h3>
+									<p class={`text-sm bg-gradient-to-r from-${uc.color}-500 to-${uc.color}-600 text-white px-3 py-1 rounded-full font-semibold mb-3 inline-block`}>{ucData.volume}</p>
+									<p class="text-sm text-gray-600 mb-4">
+										{ucDesc}
+									</p>
+									<div class="flex items-center text-formalogix-500 font-semibold text-sm group-hover:text-formalogix-600">
+										{learnMoreLabel}
+										<svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+											<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+										</svg>
+									</div>
+								</div>
+							</a>
+						);
+					})}
+			</div>
+		</div>
+	</section>
+
+	<!-- Footer (simplified) -->
+	<footer class="bg-gray-900 text-white py-8">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="text-center">
+				<p class="text-gray-400">&copy; 2024 formalogix. {locale === 'de' ? 'Alle Rechte vorbehalten.' : 'All rights reserved.'}</p>
+				<div class="mt-4 space-x-4">
+					<a href={locale === 'en' ? '/en/datenschutz' : '/datenschutz'} class="text-gray-400 hover:text-white transition-colors">
+						{locale === 'de' ? 'Datenschutz' : 'Privacy'}
+					</a>
+					<a href={locale === 'en' ? '/en/impressum' : '/impressum'} class="text-gray-400 hover:text-white transition-colors">
+						{locale === 'de' ? 'Impressum' : 'Imprint'}
+					</a>
+					<a href={locale === 'en' ? '/en/agb' : '/agb'} class="text-gray-400 hover:text-white transition-colors">
+						{locale === 'de' ? 'AGB' : 'Terms'}
+					</a>
+				</div>
+			</div>
+		</div>
+	</footer>
+</Layout>

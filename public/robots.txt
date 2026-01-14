@@ -1,4 +1,4 @@
-# Formalogix Robots.txt
+# formalogix Robots.txt
 User-agent: *
 Allow: /
 

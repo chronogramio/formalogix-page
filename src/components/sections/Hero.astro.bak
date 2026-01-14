@@ -1,0 +1,84 @@
+---
+import ProcessVisualization from '../ProcessVisualization.astro';
+import { getLocaleFromPath, getTranslations } from '../../i18n';
+
+const locale = getLocaleFromPath(Astro.url.pathname);
+const t = getTranslations(locale);
+
+// Helper to generate locale-aware links
+function getLink(path: string) {
+	if (locale === 'en') {
+		return `/en${path}`;
+	}
+	return path;
+}
+---
+
+<!-- Hero Section -->
+<section class="bg-gradient-to-br from-formalogix-100 via-white to-formalogix-50 py-12 sm:py-16 md:py-20 relative overflow-hidden">
+	<!-- Background decoration -->
+	<div class="absolute inset-0 opacity-15">
+		<div class="absolute top-10 left-10 w-72 h-72 bg-formalogix-500 rounded-full blur-3xl"></div>
+		<div class="absolute bottom-10 right-10 w-96 h-96 bg-formalogix-500 rounded-full blur-3xl"></div>
+		<div class="absolute top-1/2 right-20 w-80 h-80 bg-formalogix-green-500 rounded-full blur-3xl"></div>
+	</div>
+
+	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+		<div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 md:items-center">
+			<!-- Left Column on Desktop: Headline + Key Arguments + CTAs -->
+			<div class="animate-fade-in-up">
+				<h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight [text-shadow:_0_2px_4px_rgb(0_0_0_/5%)]">
+					{t.hero.title}
+				</h1>
+				<p class="text-lg sm:text-xl text-gray-600 mb-6 md:mb-8 leading-relaxed">
+					{t.hero.subtitle}
+				</p>
+
+				<!-- Key Arguments -->
+				<div class="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3 mb-6 sm:mb-8 text-sm">
+					<div class="flex items-start">
+						<svg class="w-5 h-5 text-formalogix-500 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+							<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+						</svg>
+						<span class="text-gray-700">{t.hero.keyPoints.largeVolumes}</span>
+					</div>
+					<div class="flex items-start">
+						<svg class="w-5 h-5 text-formalogix-500 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+							<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+						</svg>
+						<span class="text-gray-700">{t.hero.keyPoints.timeConstraints}</span>
+					</div>
+					<div class="flex items-start">
+						<svg class="w-5 h-5 text-formalogix-500 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+							<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+						</svg>
+						<span class="text-gray-700">{t.hero.keyPoints.structuredData}</span>
+					</div>
+					<div class="flex items-start">
+						<svg class="w-5 h-5 text-formalogix-500 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+							<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+						</svg>
+						<span class="text-gray-700">{t.hero.keyPoints.accuracy}</span>
+					</div>
+				</div>
+
+				<div class="flex flex-col sm:flex-row gap-4">
+					<a
+						href={`${getLink('/')}#contact`}
+						class="btn-primary text-center inline-block group px-8 py-4 text-lg"
+						data-track-cta="primary-hero"
+						onclick="if(window.umami) window.umami.track('cta-hero-primary-clicked', {destination: 'contact'});"
+					>
+						{t.hero.cta.primary}
+						<span class="block text-sm opacity-90 mt-1">{t.hero.cta.primarySub}</span>
+					</a>
+				</div>
+			</div>
+
+			<!-- Right Column on Desktop: Visualization - only visible on desktop -->
+			<div class="hidden md:block bg-white rounded-xl shadow-2xl p-4 sm:p-6 md:p-8 lg:p-12 animate-fade-in-up" style="animation-delay: 0.2s;">
+				<ProcessVisualization />
+			</div>
+		</div>
+	</div>
+</section>

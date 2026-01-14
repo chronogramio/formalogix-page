@@ -19,8 +19,8 @@ export default {
       accuracy: '99,8% Genauigkeit',
     },
     cta: {
-      primary: 'Kontakt aufnehmen',
-      primarySub: 'Angebot in 24h',
+      primary: 'Jetzt beraten lassen',
+      primarySub: 'Antwort in 24h',
       secondary: 'Einsparungen berechnen',
       secondarySub: 'Preise ansehen',
     },
@@ -34,6 +34,7 @@ export default {
         name: 'Analysieren',
         description: 'Automatische KI-basierte Formularerkennung',
         unit: 'Seite',
+        prefix: 'ab',
       },
       verification: {
         name: 'Durch Menschen verifizieren',
@@ -45,6 +46,7 @@ export default {
         name: 'Scannen',
         description: 'Digitalisierung physischer Dokumente',
         unit: 'Seite',
+        prefix: 'ab',
       },
       extras: {
         name: 'Extraservices',
@@ -107,7 +109,7 @@ export default {
   },
 
   footer: {
-    tagline: 'Formalogix – Ihr Partner für intelligente Formularverarbeitung',
+    tagline: 'formalogix – Ihr Partner für intelligente Formularverarbeitung',
     company: 'Unternehmen',
     legal: 'Rechtliches',
     contact: 'Kontakt',
@@ -149,13 +151,13 @@ export default {
         description: 'Formularauswertung wird zum Flaschenhals und verzögert Projekte.',
       },
     },
-    solution: 'Genau hier setzt Formalogix an.',
+    solution: 'Genau hier setzt formalogix an.',
     solutionDescription: 'Wir übernehmen die komplette Formularverarbeitung – schnell, präzise und zuverlässig.',
-    cta: 'Wie Formalogix hilft →',
+    cta: 'Jetzt beraten lassen',
   },
 
   howItWorks: {
-    title: 'Vom Formular zur strukturierten Datenbank',
+    title: 'Vom Formular zu strukturierten Daten',
     subtitle: 'In 4 Schritten verwandeln wir handschriftliche Formulare in präzise, auswertbare Daten – durch die Kombination von KI-Technologie und menschlicher Expertise.',
     steps: {
       capture: {
@@ -175,7 +177,7 @@ export default {
         description: 'Verifizierte Daten bereit für Excel, Datenbanken oder API-Integration.',
       },
     },
-    cta: 'Kontakt aufnehmen',
+    cta: 'Jetzt beraten lassen',
     tagline: 'Hybrid-Technologie für maximale Präzision.',
   },
 
@@ -194,7 +196,7 @@ export default {
       example: 'Beispiel: 50.000 Formulare jährlich erfordern mehrere Vollzeitmitarbeiter und Wochen Bearbeitungszeit',
     },
     automated: {
-      title: 'Mit Formalogix automatisiert:',
+      title: 'Mit formalogix automatisiert:',
       points: {
         time: 'Schnelle Durchlaufzeit',
         accuracy: '99,8% Genauigkeit durch Hybrid-Ansatz',
@@ -204,7 +206,7 @@ export default {
       },
       example: 'Beispiel: 50.000 Formulare werden automatisiert verarbeitet mit garantierter Qualität und schneller Verfügbarkeit',
     },
-    cta: 'Lösungen kennenlernen',
+    cta: 'Jetzt beraten lassen',
   },
 
   useCases: {
@@ -217,20 +219,19 @@ export default {
       title: 'Gebäudeversicherung',
       volume: '103.000 Formulare',
       tagline: '16 Mio. Datensätze aus handschriftlichen Formularen',
-      description: '156 Felder pro Formular, unterschiedliche Handschriften seit 1996, komplexe Signaturprüfung.',
+      description: '156 Felder pro Formular, unterschiedliche Handschriften seit 1996, Checkboxen und handschriftliche Notizen.',
 
       // Detail page sections
       hero: {
-        title: 'Gebäudeversicherung: 16 Mio. Datensätze in 2 Wochen',
-        subtitle: 'Von unstrukturierten PDFs zu vollständig auswertbaren Datenbanken',
+        title: 'Gebäudeversicherung: 156.000 Datensätze in 3 Tagen evaluiert',
+        subtitle: 'Von unstrukturierten PDFs zu vollständig auswertbaren Datenformaten',
       },
       problem: {
         title: 'Die Herausforderung',
-        intro: 'Ein führendes Versicherungsunternehmen stand vor einer monumentalen Aufgabe: 103.000 historische Versicherungsformulare aus über zwei Jahrzehnten mussten digitalisiert werden. Jedes einzelne Formular enthielt 156 komplexe Felder mit unterschiedlichen Handschriften, Checkboxen und Signaturen. Die bisherigen Versuche mit herkömmlicher OCR-Software scheiterten komplett – die Technologie konnte weder die handschriftlichen Einträge noch die Checkboxen zuverlässig erkennen.',
+        intro: 'Ein führendes Versicherungsunternehmen wollte prüfen, ob 103.000 historische Versicherungsformulare aus über zwei Jahrzehnten digitalisiert werden können. Jedes einzelne Formular enthielt 156 komplexe Felder mit unterschiedlichen Handschriften, Checkboxen und Signaturen. Die bisherigen Versuche mit herkömmlicher OCR-Software scheiterten komplett – die Technologie konnte weder die handschriftlichen Einträge noch die Checkboxen zuverlässig erkennen. Für die Evaluierung wurden 1.000 repräsentative Formulare ausgewählt.',
         challenges: [
           'Unterschiedliche Handschriften von 1996 bis heute',
           'Mehrere Felder verteilt über verschiedene Bereiche',
-          'Signaturverifizierung erforderlich',
           'Checkboxen und handschriftliche Notizen kombiniert',
           'Traditionelle OCR versagte komplett bei Handschrift'
         ],
@@ -241,13 +242,12 @@ export default {
       },
       solution: {
         title: 'Die Lösung',
-        description: 'Formalogix entwickelte einen maßgeschneiderten Hybrid-Ansatz:',
+        description: 'formalogix entwickelte einen maßgeschneiderten Hybrid-Ansatz:',
         steps: [
           'Automatisierte KI-Analyse aller 156 Felder',
-          'Human-in-the-Loop-Verifizierung für kritische Felder',
-          'Einheitliche Datenstruktur für alle 103.000 Formulare',
-          'Signaturverifizierung durch geschulte Prüfer',
-          'Strukturierte Ausgabe in gewünschtes Datenbankformat'
+          'Einheitliche Datenstruktur für alle Formulare',
+          'Checkboxen und handschriftliche Einträge werden erkannt',
+          'Strukturierte Ausgabe in gewünschtes Datenformat'
         ],
       },
       results: {
@@ -255,16 +255,16 @@ export default {
         metrics: {
           forms: '103.000',
           fields: '16 Mio.',
-          timeframe: '2 Wochen',
-          accuracy: '99,7%',
+          timeframe: '3 Tage Evaluierung',
+          accuracy: '98%',
         },
         outcomes: [
-          'Alle 103.000 Formulare in nur 2 Wochen verarbeitet',
-          '16 Millionen einzelne Felder ausgewertet',
+          'Evaluierung mit 1.000 Formularen in nur 3 Tagen abgeschlossen',
+          '156.000 einzelne Felder ausgewertet',
           'Im Vergleich: 3 Personen hätten 3 Monate für 1.000 Formulare benötigt',
           'Vollständig strukturierte Daten, sofort auswertbar',
           'Massive Kostenersparnis gegenüber manueller Erfassung',
-          '99,7% Genauigkeit durch Human-in-the-Loop'
+          '98% Genauigkeit ohne manuelle Nachbearbeitung'
         ],
       },
       quote: {
@@ -303,13 +303,12 @@ export default {
       },
       solution: {
         title: 'Die Lösung',
-        description: 'Formalogix implementierte einen vollautomatisierten Workflow:',
+        description: 'formalogix implementierte einen vollautomatisierten Workflow:',
         steps: [
-          'Automatisierte Analyse aller eingehenden Formulare',
-          'Human-in-the-Loop nur für kritische Felder',
+          'Automatisierte KI-Analyse mit Human-in-the-Loop für kritische Felder',
           'Direkte Datenbankintegration via API',
           'Automatische Batch-Zuordnung basierend auf Freigaben',
-          'Schnelle Verarbeitung auch bei steigenden Formularzahlen'
+          'Skalierbare Verarbeitung während gesamter Anmeldephase'
         ],
       },
       results: {
@@ -330,7 +329,7 @@ export default {
         ],
       },
       quote: {
-        text: 'Die nahtlose Integration während der laufenden Anmeldephase hat uns enorm entlastet. Wir konnten uns auf die Eventplanung konzentrieren, während Formalogix die Formulare im Hintergrund verarbeitete.',
+        text: 'Die nahtlose Integration während der laufenden Anmeldephase hat uns enorm entlastet. Wir konnten uns auf die Eventplanung konzentrieren, während formalogix die Formulare im Hintergrund verarbeitete.',
         author: 'Eventmanager, Großveranstaltung'
       },
     },
@@ -365,11 +364,10 @@ export default {
       },
       solution: {
         title: 'Die Lösung',
-        description: 'Formalogix übernahm den gesamten Prozess:',
+        description: 'formalogix übernahm den gesamten Prozess:',
         steps: [
           'Scannen aller 10.000 Papierformulare',
-          'Automatisierte Datenextraktion via KI',
-          'Human-in-the-Loop für kritische Felder (Unterschriften, E-Mails)',
+          'KI-gestützte Datenextraktion mit menschlicher Verifikation',
           'Validierung aller E-Mail-Adressen und Telefonnummern',
           'Direkte Integration in Marketing-Datenbank'
         ],
@@ -392,7 +390,7 @@ export default {
         ],
       },
       quote: {
-        text: 'Ohne Formalogix hätten wir Monate gebraucht, um die Gewinnspiel-Daten zu erfassen. Stattdessen konnten wir bereits eine Woche nach der Messe mit der Marketing-Kampagne starten.',
+        text: 'Ohne formalogix hätten wir Monate gebraucht, um die Gewinnspiel-Daten zu erfassen. Stattdessen konnten wir bereits eine Woche nach der Messe mit der Marketing-Kampagne starten.',
         author: 'Marketing-Leiter, B2B-Unternehmen'
       },
     },
@@ -403,7 +401,7 @@ export default {
 
   competitive: {
     title: 'Was formalogix von anderen Lösungen unterscheidet',
-    subtitle: 'Wir lösen Probleme dort, wo Tools oder manuelle Erfassung an ihre Grenzen stoßen. Formalogix liefert strukturierte, auswertbare Daten, selbst bei handschriftlichen oder komplexen Formularen – schnell, präzise und zuverlässig.',
+    subtitle: 'Wir lösen Probleme dort, wo Tools oder manuelle Erfassung an ihre Grenzen stoßen. formalogix liefert strukturierte, auswertbare Daten, selbst bei handschriftlichen oder komplexen Formularen – schnell, präzise und zuverlässig.',
     differentiators: {
       responsibility: {
         title: 'Verantwortung übernehmen',
@@ -423,7 +421,7 @@ export default {
       },
     },
     summary: {
-      title: 'Formalogix kombiniert KI-Geschwindigkeit mit menschlicher Präzision',
+      title: 'formalogix kombiniert KI-Geschwindigkeit mit menschlicher Präzision',
       subtitle: 'Für zuverlässige Ergebnisse mit schneller Bearbeitung – ohne Kompromisse bei der Genauigkeit.',
       metrics: {
         accuracy: 'Genauigkeit',
@@ -475,15 +473,15 @@ export default {
 
   faq: {
     title: 'Häufig gestellte Fragen',
-    subtitle: 'Antworten auf die wichtigsten Fragen zu Formalogix',
+    subtitle: 'Antworten auf die wichtigsten Fragen zu formalogix',
     questions: {
       pricing: {
-        question: 'Ist Formalogix nicht teurer als reine OCR-Software?',
-        answer: 'OCR-Software scheint günstiger, aber Fehlerkorrektur kostet oft mehr als die Software selbst. Mit Formalogix zahlen Sie transparent pro Seite und erhalten 99,8% Genauigkeit ohne teure Nacharbeit.',
+        question: 'Ist formalogix nicht teurer als reine OCR-Software?',
+        answer: 'OCR-Software scheint günstiger, aber Fehlerkorrektur kostet oft mehr als die Software selbst. Mit formalogix zahlen Sie transparent pro Seite und erhalten 99,8% Genauigkeit ohne teure Nacharbeit.',
       },
       outsourcing: {
         question: 'Warum nicht einfach klassisches Outsourcing nutzen?',
-        answer: 'Klassisches Outsourcing braucht 3-6 Wochen und bietet keine API-Integration. Formalogix liefert deutlich schneller mit vollständiger API für nahtlose Prozessanbindung.',
+        answer: 'Klassisches Outsourcing braucht 3-6 Wochen und bietet keine API-Integration. formalogix liefert deutlich schneller mit vollständiger API für nahtlose Prozessanbindung.',
       },
       security: {
         question: 'Wie sicher sind meine sensiblen Daten?',
@@ -499,7 +497,7 @@ export default {
       },
       formTypes: {
         question: 'Welche Formulartypen können Sie verarbeiten?',
-        answer: 'Formalogix verarbeitet nahezu alle strukturierten Formulare – von Versicherungsanträgen über Patientenfragebögen bis zu Bestellformularen. Kontaktieren Sie uns für eine kostenlose Testauswertung innerhalb von 24h!',
+        answer: 'formalogix verarbeitet nahezu alle strukturierten Formulare – von Versicherungsanträgen über Patientenfragebögen bis zu Bestellformularen. Kontaktieren Sie uns für eine kostenlose Testauswertung innerhalb von 24h!',
       },
     },
     ctaQuestion: 'Haben Sie weitere Fragen?',
@@ -508,7 +506,7 @@ export default {
 
   contact: {
     title: 'Unverbindliche Beratung anfragen',
-    subtitle: 'Wir besprechen Ihren Anwendungsfall und zeigen Ihnen, wie Formalogix Ihre Prozesse optimieren kann. Antwort innerhalb von 24 Stunden.',
+    subtitle: 'Wir besprechen Ihren Anwendungsfall und zeigen Ihnen, wie formalogix Ihre Prozesse optimieren kann. Antwort innerhalb von 24 Stunden.',
     trustSignals: {
       noObligation: 'Keine Verpflichtung',
       quickResponse: 'Antwort in 24 Stunden',
@@ -536,7 +534,7 @@ export default {
       gdpr: 'DSGVO-konform',
       gdprSubtext: 'Datenschutz garantiert',
       accuracy: '99,8%',
-      accuracySubtext: 'Genauigkeitsgarantie',
+      accuracySubtext: 'Genauigkeit',
       pagesProcessed: '10M+',
       pagesProcessedSubtext: 'Seiten verarbeitet',
       responseTime: '24h',

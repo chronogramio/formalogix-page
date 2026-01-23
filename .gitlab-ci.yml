@@ -1,0 +1,161 @@
+# GitLab CI/CD Pipeline for Formalogix Landing Page
+# Deploys Astro static site to Cloudflare Pages
+
+stages:
+  - build
+  - deploy
+
+variables:
+  NODE_ENV: production
+  npm_config_cache: "$CI_PROJECT_DIR/.npm"
+
+# Cache node_modules for faster builds
+cache:
+  key:
+    files:
+      - package-lock.json
+  paths:
+    - node_modules/
+    - .npm/
+
+# Build job - runs on all branches
+build:
+  stage: build
+  image: node:23-alpine
+  before_script:
+    - echo "Building for branch $CI_COMMIT_REF_NAME"
+    - node --version
+    - npm --version
+  script:
+    # Set environment variables based on branch
+    - |
+      if [ "$CI_COMMIT_REF_NAME" = "main" ]; then
+        export PUBLIC_API_URL="$PUBLIC_API_URL_PROD"
+        export PUBLIC_UMAMI_WEBSITE_ID="$PUBLIC_UMAMI_WEBSITE_ID_PROD"
+        echo "Building for PRODUCTION environment"
+      else
+        export PUBLIC_API_URL="$PUBLIC_API_URL_PREVIEW"
+        export PUBLIC_UMAMI_WEBSITE_ID="$PUBLIC_UMAMI_WEBSITE_ID_PREVIEW"
+        echo "Building for PREVIEW environment (branch: $CI_COMMIT_REF_NAME)"
+      fi
+
+    # Install dependencies
+    - npm ci --prefer-offline --no-audit
+
+    # Build the site
+    - npm run build
+
+    # Display build info
+    - ls -lh dist/
+    - du -sh dist/
+
+  artifacts:
+    paths:
+      - dist/
+    expire_in: 1 day
+
+  only:
+    - main
+    - dev
+    - /^feature\/.*/
+    - /^fix\/.*/
+
+# Deploy to production - main branch only
+deploy:production:
+  stage: deploy
+  image: node:23-alpine
+  before_script:
+    - npm install -g wrangler
+    - wrangler --version
+  script:
+    - echo "Deploying to PRODUCTION (formalogix.com)"
+    - |
+      wrangler pages deploy dist/ \
+        --project-name="$CLOUDFLARE_PROJECT_NAME" \
+        --branch=main \
+        --commit-dirty=true
+    - echo "✅ Production deployment complete!"
+    - echo "URL: https://formalogix.com"
+
+  environment:
+    name: production
+    url: https://formalogix.com
+
+  dependencies:
+    - build
+
+  only:
+    - main
+
+# Deploy to preview - non-main branches
+deploy:preview:
+  stage: deploy
+  image: node:23-alpine
+  before_script:
+    - npm install -g wrangler
+    - wrangler --version
+  script:
+    # Sanitize branch name for URL (replace / with -)
+    - export BRANCH_NAME=$(echo "$CI_COMMIT_REF_NAME" | sed 's/\//-/g')
+    - echo "Deploying PREVIEW for branch $CI_COMMIT_REF_NAME"
+    - |
+      wrangler pages deploy dist/ \
+        --project-name="$CLOUDFLARE_PROJECT_NAME" \
+        --branch="$CI_COMMIT_REF_NAME" \
+        --commit-dirty=true
+    - echo "✅ Preview deployment complete!"
+    - echo "URL: https://$BRANCH_NAME.$CLOUDFLARE_PROJECT_NAME.pages.dev"
+
+  environment:
+    name: preview/$CI_COMMIT_REF_NAME
+    url: https://$CI_COMMIT_REF_SLUG.$CLOUDFLARE_PROJECT_NAME.pages.dev
+    on_stop: cleanup:preview
+
+  dependencies:
+    - build
+
+  except:
+    - main
+
+# Manual production deployment from dev branch (for testing)
+deploy:production-manual:
+  stage: deploy
+  image: node:23-alpine
+  before_script:
+    - npm install -g wrangler
+    - wrangler --version
+  script:
+    - echo "Manual production deployment from dev branch"
+    - |
+      wrangler pages deploy dist/ \
+        --project-name="$CLOUDFLARE_PROJECT_NAME" \
+        --branch=main \
+        --commit-dirty=true
+    - echo "✅ Manual production deployment complete!"
+
+  environment:
+    name: production
+    url: https://formalogix.com
+
+  dependencies:
+    - build
+
+  when: manual
+  only:
+    - dev
+
+# Cleanup preview deployments (optional, for future use)
+cleanup:preview:
+  stage: deploy
+  image: node:23-alpine
+  script:
+    - echo "Preview environment cleanup (placeholder)"
+    - echo "Cloudflare Pages keeps all deployments, no cleanup needed"
+
+  environment:
+    name: preview/$CI_COMMIT_REF_NAME
+    action: stop
+
+  when: manual
+  except:
+    - main

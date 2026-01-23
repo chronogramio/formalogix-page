@@ -9,7 +9,6 @@ variables:
   NODE_ENV: production
   npm_config_cache: "$CI_PROJECT_DIR/.npm"
 
-# Cache node_modules for faster builds
 cache:
   key:
     files:
@@ -18,7 +17,6 @@ cache:
     - node_modules/
     - .npm/
 
-# Build job - runs on all branches
 build:
   stage: build
   image: node:23-alpine
@@ -41,19 +39,16 @@ build:
     - npm run build
     - ls -lh dist/
     - du -sh dist/
-
   artifacts:
     paths:
       - dist/
     expire_in: 1 day
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "main"'
+    - if: '$CI_COMMIT_BRANCH == "dev"'
+    - if: '$CI_COMMIT_BRANCH =~ /^feature\/.*/'
+    - if: '$CI_COMMIT_BRANCH =~ /^fix\/.*/'
 
-  only:
-    - main
-    - dev
-    - /^feature\/.*/
-    - /^fix\/.*/
-
-# Deploy to production - main branch only
 deploy:production:
   stage: deploy
   image: node:23-alpine
@@ -63,20 +58,16 @@ deploy:production:
   script:
     - echo "Deploying to PRODUCTION (formalogix.com)"
     - wrangler pages deploy dist/ --project-name="$CLOUDFLARE_PROJECT_NAME" --branch=main --commit-dirty=true
-    - echo "✅ Production deployment complete!"
-    - echo "URL: https://formalogix.com"
-
+    - echo "SUCCESS - Production deployment complete!"
+    - echo "URL https://formalogix.com"
   environment:
     name: production
     url: https://formalogix.com
-
   dependencies:
     - build
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "main"'
 
-  only:
-    - main
-
-# Deploy to preview - non-main branches
 deploy:preview:
   stage: deploy
   image: node:23-alpine
@@ -87,21 +78,16 @@ deploy:preview:
     - export BRANCH_NAME=$(echo "$CI_COMMIT_REF_NAME" | sed 's/\//-/g')
     - echo "Deploying PREVIEW for branch $CI_COMMIT_REF_NAME"
     - wrangler pages deploy dist/ --project-name="$CLOUDFLARE_PROJECT_NAME" --branch="$CI_COMMIT_REF_NAME" --commit-dirty=true
-    - echo "✅ Preview deployment complete!"
-    - echo "URL: https://$BRANCH_NAME.$CLOUDFLARE_PROJECT_NAME.pages.dev"
-
+    - echo "SUCCESS - Preview deployment complete!"
+    - echo "URL https://$BRANCH_NAME.$CLOUDFLARE_PROJECT_NAME.pages.dev"
   environment:
     name: preview/$CI_COMMIT_REF_NAME
     url: https://$CI_COMMIT_REF_SLUG.$CLOUDFLARE_PROJECT_NAME.pages.dev
-    on_stop: cleanup:preview
-
   dependencies:
     - build
+  rules:
+    - if: '$CI_COMMIT_BRANCH != "main"'
 
-  except:
-    - main
-
-# Manual production deployment from dev branch (for testing)
 deploy:production-manual:
   stage: deploy
   image: node:23-alpine
@@ -111,31 +97,12 @@ deploy:production-manual:
   script:
     - echo "Manual production deployment from dev branch"
     - wrangler pages deploy dist/ --project-name="$CLOUDFLARE_PROJECT_NAME" --branch=main --commit-dirty=true
-    - echo "✅ Manual production deployment complete!"
-
+    - echo "SUCCESS - Manual production deployment complete!"
   environment:
     name: production
     url: https://formalogix.com
-
   dependencies:
     - build
-
   when: manual
-  only:
-    - dev
-
-# Cleanup preview deployments (optional, for future use)
-cleanup:preview:
-  stage: deploy
-  image: node:23-alpine
-  script:
-    - echo "Preview environment cleanup (placeholder)"
-    - echo "Cloudflare Pages keeps all deployments, no cleanup needed"
-
-  environment:
-    name: preview/$CI_COMMIT_REF_NAME
-    action: stop
-
-  when: manual
-  except:
-    - main
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "dev"'

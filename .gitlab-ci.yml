@@ -27,7 +27,6 @@ build:
     - node --version
     - npm --version
   script:
-    # Set environment variables based on branch
     - |
       if [ "$CI_COMMIT_REF_NAME" = "main" ]; then
         export PUBLIC_API_URL="$PUBLIC_API_URL_PROD"
@@ -38,14 +37,8 @@ build:
         export PUBLIC_UMAMI_WEBSITE_ID="$PUBLIC_UMAMI_WEBSITE_ID_PREVIEW"
         echo "Building for PREVIEW environment (branch: $CI_COMMIT_REF_NAME)"
       fi
-
-    # Install dependencies
     - npm ci --prefer-offline --no-audit
-
-    # Build the site
     - npm run build
-
-    # Display build info
     - ls -lh dist/
     - du -sh dist/
 

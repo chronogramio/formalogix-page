@@ -69,11 +69,7 @@ deploy:production:
     - wrangler --version
   script:
     - echo "Deploying to PRODUCTION (formalogix.com)"
-    - |
-      wrangler pages deploy dist/ \
-        --project-name="$CLOUDFLARE_PROJECT_NAME" \
-        --branch=main \
-        --commit-dirty=true
+    - wrangler pages deploy dist/ --project-name="$CLOUDFLARE_PROJECT_NAME" --branch=main --commit-dirty=true
     - echo "✅ Production deployment complete!"
     - echo "URL: https://formalogix.com"
 
@@ -95,14 +91,9 @@ deploy:preview:
     - npm install -g wrangler
     - wrangler --version
   script:
-    # Sanitize branch name for URL (replace / with -)
     - export BRANCH_NAME=$(echo "$CI_COMMIT_REF_NAME" | sed 's/\//-/g')
     - echo "Deploying PREVIEW for branch $CI_COMMIT_REF_NAME"
-    - |
-      wrangler pages deploy dist/ \
-        --project-name="$CLOUDFLARE_PROJECT_NAME" \
-        --branch="$CI_COMMIT_REF_NAME" \
-        --commit-dirty=true
+    - wrangler pages deploy dist/ --project-name="$CLOUDFLARE_PROJECT_NAME" --branch="$CI_COMMIT_REF_NAME" --commit-dirty=true
     - echo "✅ Preview deployment complete!"
     - echo "URL: https://$BRANCH_NAME.$CLOUDFLARE_PROJECT_NAME.pages.dev"
 
@@ -126,11 +117,7 @@ deploy:production-manual:
     - wrangler --version
   script:
     - echo "Manual production deployment from dev branch"
-    - |
-      wrangler pages deploy dist/ \
-        --project-name="$CLOUDFLARE_PROJECT_NAME" \
-        --branch=main \
-        --commit-dirty=true
+    - wrangler pages deploy dist/ --project-name="$CLOUDFLARE_PROJECT_NAME" --branch=main --commit-dirty=true
     - echo "✅ Manual production deployment complete!"
 
   environment:

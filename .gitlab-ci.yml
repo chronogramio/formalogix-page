@@ -51,20 +51,11 @@ build:
 
 build:api:
   stage: build
-  image: docker:24-cli
-  services:
-    - name: docker:24-dind
-      command: ["--tls=false"]
-  variables:
-    DOCKER_DRIVER: overlay2
-    DOCKER_HOST: tcp://docker:2375
-    DOCKER_TLS_CERTDIR: ""
-  before_script:
-    - echo "Building API for branch $CI_COMMIT_REF_NAME"
-    - docker info
-    - echo "$DOCKER_REGISTRY_PASSWORD" | docker login -u "$DOCKER_REGISTRY_USER" --password-stdin "$DOCKER_REGISTRY"
+  image:
+    name: gcr.io/kaniko-project/executor:v1.9.0-debug
+    entrypoint: [""]
   script:
-    - cd api-server-go
+    - echo "Building API for branch $CI_COMMIT_REF_NAME"
     - |
       if [ "$CI_COMMIT_BRANCH" = "main" ]; then
         export IMAGE_TAG="v${API_VERSION}-${CI_COMMIT_SHORT_SHA}"
@@ -77,9 +68,17 @@ build:api:
       fi
     - export FULL_IMAGE_NAME="${DOCKER_REGISTRY}/${DOCKER_REGISTRY_IMAGE}"
     - echo "Full image name ${FULL_IMAGE_NAME}:${IMAGE_TAG}"
-    - docker build -f deployments/docker/Dockerfile -t "${FULL_IMAGE_NAME}:${IMAGE_TAG}" -t "${FULL_IMAGE_NAME}:${LATEST_TAG}" .
-    - docker push "${FULL_IMAGE_NAME}:${IMAGE_TAG}"
-    - docker push "${FULL_IMAGE_NAME}:${LATEST_TAG}"
+    - mkdir -p /kaniko/.docker
+    - echo "{\"auths\":{\"${DOCKER_REGISTRY}\":{\"auth\":\"$(printf "%s:%s" "${DOCKER_REGISTRY_USER}" "${DOCKER_REGISTRY_PASSWORD}" | base64 | tr -d '\n')\"}}}" > /kaniko/.docker/config.json
+    - |
+      /kaniko/executor \
+        --context "${CI_PROJECT_DIR}/api-server-go" \
+        --dockerfile "${CI_PROJECT_DIR}/api-server-go/deployments/docker/Dockerfile" \
+        --destination "${FULL_IMAGE_NAME}:${IMAGE_TAG}" \
+        --destination "${FULL_IMAGE_NAME}:${LATEST_TAG}" \
+        --skip-tls-verify \
+        --cache=true \
+        --cache-ttl=24h
     - echo "SUCCESS - Image built and pushed"
     - echo "Image ${FULL_IMAGE_NAME}:${IMAGE_TAG}"
   rules:
@@ -149,13 +148,12 @@ deploy:production-manual:
 
 deploy:api:production:
   stage: deploy
-  image: bitnami/kubectl:1.28
+  image: bitnami/kubectl:latest
   before_script:
     - echo "Deploying API to PRODUCTION Kubernetes cluster"
     - mkdir -p ~/.kube
-    - echo "$KUBECONFIG_CONTENT" | base64 -d > ~/.kube/config
-    - kubectl version --client
-    - kubectl cluster-info
+    - cp ${KUBECONFIG_CONTENT} ~/.kube/config
+    - chmod 600 ~/.kube/config
   script:
     - export IMAGE_TAG="v${API_VERSION}-${CI_COMMIT_SHORT_SHA}"
     - export FULL_IMAGE_NAME="${DOCKER_REGISTRY}/${DOCKER_REGISTRY_IMAGE}:${IMAGE_TAG}"
@@ -168,7 +166,7 @@ deploy:api:production:
   environment:
     name: production-api
     url: https://forms.flickflauder.com
-  dependencies:
+  needs:
     - build:api
   rules:
     - if: '$CI_COMMIT_BRANCH == "main"'
@@ -178,13 +176,12 @@ deploy:api:production:
 
 deploy:api:preview:
   stage: deploy
-  image: bitnami/kubectl:1.28
+  image: bitnami/kubectl:latest
   before_script:
     - echo "Deploying API to PREVIEW Kubernetes cluster"
     - mkdir -p ~/.kube
-    - echo "$KUBECONFIG_CONTENT" | base64 -d > ~/.kube/config
-    - kubectl version --client
-    - kubectl cluster-info
+    - cp ${KUBECONFIG_CONTENT} ~/.kube/config
+    - chmod 600 ~/.kube/config
   script:
     - export IMAGE_TAG="dev-${CI_COMMIT_SHORT_SHA}"
     - export FULL_IMAGE_NAME="${DOCKER_REGISTRY}/${DOCKER_REGISTRY_IMAGE}:${IMAGE_TAG}"
@@ -197,7 +194,7 @@ deploy:api:preview:
   environment:
     name: preview-api
     url: https://forms.flickflauder.com
-  dependencies:
+  needs:
     - build:api
   rules:
     - if: '$CI_COMMIT_BRANCH == "dev"'
@@ -207,12 +204,12 @@ deploy:api:preview:
 
 deploy:api:production-manual:
   stage: deploy
-  image: bitnami/kubectl:1.28
+  image: bitnami/kubectl:latest
   before_script:
     - echo "Manual API deployment to PRODUCTION"
     - mkdir -p ~/.kube
-    - echo "$KUBECONFIG_CONTENT" | base64 -d > ~/.kube/config
-    - kubectl version --client
+    - cp ${KUBECONFIG_CONTENT} ~/.kube/config
+    - chmod 600 ~/.kube/config
   script:
     - export IMAGE_TAG="dev-${CI_COMMIT_SHORT_SHA}"
     - export FULL_IMAGE_NAME="${DOCKER_REGISTRY}/${DOCKER_REGISTRY_IMAGE}:${IMAGE_TAG}"
@@ -223,7 +220,7 @@ deploy:api:production-manual:
   environment:
     name: production-api
     url: https://forms.flickflauder.com
-  dependencies:
+  needs:
     - build:api
   when: manual
   rules:

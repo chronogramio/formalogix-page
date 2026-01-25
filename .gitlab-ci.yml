@@ -53,13 +53,12 @@ build:api:
   stage: build
   image: docker:24-cli
   services:
-    - docker:24-dind
+    - name: docker:24-dind
+      command: ["--tls=false"]
   variables:
     DOCKER_DRIVER: overlay2
-    DOCKER_HOST: tcp://docker:2376
-    DOCKER_TLS_CERTDIR: "/certs"
-    DOCKER_TLS_VERIFY: 1
-    DOCKER_CERT_PATH: "$DOCKER_TLS_CERTDIR/client"
+    DOCKER_HOST: tcp://docker:2375
+    DOCKER_TLS_CERTDIR: ""
   before_script:
     - echo "Building API for branch $CI_COMMIT_REF_NAME"
     - docker info

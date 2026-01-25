@@ -507,6 +507,7 @@ export default {
   contact: {
     title: 'Unverbindliche Beratung anfragen',
     subtitle: 'Wir besprechen Ihren Anwendungsfall und zeigen Ihnen, wie formalogix Ihre Prozesse optimieren kann. Antwort innerhalb von 24 Stunden.',
+    cta: 'Jetzt Kontakt aufnehmen',
     trustSignals: {
       noObligation: 'Keine Verpflichtung',
       quickResponse: 'Antwort in 24 Stunden',

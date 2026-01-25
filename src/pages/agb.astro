@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import MobileMenu from '../components/MobileMenu';
+import ContactFormModal from '../components/ContactFormModal';
 ---
 
 <Layout title="Allgemeine Geschäftsbedingungen - formalogix">
@@ -18,13 +19,13 @@ import MobileMenu from '../components/MobileMenu';
 					<a href="/#services" class="text-gray-700 hover:text-formalogix-500 transition-colors">Lösungen</a>
 					<a href="/#usecases" class="text-gray-700 hover:text-formalogix-500 transition-colors">Erfolgsgeschichten</a>
 					<a href="/pricing" class="text-gray-700 hover:text-formalogix-500 transition-colors">Preise</a>
-					<a href="/#contact" class="text-gray-700 hover:text-formalogix-500 transition-colors">Kontakt</a>
+					<button class="text-gray-700 hover:text-formalogix-500 transition-colors open-contact-modal-btn" onclick="window.dispatchEvent(new CustomEvent('openContactModal'));">Kontakt</button>
 				</div>
 				<div class="flex items-center space-x-4">
-					<a href="/#contact" class="bg-formalogix-500 text-white px-4 py-2 rounded-lg hover:bg-formalogix-600 transition-colors">
+					<button class="bg-formalogix-500 text-white px-4 py-2 rounded-lg hover:bg-formalogix-600 transition-colors open-contact-modal-btn" onclick="window.dispatchEvent(new CustomEvent('openContactModal'));">
 						Kontakt
-					</a>
-					<MobileMenu client:load />
+					</button>
+					<MobileMenu initialLocale="de" client:load />
 				</div>
 			</div>
 		</div>
@@ -236,4 +237,7 @@ import MobileMenu from '../components/MobileMenu';
 			</div>
 		</div>
 	</footer>
+
+	<!-- Contact Form Modal -->
+	<ContactFormModal client:load />
 </Layout>

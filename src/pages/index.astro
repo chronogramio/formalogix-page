@@ -9,29 +9,25 @@ import SocialProof from '../components/sections/SocialProof.astro';
 import UseCasesSummary from '../components/sections/UseCasesSummary.astro';
 import WhyFormalogix from '../components/sections/WhyFormalogix.astro';
 import FAQ from '../components/sections/FAQ.astro';
-import DynamicPricingSection from '../components/DynamicPricingSection';
-import Contact from '../components/sections/Contact.astro';
+import ContactFormModal from '../components/ContactFormModal';
 import Footer from '../components/sections/Footer.astro';
-import { getLocaleFromPath } from '../i18n';
-import { getRegionFromLocale } from '../config/pricing';
-
-const locale = getLocaleFromPath(Astro.url.pathname);
-const region = getRegionFromLocale(locale);
 ---
 
 <Layout title="Handschriftliche Formulare digitalisieren | 99,8% Genauigkeit & schnelle Bearbeitung | formalogix">
 	<!-- Navigation -->
 	<Navigation />
 
-	<!-- Page Sections (8 sections - optimized from 12) -->
+	<!-- Page Sections (6 sections) -->
 	<Hero />
 	<ProblemSolution />
 	<SocialProof />
 	<UseCasesSummary />
 	<WhyFormalogix />
 	<FAQ />
-	<DynamicPricingSection initialLocale={locale} initialRegion={region} client:load />
-	<Contact />
+
+	<!-- Contact Form Modal -->
+	<ContactFormModal client:load />
+
 	<Footer />
 
 	<!-- Scroll Animation Script -->
@@ -56,6 +52,11 @@ const region = getRegionFromLocale(locale);
 		document.addEventListener('DOMContentLoaded', () => {
 			const revealElements = document.querySelectorAll('.scroll-reveal');
 			revealElements.forEach(el => observer.observe(el));
+		});
+
+		// Handle contact modal button click
+		document.getElementById('open-contact-modal')?.addEventListener('click', () => {
+			window.dispatchEvent(new CustomEvent('openContactModal'));
 		});
 	</script>
 </Layout>

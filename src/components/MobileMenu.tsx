@@ -154,6 +154,15 @@ export default function MobileMenu({ initialLocale }: MobileMenuProps) {
             >
               {t.nav.pricing}
             </a>
+            <button
+              className="text-left bg-formalogix-500 text-white px-4 py-2 rounded-lg hover:bg-formalogix-600 transition-colors mt-2"
+              onClick={() => {
+                setIsOpen(false);
+                window.dispatchEvent(new CustomEvent('openContactModal'));
+              }}
+            >
+              {t.nav.contact}
+            </button>
             <a
               href="https://app.formalogix.com"
               className="text-gray-700 hover:text-formalogix-500 transition-colors py-2"

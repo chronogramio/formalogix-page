@@ -68,9 +68,9 @@ function getLink(path: string) {
 			<div class="flex items-center space-x-2">
 				<!-- Language/Currency Switcher (Always Visible) -->
 				<SimpleLocaleSwitcher initialLocale={locale} initialCurrency={currency} client:load />
-				<a href={`${getLink('/')}#contact`} class="hidden sm:inline-block bg-formalogix-500 text-white px-4 py-2 rounded-lg hover:bg-formalogix-600 transition-colors">
+				<button class="hidden sm:inline-block bg-formalogix-500 text-white px-4 py-2 rounded-lg hover:bg-formalogix-600 transition-colors open-contact-modal-btn" onclick="window.dispatchEvent(new CustomEvent('openContactModal'));">
 					{t.nav.contact}
-				</a>
+				</button>
 				<MobileMenu initialLocale={locale} client:load />
 			</div>
 		</div>

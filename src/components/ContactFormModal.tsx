@@ -104,7 +104,7 @@ export default function ContactFormModal() {
 
         {/* Modal Body */}
         <div className="px-6 py-6">
-          <ContactForm />
+          <ContactForm noWrapper={true} />
         </div>
       </div>
     </div>

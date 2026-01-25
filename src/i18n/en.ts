@@ -508,6 +508,7 @@ export default {
   contact: {
     title: 'Request Non-Binding Consultation',
     subtitle: 'We\'ll discuss your use case and show you how formalogix can optimize your processes. Response within 24 hours.',
+    cta: 'Contact Us Now',
     trustSignals: {
       noObligation: 'No Obligation',
       quickResponse: 'Response in 24 Hours',

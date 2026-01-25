@@ -1,5 +1,4 @@
 ---
-import ContactForm from '../ContactForm.tsx';
 import { getLocaleFromPath, getTranslations } from '../../i18n';
 
 const locale = getLocaleFromPath(Astro.url.pathname);
@@ -67,22 +66,22 @@ const t = getTranslations(locale);
   <p>Users can also submit inquiries through the contact form on this page at https://formalogix.com/#contact</p>
 </div>
 
-<!-- Contact Section -->
-<section id="contact" class="py-24 bg-gradient-to-br from-formalogix-50 via-white to-blue-50 relative overflow-hidden">
+<!-- Contact CTA Section -->
+<section id="contact" class="min-h-screen py-24 bg-gradient-to-br from-formalogix-50 via-white to-blue-50 relative overflow-hidden flex flex-col justify-center">
 		<!-- Background decoration -->
 		<div class="absolute inset-0 opacity-5">
 			<div class="absolute top-10 right-10 w-96 h-96 bg-formalogix-500 rounded-full blur-3xl"></div>
 			<div class="absolute bottom-10 left-10 w-96 h-96 bg-blue-500 rounded-full blur-3xl"></div>
 		</div>
 
-		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-			<h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-900">{t.contact.title}</h2>
-			<p class="text-center text-gray-600 mb-8 max-w-2xl mx-auto text-lg">
+		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+			<h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-900">{t.contact.title}</h2>
+			<p class="text-gray-600 mb-8 max-w-2xl mx-auto text-lg">
 				{t.contact.subtitle}
 			</p>
 
 			<!-- Trust Signals -->
-			<div class="flex flex-wrap justify-center gap-6 mb-12 max-w-3xl mx-auto">
+			<div class="flex flex-wrap justify-center gap-6 mb-12">
 				<div class="flex items-center text-sm text-gray-700 bg-green-50 px-4 py-2 rounded-lg">
 					<svg class="w-5 h-5 text-green-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
 						<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
@@ -103,6 +102,13 @@ const t = getTranslations(locale);
 				</div>
 			</div>
 
-			<ContactForm client:load />
+			<!-- CTA Button -->
+			<button
+				id="open-contact-modal"
+				class="btn-primary inline-block text-lg px-10 py-4"
+				data-track-cta="contact-cta"
+			>
+				{t.contact.cta}
+			</button>
 		</div>
 	</section>

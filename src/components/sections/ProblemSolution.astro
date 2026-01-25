@@ -13,263 +13,153 @@ function getLink(path: string) {
 }
 ---
 
-<!-- Problem-Solution Merged Section -->
-<!-- Part 1: Problem Statement -->
-<section class="py-24 bg-white">
+<!-- Problem Statement Section -->
+<section class="py-16 bg-gradient-to-br from-formalogix-600 to-formalogix-800">
 	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-		<h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-900">
+		<h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-white">
 			{t.problemStatement.title}
 		</h2>
-		<p class="text-center text-gray-600 mb-16 max-w-3xl mx-auto text-lg">
+		<p class="text-center text-blue-100 mb-16 max-w-3xl mx-auto text-lg">
 			{t.problemStatement.subtitle}
 		</p>
 
-		<div class="grid md:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto mb-20">
+		<div class="grid md:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto">
 			<!-- Pain Point 1 -->
-			<div class="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all hover:-translate-y-1 border-l-4 border-red-500">
-				<div class="flex items-center mb-4">
-					<div class="w-14 h-14 bg-red-50 rounded-lg flex items-center justify-center mr-3 flex-shrink-0">
-						<svg class="w-8 h-8 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-						</svg>
-					</div>
-					<h3 class="font-bold text-gray-900 text-lg">{t.problemStatement.painPoints.volume.title}</h3>
+			<div class="text-center">
+				<div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+					<svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+					</svg>
 				</div>
-				<p class="text-sm text-gray-600">
+				<h3 class="font-bold text-white mb-2">{t.problemStatement.painPoints.volume.title}</h3>
+				<p class="text-sm text-blue-100">
 					{t.problemStatement.painPoints.volume.description}
 				</p>
 			</div>
 
 			<!-- Pain Point 2 -->
-			<div class="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all hover:-translate-y-1 border-l-4 border-orange-500">
-				<div class="flex items-center mb-4">
-					<div class="w-14 h-14 bg-orange-50 rounded-lg flex items-center justify-center mr-3 flex-shrink-0">
-						<svg class="w-8 h-8 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-						</svg>
-					</div>
-					<h3 class="font-bold text-gray-900 text-lg">{t.problemStatement.painPoints.handwriting.title}</h3>
+			<div class="text-center">
+				<div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+					<svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+					</svg>
 				</div>
-				<p class="text-sm text-gray-600">
+				<h3 class="font-bold text-white mb-2">{t.problemStatement.painPoints.handwriting.title}</h3>
+				<p class="text-sm text-blue-100">
 					{t.problemStatement.painPoints.handwriting.description}
 				</p>
 			</div>
 
 			<!-- Pain Point 3 -->
-			<div class="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all hover:-translate-y-1 border-l-4 border-amber-500">
-				<div class="flex items-center mb-4">
-					<div class="w-14 h-14 bg-amber-50 rounded-lg flex items-center justify-center mr-3 flex-shrink-0">
-						<svg class="w-8 h-8 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-						</svg>
-					</div>
-					<h3 class="font-bold text-gray-900 text-lg">{t.problemStatement.painPoints.deadlines.title}</h3>
+			<div class="text-center">
+				<div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+					<svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+					</svg>
 				</div>
-				<p class="text-sm text-gray-600">
+				<h3 class="font-bold text-white mb-2">{t.problemStatement.painPoints.deadlines.title}</h3>
+				<p class="text-sm text-blue-100">
 					{t.problemStatement.painPoints.deadlines.description}
 				</p>
 			</div>
 		</div>
+	</div>
+</section>
 
-		<div class="text-center mb-24">
-			<p class="text-xl text-gray-700 font-medium">
-				<strong>{t.problemStatement.solution}</strong> {t.problemStatement.solutionDescription}
-			</p>
-		</div>
+<!-- How It Works Section -->
+<section class="py-16 bg-white">
+	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+		<!-- Part 2: How It Works -->
+		<h2 class="text-3xl md:text-4xl font-bold text-center mb-6 text-gray-900">
+			{t.howItWorks.title}
+		</h2>
+		<p class="text-center text-gray-600 mb-16 max-w-3xl mx-auto">
+			{t.howItWorks.subtitle}
+		</p>
 
-		<!-- Part 2: How It Works (with white background and colored cards) -->
-		<div class="mb-20">
-			<h2 class="text-3xl md:text-4xl font-bold text-center mb-6 text-gray-900">
-				{t.howItWorks.title}
-			</h2>
-			<p class="text-center text-gray-600 mb-16 max-w-3xl mx-auto">
-				{t.howItWorks.subtitle}
-			</p>
-
-			<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-				<!-- Step 1: Data Capture -->
-				<div class="bg-formalogix-50 rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow relative flex flex-col">
-					<div class="flex items-center justify-center w-16 h-16 bg-formalogix-500 text-white rounded-full text-2xl font-bold mb-6 mx-auto">
-						1
-					</div>
-					<h3 class="text-xl font-bold text-gray-900 mb-3 text-center">
-						{t.howItWorks.steps.capture.title}
-					</h3>
-					<p class="text-gray-600 text-center flex-grow text-sm">
-						{t.howItWorks.steps.capture.description}
-					</p>
-					<div class="mt-6 flex justify-center">
-						<svg class="w-10 h-10 text-formalogix-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-						</svg>
-					</div>
+		<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+			<!-- Step 1: Data Capture -->
+			<div class="bg-formalogix-50 rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow relative flex flex-col">
+				<div class="flex items-center justify-center w-16 h-16 bg-formalogix-500 text-white rounded-full text-2xl font-bold mb-6 mx-auto">
+					1
 				</div>
-
-				<!-- Step 2: AI Analysis -->
-				<div class="bg-formalogix-100 rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow relative flex flex-col">
-					<div class="flex items-center justify-center w-16 h-16 bg-formalogix-500 text-white rounded-full text-2xl font-bold mb-6 mx-auto">
-						2
-					</div>
-					<h3 class="text-xl font-bold text-gray-900 mb-3 text-center">
-						{t.howItWorks.steps.analysis.title}
-					</h3>
-					<p class="text-gray-600 text-center flex-grow text-sm">
-						{t.howItWorks.steps.analysis.description}
-					</p>
-					<div class="mt-6 flex justify-center">
-						<svg class="w-10 h-10 text-formalogix-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-						</svg>
-					</div>
-				</div>
-
-				<!-- Step 3: Human Verification -->
-				<div class="bg-formalogix-100 rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow relative flex flex-col">
-					<div class="flex items-center justify-center w-16 h-16 bg-formalogix-500 text-white rounded-full text-2xl font-bold mb-6 mx-auto">
-						3
-					</div>
-					<h3 class="text-xl font-bold text-gray-900 mb-3 text-center">
-						{t.howItWorks.steps.verification.title}
-					</h3>
-					<p class="text-gray-600 text-center flex-grow text-sm">
-						{t.howItWorks.steps.verification.description}
-					</p>
-					<div class="mt-6 flex justify-center">
-						<svg class="w-10 h-10 text-formalogix-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-						</svg>
-					</div>
-				</div>
-
-				<!-- Step 4: Structured Data Output -->
-				<div class="bg-formalogix-50 rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow relative flex flex-col">
-					<div class="flex items-center justify-center w-16 h-16 bg-formalogix-500 text-white rounded-full text-2xl font-bold mb-6 mx-auto">
-						4
-					</div>
-					<h3 class="text-xl font-bold mb-3 text-center text-gray-900">
-						{t.howItWorks.steps.output.title}
-					</h3>
-					<p class="text-gray-600 text-center flex-grow text-sm">
-						{t.howItWorks.steps.output.description}
-					</p>
-					<div class="mt-6 flex justify-center">
-						<svg class="w-10 h-10 text-formalogix-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
-						</svg>
-					</div>
-				</div>
-			</div>
-
-			<div class="mt-12 text-center">
-				<p class="text-lg text-formalogix-600 font-medium">
-					{t.howItWorks.tagline}
+				<h3 class="text-xl font-bold text-gray-900 mb-3 text-center">
+					{t.howItWorks.steps.capture.title}
+				</h3>
+				<p class="text-gray-600 text-center flex-grow text-sm">
+					{t.howItWorks.steps.capture.description}
 				</p>
+				<div class="mt-6 flex justify-center">
+					<svg class="w-10 h-10 text-formalogix-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+					</svg>
+				</div>
 			</div>
-		</div>
 
-		<!-- Part 3: Efficiency Comparison (Simplified) -->
-		<div class="mb-16">
-			<h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-900">
-				{t.efficiencyComparison.title}
-			</h2>
-			<p class="text-center text-gray-600 mb-16 max-w-3xl mx-auto">
-				{t.efficiencyComparison.subtitle}
-			</p>
-
-			<div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto relative">
-				<!-- VS Badge (Desktop only) -->
-				<div class="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-16 h-16 bg-white rounded-full shadow-lg items-center justify-center border-4 border-gray-100">
-					<span class="text-xl font-bold text-gray-400">VS</span>
+			<!-- Step 2: AI Analysis -->
+			<div class="bg-formalogix-100 rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow relative flex flex-col">
+				<div class="flex items-center justify-center w-16 h-16 bg-formalogix-500 text-white rounded-full text-2xl font-bold mb-6 mx-auto">
+					2
 				</div>
-
-				<!-- Manual Processing -->
-				<div class="bg-gray-50 rounded-xl p-6 md:p-8 border-2 border-gray-200">
-					<div class="flex items-center mb-6">
-						<div class="w-12 h-12 bg-gray-200 rounded-lg flex items-center justify-center mr-4">
-							<svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-							</svg>
-						</div>
-						<h3 class="text-xl font-bold text-gray-900">{t.efficiencyComparison.manual.title}</h3>
-					</div>
-					<ul class="space-y-3">
-						<li class="flex items-start text-sm text-gray-600">
-							<svg class="w-5 h-5 text-gray-400 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-								<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
-							</svg>
-							{t.efficiencyComparison.manual.points.time}
-						</li>
-						<li class="flex items-start text-sm text-gray-600">
-							<svg class="w-5 h-5 text-gray-400 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-								<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
-							</svg>
-							{t.efficiencyComparison.manual.points.errors}
-						</li>
-						<li class="flex items-start text-sm text-gray-600">
-							<svg class="w-5 h-5 text-gray-400 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-								<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
-							</svg>
-							{t.efficiencyComparison.manual.points.resources}
-						</li>
-						<li class="flex items-start text-sm text-gray-600">
-							<svg class="w-5 h-5 text-gray-400 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-								<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
-							</svg>
-							{t.efficiencyComparison.manual.points.scalability}
-						</li>
-					</ul>
+				<h3 class="text-xl font-bold text-gray-900 mb-3 text-center">
+					{t.howItWorks.steps.analysis.title}
+				</h3>
+				<p class="text-gray-600 text-center flex-grow text-sm">
+					{t.howItWorks.steps.analysis.description}
+				</p>
+				<div class="mt-6 flex justify-center">
+					<svg class="w-10 h-10 text-formalogix-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+					</svg>
 				</div>
+			</div>
 
-				<!-- formalogix Automated -->
-				<div class="bg-white rounded-xl p-6 md:p-8 border-2 border-formalogix-500 shadow-lg">
-					<div class="flex items-center mb-6">
-						<div class="w-12 h-12 bg-formalogix-500 rounded-lg flex items-center justify-center mr-4">
-							<svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-							</svg>
-						</div>
-						<h3 class="text-xl font-bold text-gray-900">{t.efficiencyComparison.automated.title}</h3>
-					</div>
-					<ul class="space-y-3">
-						<li class="flex items-start text-sm text-gray-700">
-							<svg class="w-5 h-5 text-formalogix-green-500 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-								<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-							</svg>
-							{t.efficiencyComparison.automated.points.time}
-						</li>
-						<li class="flex items-start text-sm text-gray-700">
-							<svg class="w-5 h-5 text-formalogix-green-500 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-								<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-							</svg>
-							{t.efficiencyComparison.automated.points.accuracy}
-						</li>
-						<li class="flex items-start text-sm text-gray-700">
-							<svg class="w-5 h-5 text-formalogix-green-500 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-								<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-							</svg>
-							{t.efficiencyComparison.automated.points.resources}
-						</li>
-						<li class="flex items-start text-sm text-gray-700">
-							<svg class="w-5 h-5 text-formalogix-green-500 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-								<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-							</svg>
-							{t.efficiencyComparison.automated.points.scalability}
-						</li>
-					</ul>
+			<!-- Step 3: Human Verification -->
+			<div class="bg-formalogix-100 rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow relative flex flex-col">
+				<div class="flex items-center justify-center w-16 h-16 bg-formalogix-500 text-white rounded-full text-2xl font-bold mb-6 mx-auto">
+					3
+				</div>
+				<h3 class="text-xl font-bold text-gray-900 mb-3 text-center">
+					{t.howItWorks.steps.verification.title}
+				</h3>
+				<p class="text-gray-600 text-center flex-grow text-sm">
+					{t.howItWorks.steps.verification.description}
+				</p>
+				<div class="mt-6 flex justify-center">
+					<svg class="w-10 h-10 text-formalogix-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+					</svg>
+				</div>
+			</div>
+
+			<!-- Step 4: Structured Data Output -->
+			<div class="bg-formalogix-50 rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow relative flex flex-col">
+				<div class="flex items-center justify-center w-16 h-16 bg-formalogix-500 text-white rounded-full text-2xl font-bold mb-6 mx-auto">
+					4
+				</div>
+				<h3 class="text-xl font-bold mb-3 text-center text-gray-900">
+					{t.howItWorks.steps.output.title}
+				</h3>
+				<p class="text-gray-600 text-center flex-grow text-sm">
+					{t.howItWorks.steps.output.description}
+				</p>
+				<div class="mt-6 flex justify-center">
+					<svg class="w-10 h-10 text-formalogix-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
+					</svg>
 				</div>
 			</div>
 		</div>
 
 		<!-- Single CTA at bottom -->
-		<div class="text-center">
-			<a
-				href={`${getLink('/')}#contact`}
-				class="btn-primary inline-block px-8 py-4 text-lg"
+		<div class="mt-12 text-center">
+			<button
+				class="btn-primary inline-block px-8 py-4 text-lg open-contact-modal-btn"
 				data-track-cta="problem-solution-cta"
-				onclick="if(window.umami) window.umami.track('cta-problem-solution-clicked', {destination: 'contact'});"
+				onclick="if(window.umami) window.umami.track('cta-problem-solution-clicked', {destination: 'contact'}); window.dispatchEvent(new CustomEvent('openContactModal'));"
 			>
 				{t.problemStatement.cta}
-			</a>
+			</button>
 		</div>
 	</div>
 </section>

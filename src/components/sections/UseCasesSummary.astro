@@ -14,7 +14,7 @@ function getLink(path: string) {
 ---
 
 <!-- Use Cases Summary Section -->
-<section id="usecases" class="py-24 bg-white">
+<section id="usecases" class="min-h-screen py-24 bg-white flex flex-col justify-center">
 	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 		<h2 class="text-3xl md:text-4xl font-bold text-center mb-6 text-gray-900">{t.useCases.title}</h2>
 		<p class="text-center text-gray-600 mb-16 max-w-2xl mx-auto">
@@ -124,9 +124,9 @@ function getLink(path: string) {
 
 		<div class="mt-20 text-center">
 			<p class="text-gray-600 mb-6">{t.useCases.ctaQuestion}</p>
-			<a href="#contact" class="btn-primary inline-block" data-track-cta="usecases-summary-cta">
+			<button class="btn-primary inline-block open-contact-modal-btn" data-track-cta="usecases-summary-cta" onclick="window.dispatchEvent(new CustomEvent('openContactModal'));">
 				{t.useCases.cta}
-			</a>
+			</button>
 		</div>
 	</div>
 </section>

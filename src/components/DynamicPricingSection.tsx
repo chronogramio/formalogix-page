@@ -41,7 +41,7 @@ export default function DynamicPricingSection({ initialLocale, initialRegion }: 
   const formatPrice = (amount: number) => formatCurrency(amount, pricing.currency, t.locale);
 
   return (
-    <section id="pricing" className="py-24 bg-gray-50">
+    <section id="pricing" className="min-h-screen py-24 bg-gray-50 flex flex-col justify-center">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-6">
           <span className="section-badge bg-blue-100 text-blue-800">Transparent & Fair</span>

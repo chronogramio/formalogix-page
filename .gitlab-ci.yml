@@ -49,15 +49,49 @@ build:
     - if: '$CI_COMMIT_BRANCH =~ /^feature\/.*/'
     - if: '$CI_COMMIT_BRANCH =~ /^fix\/.*/'
 
+build:api:
+  stage: build
+  image: docker:24-dind
+  services:
+    - docker:24-dind
+  variables:
+    DOCKER_DRIVER: overlay2
+    DOCKER_TLS_CERTDIR: "/certs"
+  before_script:
+    - echo "Building API for branch $CI_COMMIT_REF_NAME"
+    - docker info
+    - echo "$DOCKER_REGISTRY_PASSWORD" | docker login -u "$DOCKER_REGISTRY_USER" --password-stdin "$DOCKER_REGISTRY"
+  script:
+    - cd api-server-go
+    - |
+      if [ "$CI_COMMIT_BRANCH" = "main" ]; then
+        export IMAGE_TAG="v${API_VERSION}-${CI_COMMIT_SHORT_SHA}"
+        export LATEST_TAG="latest"
+        echo "Building PRODUCTION image with tag: $IMAGE_TAG"
+      else
+        export IMAGE_TAG="dev-${CI_COMMIT_SHORT_SHA}"
+        export LATEST_TAG="dev-latest"
+        echo "Building PREVIEW image with tag: $IMAGE_TAG"
+      fi
+    - export FULL_IMAGE_NAME="${DOCKER_REGISTRY}/${DOCKER_REGISTRY_IMAGE}"
+    - echo "Full image name ${FULL_IMAGE_NAME}:${IMAGE_TAG}"
+    - docker build -f deployments/docker/Dockerfile -t "${FULL_IMAGE_NAME}:${IMAGE_TAG}" -t "${FULL_IMAGE_NAME}:${LATEST_TAG}" .
+    - docker push "${FULL_IMAGE_NAME}:${IMAGE_TAG}"
+    - docker push "${FULL_IMAGE_NAME}:${LATEST_TAG}"
+    - echo "SUCCESS - Image built and pushed"
+    - echo "Image ${FULL_IMAGE_NAME}:${IMAGE_TAG}"
+  rules:
+    - if: '$CI_COMMIT_BRANCH'
+      changes:
+        - api-server-go/**/*
+        - .gitlab-ci.yml
+
 deploy:production:
   stage: deploy
   image: node:23-alpine
-  before_script:
-    - npm install -g wrangler
-    - wrangler --version
   script:
     - echo "Deploying to PRODUCTION (formalogix.com)"
-    - wrangler pages deploy dist/ --project-name="$CLOUDFLARE_PROJECT_NAME" --branch=main --commit-dirty=true
+    - npx wrangler@latest pages deploy dist/ --project-name="$CLOUDFLARE_PROJECT_NAME" --branch=main --commit-dirty=true
     - echo "SUCCESS - Production deployment complete!"
     - echo "URL https://formalogix.com"
   environment:
@@ -72,6 +106,10 @@ deploy:preview:
   stage: deploy
   image: node:23-alpine
   before_script:
+    - apk add --no-cache curl
+    - npm config set fetch-retry-mintimeout 20000
+    - npm config set fetch-retry-maxtimeout 120000
+    - npm config set fetch-retries 5
     - npm install -g wrangler
     - wrangler --version
   script:
@@ -103,6 +141,88 @@ deploy:production-manual:
     url: https://formalogix.com
   dependencies:
     - build
+  when: manual
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "dev"'
+
+deploy:api:production:
+  stage: deploy
+  image: bitnami/kubectl:1.28
+  before_script:
+    - echo "Deploying API to PRODUCTION Kubernetes cluster"
+    - mkdir -p ~/.kube
+    - echo "$KUBECONFIG_CONTENT" | base64 -d > ~/.kube/config
+    - kubectl version --client
+    - kubectl cluster-info
+  script:
+    - export IMAGE_TAG="v${API_VERSION}-${CI_COMMIT_SHORT_SHA}"
+    - export FULL_IMAGE_NAME="${DOCKER_REGISTRY}/${DOCKER_REGISTRY_IMAGE}:${IMAGE_TAG}"
+    - echo "Deploying image ${FULL_IMAGE_NAME}"
+    - kubectl set image deployment/formalogix-api api-server="${FULL_IMAGE_NAME}" -n "${K8S_NAMESPACE}"
+    - echo "Waiting for rollout to complete..."
+    - kubectl rollout status deployment/formalogix-api -n "${K8S_NAMESPACE}" --timeout=5m
+    - echo "SUCCESS - API production deployment complete!"
+    - kubectl get pods -n "${K8S_NAMESPACE}" -l app=formalogix-api
+  environment:
+    name: production-api
+    url: https://forms.flickflauder.com
+  dependencies:
+    - build:api
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "main"'
+      changes:
+        - api-server-go/**/*
+        - .gitlab-ci.yml
+
+deploy:api:preview:
+  stage: deploy
+  image: bitnami/kubectl:1.28
+  before_script:
+    - echo "Deploying API to PREVIEW Kubernetes cluster"
+    - mkdir -p ~/.kube
+    - echo "$KUBECONFIG_CONTENT" | base64 -d > ~/.kube/config
+    - kubectl version --client
+    - kubectl cluster-info
+  script:
+    - export IMAGE_TAG="dev-${CI_COMMIT_SHORT_SHA}"
+    - export FULL_IMAGE_NAME="${DOCKER_REGISTRY}/${DOCKER_REGISTRY_IMAGE}:${IMAGE_TAG}"
+    - echo "Deploying preview image ${FULL_IMAGE_NAME}"
+    - kubectl set image deployment/formalogix-api api-server="${FULL_IMAGE_NAME}" -n "${K8S_NAMESPACE}"
+    - echo "Waiting for rollout to complete..."
+    - kubectl rollout status deployment/formalogix-api -n "${K8S_NAMESPACE}" --timeout=5m
+    - echo "SUCCESS - API preview deployment complete!"
+    - kubectl get pods -n "${K8S_NAMESPACE}" -l app=formalogix-api
+  environment:
+    name: preview-api
+    url: https://forms.flickflauder.com
+  dependencies:
+    - build:api
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "dev"'
+      changes:
+        - api-server-go/**/*
+        - .gitlab-ci.yml
+
+deploy:api:production-manual:
+  stage: deploy
+  image: bitnami/kubectl:1.28
+  before_script:
+    - echo "Manual API deployment to PRODUCTION"
+    - mkdir -p ~/.kube
+    - echo "$KUBECONFIG_CONTENT" | base64 -d > ~/.kube/config
+    - kubectl version --client
+  script:
+    - export IMAGE_TAG="dev-${CI_COMMIT_SHORT_SHA}"
+    - export FULL_IMAGE_NAME="${DOCKER_REGISTRY}/${DOCKER_REGISTRY_IMAGE}:${IMAGE_TAG}"
+    - echo "Manually deploying dev image ${FULL_IMAGE_NAME} to production"
+    - kubectl set image deployment/formalogix-api api-server="${FULL_IMAGE_NAME}" -n "${K8S_NAMESPACE}"
+    - kubectl rollout status deployment/formalogix-api -n "${K8S_NAMESPACE}" --timeout=5m
+    - echo "SUCCESS - Manual API production deployment complete!"
+  environment:
+    name: production-api
+    url: https://forms.flickflauder.com
+  dependencies:
+    - build:api
   when: manual
   rules:
     - if: '$CI_COMMIT_BRANCH == "dev"'
